@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "*.xacro": "xml",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "span": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp",
+        "*.ipp": "cpp",
+        "*.cpp_main": "cpp",
+        "*.tcc": "cpp",
+        "ostream": "cpp"
+    }
+}

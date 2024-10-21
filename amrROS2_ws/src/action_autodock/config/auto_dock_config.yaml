@@ -1,0 +1,27 @@
+
+---
+/**:
+  ros__parameters:
+    pre_dock_dist: 0.32  #ระยะห่างระหว่างจุดจอดกับตำแหน่ง pre dock
+    dock_smooth_profile: True # False = การเข้าจอดแบบง่าย, True = การเข้าจอดแบบหมุนพร้อมกับเคลื่อนที่(smooth)
+    dock_angular_speed_search: 0.2 #ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะค้นหา dock
+    dock_wait_after_search: 1.0 #ระยะหน่วงเวลาหลังจากเสร็จสิ้นการค้นหา dock
+    dock_angular_speed: 0.2 # ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะเคลื่อนที่เข้าหา pre dock
+    dock_angular_speed_final: 0.05 # ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะเคลื่อนที่ใกล้ถึงเป้าหมาย pre dock
+    dock_linear_speed: -0.3 #ความเร็วในการเคลื่อนที่เข้าหา pre dock
+    dock_wait_at_pre_dock: 1.0 #ระยะหน่วงเวลาหลังจากถึง pre dock
+    dock_linear_speed_final: -0.05 #ความเร็วในการเคลื่อนที่ใกล้ถึงจุดหมาย pre dock
+    dock_time_final: 5.0 #ระยะเวลาในการวิ่งเข้าหา dock ซึ่งควบคุมแบบ open 
+    dock_check_charge_status: True #ตรวจสอบสถานะของการชาร์จ เพื่อหยุดหุ่นยนต์หรือไม่
+    dock_smooth_K_rho: 0.4 # gain ที่ใช่้สำหรับการควบคุมการเคลื่อนที่เส้นตรง ในการเข้าจอดแบบ smooth
+    dock_smooth_K_alpha: 0.6 # gain ที่ใช่้สำหรับการควบคุมการหมุน ในการเข้าจอดแบบ smooth
+    dock_smooth_K_beta: 0.05 # gain ที่ใช่้สำหรับการควบคุมทิศทรงของหุ่นยนต์ที่เป้าหมาย ในการเข้าจอดแบบ smooth
+    dock_smooth_max_vel: -0.3 #ความเร็วสูงสุดในการเคลื่อนที่เส้นตรงในการเข้าจอดแบบ smooth
+    dock_smooth_max_omega: 1.0 #ความเร็วสูงสุดในการหมุนในการเข้าจอดแบบ smooth
+    dock_smooth_sampling_time: 0.02 #ความถี่ในการควบคุมแบบ smooth (วินาที)
+    #---------------------------------------------------------------------------
+    undock_time_step1: 5.0 # ระยะเวลาในการวิ่งออกจาก dock ซึ่งควบคุมแบบ open loop
+    undock_speed_step1: 0.05 #ความเร็วในการเคลื่อนที่ออก
+    undock_dist_step2: 0.5 #ระยะตำแหน่ง undock ที่อยู่ห่างจากจุด dock 
+    undock_speed_step2: 0.1 #ความเร็วในการเคลื่นอที่ไปถึงจุด undock
+    undock_angular_speed_step2: 0.1 #ความเร็วเชิงมุมในการเคลื่นอที่ไปถึงจุด undock

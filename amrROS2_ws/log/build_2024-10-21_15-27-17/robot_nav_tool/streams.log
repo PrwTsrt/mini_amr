@@ -1,0 +1,21 @@
+[1.998s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/robot_nav_tool': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_nav_tool build --build-base /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build install --record /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/install.log --single-version-externally-managed install_data
+[2.384s] running egg_info
+[2.385s] writing ../../build/robot_nav_tool/robot_nav_tool.egg-info/PKG-INFO
+[2.386s] writing dependency_links to ../../build/robot_nav_tool/robot_nav_tool.egg-info/dependency_links.txt
+[2.387s] writing entry points to ../../build/robot_nav_tool/robot_nav_tool.egg-info/entry_points.txt
+[2.387s] writing requirements to ../../build/robot_nav_tool/robot_nav_tool.egg-info/requires.txt
+[2.387s] writing top-level names to ../../build/robot_nav_tool/robot_nav_tool.egg-info/top_level.txt
+[2.390s] reading manifest file '../../build/robot_nav_tool/robot_nav_tool.egg-info/SOURCES.txt'
+[2.392s] writing manifest file '../../build/robot_nav_tool/robot_nav_tool.egg-info/SOURCES.txt'
+[2.393s] running build
+[2.393s] running build_py
+[2.394s] running install
+[2.394s] running install_lib
+[2.395s] running install_data
+[2.396s] running install_egg_info
+[2.399s] removing '/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool-0.0.0-py3.10.egg-info' (and everything under it)
+[2.400s] Copying ../../build/robot_nav_tool/robot_nav_tool.egg-info to /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool-0.0.0-py3.10.egg-info
+[2.401s] running install_scripts
+[2.439s] Installing nav_gui_bridge script to /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/robot_nav_tool
+[2.440s] writing list of installed files to '/home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/install.log'
+[2.629s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/robot_nav_tool' returned '0': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_nav_tool build --build-base /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build install --record /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/install.log --single-version-externally-managed install_data

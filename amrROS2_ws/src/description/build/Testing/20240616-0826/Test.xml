@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20240616-0826-Experimental"
+	Name="MSI"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="MSI"
+	OSRelease="5.15.153.1-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Fri Mar 29 23:14:13 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="154"
+	ProcessorCacheSize="24576"
+	NumberOfLogicalCPU="20"
+	NumberOfPhysicalCPU="10"
+	TotalVirtualMemory="2048"
+	TotalPhysicalMemory="7794"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="1996.81"
+	>
+	<Testing>
+		<StartDateTime>Jun 16 15:26 +07</StartDateTime>
+		<StartTestTime>1718526409</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jun 16 15:26 +07</EndDateTime>
+		<EndTestTime>1718526409</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,0 +1,29 @@
+[0.091s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/example': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/example -- -j8 -l8
+[1.099s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.693s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.262s] -- Added test 'lint_cmake' to check CMake code style
+[2.278s] -- Added test 'xmllint' to check XML markup files
+[2.309s] -- Configuring done
+[2.575s] -- Generating done
+[2.577s] -- Build files have been written to: /home/smr/workspaces/amrROS2_ws/build/example
+[2.615s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/example' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/example -- -j8 -l8
+[2.669s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/example': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/example
+[2.696s] -- Install configuration: ""
+[2.696s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/urdf
+[2.701s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/example/urdf/robot.urdf
+[2.705s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/package_run_dependencies/example
+[2.710s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/parent_prefix_path/example
+[2.711s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/ament_prefix_path.sh
+[2.712s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/ament_prefix_path.dsv
+[2.712s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/path.sh
+[2.713s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/path.dsv
+[2.713s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.bash
+[2.713s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.sh
+[2.715s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.zsh
+[2.716s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.dsv
+[2.716s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/example/share/example/package.dsv
+[2.717s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/packages/example
+[2.717s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/cmake/exampleConfig.cmake
+[2.719s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/cmake/exampleConfig-version.cmake
+[2.728s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/example/share/example/package.xml
+[2.735s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/example' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/example

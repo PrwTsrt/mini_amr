@@ -1,0 +1,48 @@
+[1.348s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/action_autodock': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/action_autodock build --build-base /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build install --record /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/install.log --single-version-externally-managed install_data
+[1.703s] running egg_info
+[1.704s] creating ../build/action_autodock/action_autodock.egg-info
+[1.704s] writing ../build/action_autodock/action_autodock.egg-info/PKG-INFO
+[1.705s] writing dependency_links to ../build/action_autodock/action_autodock.egg-info/dependency_links.txt
+[1.706s] writing entry points to ../build/action_autodock/action_autodock.egg-info/entry_points.txt
+[1.706s] writing requirements to ../build/action_autodock/action_autodock.egg-info/requires.txt
+[1.707s] writing top-level names to ../build/action_autodock/action_autodock.egg-info/top_level.txt
+[1.707s] writing manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'
+[1.708s] reading manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'
+[1.709s] adding license file 'LICENSE'
+[1.709s] writing manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'
+[1.710s] running build
+[1.710s] running build_py
+[1.711s] creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build
+[1.711s] creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib
+[1.712s] creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock
+[1.712s] copying action_autodock/autodock_action_server.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock
+[1.713s] copying action_autodock/robot_navigator.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock
+[1.713s] copying action_autodock/__init__.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock
+[1.713s] copying action_autodock/example_nav_to_pose.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock
+[1.714s] running install
+[1.714s] running install_lib
+[1.715s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock
+[1.715s] copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/autodock_action_server.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock
+[1.716s] copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/robot_navigator.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock
+[1.716s] copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/__init__.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock
+[1.717s] copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/example_nav_to_pose.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock
+[1.717s] byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/autodock_action_server.py to autodock_action_server.cpython-310.pyc
+[1.722s] byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/robot_navigator.py to robot_navigator.cpython-310.pyc
+[1.725s] byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/__init__.py to __init__.cpython-310.pyc
+[1.726s] byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/example_nav_to_pose.py to example_nav_to_pose.cpython-310.pyc
+[1.727s] running install_data
+[1.727s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index
+[1.728s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index
+[1.728s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index/packages
+[1.729s] copying resource/action_autodock -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index/packages
+[1.729s] copying package.xml -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock
+[1.730s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/launch
+[1.731s] copying launch/auto_dock_launch.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/launch
+[1.731s] creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/config
+[1.732s] copying config/auto_dock_config.yaml -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/config
+[1.732s] running install_egg_info
+[1.732s] Copying ../build/action_autodock/action_autodock.egg-info to /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock-0.0.0-py3.10.egg-info
+[1.733s] running install_scripts
+[1.767s] Installing autodock_action_server script to /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/action_autodock
+[1.768s] writing list of installed files to '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/install.log'
+[1.839s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/action_autodock' returned '0': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/action_autodock build --build-base /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build install --record /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/install.log --single-version-externally-managed install_data

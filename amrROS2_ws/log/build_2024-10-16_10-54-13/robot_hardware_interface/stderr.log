@@ -1,0 +1,7 @@
+[01m[K/home/smr/workspaces/amrROS2_ws/src/robot_hardware_interface/src/robot_hardware_interface.cpp:[m[K In member function ‘[01m[Kvoid HardwareInterface::ReceiveData()[m[K’:
+[01m[K/home/smr/workspaces/amrROS2_ws/src/robot_hardware_interface/src/robot_hardware_interface.cpp:197:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdata_len[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  197 |         uint8_t [01;35m[Kdata_len[m[K;
+      |                 [01;35m[K^~~~~~~~[m[K
+[01m[K/home/smr/workspaces/amrROS2_ws/src/robot_hardware_interface/src/robot_hardware_interface.cpp:200:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcheck_sum[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  200 |         uint8_t [01;35m[Kcheck_sum[m[K;
+      |                 [01;35m[K^~~~~~~~~[m[K

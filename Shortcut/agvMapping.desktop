@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=agvMapping
+Terminal=true
+Icon=/home/smr/Projects/agvSMR/src/linorobot/script/map.png
+Exec=bash -c "export QT_QPA_PLATFORM="xcb" && export LINOROBOT2_BASE="2wd" && export LINOROBOT2_LASER_SENSOR="rplidar_s2e" && source /opt/ros/humble/setup.bash && source /home/smr/Projects/amrROS2_ws/install/setup.bash && ros2 launch linorobot2_navigation slam_bringup.launch.py rviz_slam:=true"

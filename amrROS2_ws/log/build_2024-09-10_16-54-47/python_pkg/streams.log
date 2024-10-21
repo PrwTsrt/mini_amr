@@ -1,0 +1,22 @@
+[1.999s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/python_pkg': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/python_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/python_pkg build --build-base /home/smr/workspaces/amrROS2_ws/build/python_pkg/build install --record /home/smr/workspaces/amrROS2_ws/build/python_pkg/install.log --single-version-externally-managed install_data
+[2.469s] running egg_info
+[2.469s] writing ../../build/python_pkg/python_pkg.egg-info/PKG-INFO
+[2.469s] writing dependency_links to ../../build/python_pkg/python_pkg.egg-info/dependency_links.txt
+[2.469s] writing entry points to ../../build/python_pkg/python_pkg.egg-info/entry_points.txt
+[2.469s] writing requirements to ../../build/python_pkg/python_pkg.egg-info/requires.txt
+[2.469s] writing top-level names to ../../build/python_pkg/python_pkg.egg-info/top_level.txt
+[2.469s] reading manifest file '../../build/python_pkg/python_pkg.egg-info/SOURCES.txt'
+[2.469s] adding license file 'LICENSE'
+[2.469s] writing manifest file '../../build/python_pkg/python_pkg.egg-info/SOURCES.txt'
+[2.470s] running build
+[2.470s] running build_py
+[2.470s] running install
+[2.470s] running install_lib
+[2.474s] running install_data
+[2.476s] running install_egg_info
+[2.476s] removing '/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages/python_pkg-0.0.0-py3.10.egg-info' (and everything under it)
+[2.478s] Copying ../../build/python_pkg/python_pkg.egg-info to /home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages/python_pkg-0.0.0-py3.10.egg-info
+[2.479s] running install_scripts
+[2.529s] Installing ip_publisher script to /home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python_pkg
+[2.533s] writing list of installed files to '/home/smr/workspaces/amrROS2_ws/build/python_pkg/install.log'
+[2.631s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/python_pkg' returned '0': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/python_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/python_pkg build --build-base /home/smr/workspaces/amrROS2_ws/build/python_pkg/build install --record /home/smr/workspaces/amrROS2_ws/build/python_pkg/install.log --single-version-externally-managed install_data

@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from custom_interface/action/Autodock.action
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/String.idl"
+
+module custom_interface {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct Autodock_Goal {
+      boolean is_dock;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct Autodock_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct Autodock_Feedback {
+      int32 step;
+
+      std_msgs::msg::String text;
+    };
+  };
+};

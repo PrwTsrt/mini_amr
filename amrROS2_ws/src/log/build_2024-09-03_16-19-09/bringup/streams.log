@@ -1,0 +1,65 @@
+[0.065s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/smr/workspaces/amrROS2_ws/src/bringup -DCMAKE_INSTALL_PREFIX=/home/smr/workspaces/amrROS2_ws/src/install/bringup
+[0.577s] -- The C compiler identification is GNU 11.4.0
+[0.719s] -- The CXX compiler identification is GNU 11.4.0
+[0.750s] -- Detecting C compiler ABI info
+[0.970s] -- Detecting C compiler ABI info - done
+[1.014s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.018s] -- Detecting C compile features
+[1.021s] -- Detecting C compile features - done
+[1.046s] -- Detecting CXX compiler ABI info
+[1.278s] -- Detecting CXX compiler ABI info - done
+[1.326s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.327s] -- Detecting CXX compile features
+[1.329s] -- Detecting CXX compile features - done
+[1.338s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.797s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.066s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[2.187s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.198s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.215s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.239s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.271s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.414s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.422s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[2.485s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[2.514s] -- Looking for pthread.h
+[2.742s] -- Looking for pthread.h - found
+[2.743s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.953s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.955s] -- Found Threads: TRUE  
+[3.151s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[3.250s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.496s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.497s] -- Added test 'lint_cmake' to check CMake code style
+[3.498s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.499s] -- Added test 'xmllint' to check XML markup files
+[3.500s] -- Configuring done
+[3.501s] -- Generating done
+[3.504s] -- Build files have been written to: /home/smr/workspaces/amrROS2_ws/src/build/bringup
+[3.527s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup' returned '0': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/smr/workspaces/amrROS2_ws/src/bringup -DCMAKE_INSTALL_PREFIX=/home/smr/workspaces/amrROS2_ws/src/install/bringup
+[3.540s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/src/build/bringup -- -j8 -l8
+[3.691s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup' returned '0': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/src/build/bringup -- -j8 -l8
+[3.764s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/src/build/bringup
+[3.777s] -- Install configuration: ""
+[3.777s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/launch
+[3.778s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/launch/bringup.launch.py
+[3.780s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/launch/camera.launch.py
+[3.781s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/config
+[3.782s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/config/ekf.yaml
+[3.783s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/config/usbcam.yaml
+[3.784s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/ament_index/resource_index/package_run_dependencies/bringup
+[3.785s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/ament_index/resource_index/parent_prefix_path/bringup
+[3.786s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/environment/ament_prefix_path.sh
+[3.787s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/environment/ament_prefix_path.dsv
+[3.787s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/environment/path.sh
+[3.787s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/environment/path.dsv
+[3.787s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/local_setup.bash
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/local_setup.sh
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/local_setup.zsh
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/local_setup.dsv
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/package.dsv
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/ament_index/resource_index/packages/bringup
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/cmake/bringupConfig.cmake
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/cmake/bringupConfig-version.cmake
+[3.788s] -- Installing: /home/smr/workspaces/amrROS2_ws/src/install/bringup/share/bringup/package.xml
+[3.798s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/build/bringup' returned '0': AMENT_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/smr/workspaces/amrROS2_ws/src/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/src/build/bringup

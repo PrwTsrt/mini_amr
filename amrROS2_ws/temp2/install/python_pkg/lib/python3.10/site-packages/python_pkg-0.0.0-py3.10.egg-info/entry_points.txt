@@ -1,0 +1,3 @@
+[console_scripts]
+ip_publisher = python_pkg.ip_address_publisher:main
+

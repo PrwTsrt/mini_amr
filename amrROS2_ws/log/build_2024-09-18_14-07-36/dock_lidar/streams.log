@@ -1,0 +1,73 @@
+[0.028s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/dock_lidar': CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/dock_lidar:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/dock_lidar -- -j8 -l8
+[0.126s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.400s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.455s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.458s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.467s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.481s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.499s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.310s] -- Found tf2: 0.25.7 (/opt/ros/humble/share/tf2/cmake)
+[1.523s] -- Found tf2_ros: 0.25.7 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.688s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.693s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.739s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.964s] -- Found tf2_geometry_msgs: 0.25.7 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.971s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.974s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.976s] -- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)
+[1.980s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.018s] -- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)
+[2.019s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[2.056s] -- Found nav2_msgs: 1.1.16 (/opt/ros/humble/share/nav2_msgs/cmake)
+[2.105s] -- Found custom_interface: 0.0.0 (/home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake)
+[2.148s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.308s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.308s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/smr/workspaces/amrROS2_ws/src/dock_lidar/include>
+[2.309s] -- Configured cppcheck exclude dirs and/or files: 
+[2.310s] -- Added test 'lint_cmake' to check CMake code style
+[2.312s] -- Added test 'uncrustify' to check C / C++ code style
+[2.312s] -- Configured uncrustify additional arguments: 
+[2.313s] -- Added test 'xmllint' to check XML markup files
+[2.315s] -- Configuring done
+[2.346s] -- Generating done
+[2.350s] -- Build files have been written to: /home/smr/workspaces/amrROS2_ws/build/dock_lidar
+[2.457s] [35m[1mConsolidate compiler generated dependencies of target dock_coordinates[0m
+[2.538s] [ 28%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/laser_processor.cpp.o[0m
+[2.538s] [ 28%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/perception.cpp.o[0m
+[2.556s] [ 42%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/linear_pose_filter_2d.cpp.o[0m
+[2.557s] [ 71%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/tf2listener.cpp.o[0m
+[2.557s] [ 71%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/icp_2d.cpp.o[0m
+[2.557s] [ 85%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/dock_coordinates.cpp.o[0m
+[27.063s] [100%] [32m[1mLinking CXX executable dock_coordinates[0m
+[29.702s] [100%] Built target dock_coordinates
+[29.963s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/dock_lidar' returned '0': CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/dock_lidar:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/dock_lidar -- -j8 -l8
+[30.061s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/dock_lidar': CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/dock_lidar:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/dock_lidar
+[30.094s] -- Install configuration: ""
+[30.094s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include
+[30.097s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar
+[30.097s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/linear_pose_filter_2d.h
+[30.097s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/laser_processor.h
+[30.098s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/icp_2d.h
+[30.098s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/dock_candidate.h
+[30.098s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/perception.h
+[30.098s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/include/dock_lidar/tf2listener.h
+[30.098s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/config
+[30.099s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/config/dock_config.yaml
+[30.101s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/lib/dock_lidar/dock_coordinates
+[30.118s] -- Set runtime path of "/home/smr/workspaces/amrROS2_ws/install/dock_lidar/lib/dock_lidar/dock_coordinates" to ""
+[30.118s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/ament_index/resource_index/package_run_dependencies/dock_lidar
+[30.120s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/ament_index/resource_index/parent_prefix_path/dock_lidar
+[30.121s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/environment/ament_prefix_path.sh
+[30.121s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/environment/ament_prefix_path.dsv
+[30.121s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/environment/path.sh
+[30.121s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/environment/path.dsv
+[30.121s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/local_setup.bash
+[30.122s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/local_setup.sh
+[30.122s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/local_setup.zsh
+[30.122s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/local_setup.dsv
+[30.122s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/package.dsv
+[30.122s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/ament_index/resource_index/packages/dock_lidar
+[30.122s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/cmake/dock_lidarConfig.cmake
+[30.123s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/cmake/dock_lidarConfig-version.cmake
+[30.123s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/dock_lidar/share/dock_lidar/package.xml
+[30.130s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/dock_lidar' returned '0': CMAKE_PREFIX_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/dock_lidar:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble LD_LIBRARY_PATH=/home/smr/workspaces/amrROS2_ws/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/dock_lidar

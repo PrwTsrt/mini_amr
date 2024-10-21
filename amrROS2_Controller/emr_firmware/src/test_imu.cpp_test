@@ -1,0 +1,299 @@
+
+#include <Arduino.h>
+#include <Wire.h>
+#include <vector>
+#include "math.h"
+
+#include "kinematics.h"
+#include "motor.h"
+#include <encoder.h>
+#include "pid.h"
+
+#include "JY61P.h"
+#include <Ultrasonic.h>
+#include <ACROBOTIC_SSD1306.h>
+#include <Adafruit_VL6180X.h>
+#include <Adafruit_INA219.h>
+
+#define DEBUG           false
+#define DEBUG_IMU       true
+#define DEBUG_MOTOR     false
+#define DEBUG_MOTION    false
+#define DEBUG_RANGE     false
+#define DEBUG_ODOM      false
+#define DEBUG_SEND      false
+#define DEBUG_RECEIVE   false
+#define DEBUG_OLED      false
+#define DEBUG_SAFTY     false
+#define DEBUG_BATT      false
+
+#define EMER_PIN    37
+#define BUMPER_PIN  8
+
+#define HEAD        0xFF
+#define HOST_ID     0x00
+#define DEVICE_ID   0x01
+
+#define FUNC_MOTION 0x01
+#define FUNC_IMU    0x02
+#define FUNC_ODOM   0x03
+#define FUNC_RANGE  0x04
+#define FUNC_IP     0x05
+#define FUNC_STATUS 0x06
+#define FUNC_BATT   0x07
+
+QueueHandle_t xSendDataMutex;
+
+unsigned long prev_cmd_time = 0;
+unsigned long prev_ip_time  = 0;
+
+String ip_address, prev_ip; 
+uint8_t status, prev_status;
+
+
+void parse_data(uint8_t func, std::vector<uint8_t> data){
+
+    if (func == FUNC_MOTION){
+
+        int16_t packed_v_x = (data[1] << 8) | data[0];
+        int16_t packed_v_y = (data[3] << 8) | data[2];
+        int16_t packed_w_z = (data[5] << 8) | data[4];
+
+        // cmd_vel.linear_x  = packed_v_x/1000.0;
+        // cmd_vel.linear_y  = packed_v_y/1000.0;
+        // cmd_vel.angular_z = packed_w_z/1000.0;
+
+        prev_cmd_time = millis();
+
+        if(DEBUG_MOTION){
+            // Serial1.printf("Vx: %f\n", cmd_vel.linear_x);
+            // Serial1.printf("Vy: %f\n", cmd_vel.linear_y);
+            // Serial1.printf("Wz: %f\n", cmd_vel.angular_z);            
+        }
+    }
+    else if(func == FUNC_IP){
+
+        String ipPart1 = String(data[0]);
+        String ipPart2 = String(data[1]);
+        String ipPart3 = String(data[2]);
+        String ipPart4 = String(data[3]);
+
+        // ip_address = ipPart1 + ":" + ipPart2 + ":" + ipPart3 + ":" + ipPart4;
+        prev_ip_time = millis();
+     
+        if(DEBUG_OLED){
+            Serial1.printf("IP Address: %s\n", ip_address);                
+        }
+    }
+    else if(func == FUNC_STATUS){
+
+        status = data[0];
+     
+        if(DEBUG_OLED){
+            Serial1.printf("Status: %d\n", status);                
+        }
+    }
+    else{
+        if(DEBUG_RECEIVE){
+            Serial1.println("Out of provided function");
+        }
+    }
+}
+
+void recive_data_task(void * parameter){
+
+    uint8_t header;
+    uint8_t device_id;
+    uint8_t len;
+    uint8_t func;
+    uint8_t data_len;
+    uint8_t value;
+    uint8_t rx_check_num;
+    uint8_t check_sum;  
+    std::vector<uint8_t> data;
+
+    while(true){
+
+        if (Serial.available() > 0) {
+            header = Serial.read();
+
+            if (header == HEAD) {
+                if(DEBUG_RECEIVE){
+                    Serial1.printf("--------------New Data--------------\n");
+                    Serial1.printf("Correct header %d\n", header);
+                }
+                device_id = Serial.read();
+
+                if (device_id == DEVICE_ID) {
+
+                    len = Serial.read();
+                    func = Serial.read();
+
+                    check_sum = header + device_id + len + func;
+                    data_len = len - 4;
+                    data = {}; 
+
+                    while (data.size() < data_len) {  
+
+                        value = Serial.read();
+                        data.push_back(value);
+                        check_sum += value;
+
+                        if (data.size() == data_len) {
+                            rx_check_num = Serial.read();                
+
+                            if ((check_sum & 0xFF) == rx_check_num){
+                                if(DEBUG_RECEIVE){
+                                    Serial1.println("Data Recived");
+                                }
+                                delay(1);
+                                parse_data(func, data);
+                            }
+                            else {
+                                if(DEBUG_RECEIVE){
+                                    Serial1.println("Check sum error");
+                                }
+                            } 
+                        }                         
+                    }
+                    if(DEBUG_RECEIVE){
+                        Serial1.printf("Device_id:  %d\n", device_id);
+                        Serial1.printf("Data range: %d\n", len);
+                        Serial1.printf("Function:   %d\n", func);
+                        for (int i=0; i < data.size(); i++){
+                            Serial1.printf("Data %d:    %d\n", i, data[i]);
+                        }
+                        Serial1.printf("Rx check :  %d\n", rx_check_num);
+                        Serial1.printf("Check sum:  %d\n", check_sum & 0xFF);                     
+                    }
+                }
+            }
+        }     
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+    vTaskDelete(NULL);
+}
+
+void send_data(uint8_t FUNC_TYPE, std::vector<uint8_t> param) {
+
+    if (xSemaphoreTake(xSendDataMutex, pdMS_TO_TICKS(10)) == pdTRUE){
+
+        std::vector<uint8_t> cmd = {HEAD, HOST_ID, 0x00, FUNC_TYPE};
+        cmd.insert(cmd.end(), param.begin(), param.end());
+        cmd[2] = cmd.size(); 
+
+        uint8_t checksum = 0;
+
+        for (uint8_t byte : cmd) {
+            checksum += byte;
+        }
+
+        checksum &= 0xFF;  
+        cmd.push_back(checksum);
+
+        for (size_t i = 0; i < cmd.size(); i++) {
+            Serial0.write(cmd[i]);
+        }
+
+        if(DEBUG_SEND){
+            Serial1.println("Sent command:");
+            for (size_t i = 0; i < cmd.size(); i++) {
+                Serial1.printf(" %d", cmd[i]);
+            }
+            Serial1.println();
+        }
+    xSemaphoreGive(xSendDataMutex);
+    }
+}
+
+void imu_update_task(void *arg)
+{
+    float imu_gyro_dps[3] = {0};
+    float imu_accel_g[3] = {0};
+    float demo_imu = 0.0;
+
+    while (1)
+    {   
+
+        // imu_gyro_dps[0] = (JY61P.getGyroX() / 180) * 3.14;
+        // imu_gyro_dps[1] = (JY61P.getGyroY() / 180) * 3.14;
+        // imu_gyro_dps[2] = (JY61P.getGyroZ() / 180) * 3.14;
+
+        // imu_accel_g[0] = JY61P.getAccX();
+        // imu_accel_g[1] = JY61P.getAccY();
+        // imu_accel_g[2] = JY61P.getAccZ();
+
+        if (demo_imu > 5.0){demo_imu = 0.0;}
+
+        imu_gyro_dps[0] = demo_imu;
+        imu_gyro_dps[1] = demo_imu;
+        imu_gyro_dps[2] = demo_imu;
+        
+        imu_accel_g[0] = demo_imu;
+        imu_accel_g[1] = demo_imu;
+        imu_accel_g[2] = demo_imu;
+
+        demo_imu += 0.05;
+	    
+        if (DEBUG_IMU){
+            Serial1.printf(">Roll  :%f\n", imu_gyro_dps[0]);
+            Serial1.printf(">Pitch :%f\n", imu_gyro_dps[1]);
+            Serial1.printf(">Yaw   :%f\n", imu_gyro_dps[2]);
+            Serial1.printf(">AccX  :%f\n", imu_accel_g[0]);
+            Serial1.printf(">AccY  :%f\n", imu_accel_g[1]);
+            Serial1.printf(">AccZ  :%f\n", imu_accel_g[2]);       
+        }
+
+        int16_t roll   = static_cast<int16_t>(imu_gyro_dps[0]*1000);
+        int16_t pitch  = static_cast<int16_t>(imu_gyro_dps[1]*1000);
+        int16_t yaw    = static_cast<int16_t>(imu_gyro_dps[2]*1000);
+
+        int16_t acc_x  = static_cast<int16_t>(imu_accel_g[0]*1000);
+        int16_t acc_y  = static_cast<int16_t>(imu_accel_g[1]*1000);
+        int16_t acc_z  = static_cast<int16_t>(imu_accel_g[2]*1000);
+
+        std::vector<uint8_t> cmd = {
+            static_cast<uint8_t>(roll  & 0xFF), static_cast<uint8_t>((roll  >> 8) & 0xFF),
+            static_cast<uint8_t>(pitch & 0xFF), static_cast<uint8_t>((pitch >> 8) & 0xFF),
+            static_cast<uint8_t>(yaw   & 0xFF), static_cast<uint8_t>((yaw   >> 8) & 0xFF),
+            static_cast<uint8_t>(acc_x & 0xFF), static_cast<uint8_t>((acc_x >> 8) & 0xFF),
+            static_cast<uint8_t>(acc_y & 0xFF), static_cast<uint8_t>((acc_y >> 8) & 0xFF),
+            static_cast<uint8_t>(acc_z & 0xFF), static_cast<uint8_t>((acc_z >> 8) & 0xFF)
+        };
+
+        send_data(FUNC_IMU, cmd);
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+
+    vTaskDelete(NULL);
+}
+
+
+void setup() {
+
+    Wire.begin(40,39);	
+
+    // Serial.begin(115200);  
+    Serial0.begin(115200);                      // Serial port for communication
+    Serial1.begin(115200, SERIAL_8N1, 35, 36);  // Serial port for monitoring
+
+    JY61P.startIIC();
+    JY61P.caliIMU();
+
+    delay(100);
+
+    // Serial.flush();
+    Serial0.flush();
+    xSendDataMutex = xSemaphoreCreateMutex();
+
+    xTaskCreatePinnedToCore(imu_update_task , "imu_update_task" , 4096, NULL, 1, NULL, 0);  
+    xTaskCreatePinnedToCore(recive_data_task, "recive_data_task", 4096, NULL, 1, NULL, 0);  
+    xTaskCreatePinnedToCore(control_task    , "control_task"    , 4096, NULL, 1, NULL, 1);  
+    // xTaskCreatePinnedToCore(ranger_task     , "ranger_task"     , 4096, NULL, 1, NULL, 0);  
+    // xTaskCreatePinnedToCore(oled_task       , "oled_task"       , 4096, NULL, 1, NULL, 1); 
+    // xTaskCreatePinnedToCore(battery_task    , "battery_task"    , 4096, NULL, 1, NULL, 1);   
+    // xTaskCreatePinnedToCore(safty_task      , "safty_task"      , 4096, NULL, 1, NULL, 0);                 
+
+}
+
+void loop() {}

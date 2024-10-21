@@ -1,0 +1,177 @@
+[0.067s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/custom_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/custom_interface -- -j8 -l8
+[0.591s] [  0%] Built target ament_cmake_python_copy_custom_interface
+[0.591s] [ 10%] Built target custom_interface__rosidl_generator_c
+[0.591s] [ 12%] Built target custom_interface__cpp
+[0.591s] [ 23%] Built target custom_interface__rosidl_typesupport_fastrtps_c
+[0.591s] [ 33%] Built target custom_interface__rosidl_typesupport_introspection_c
+[0.591s] [ 43%] Built target custom_interface__rosidl_typesupport_fastrtps_cpp
+[0.591s] [ 53%] Built target custom_interface__rosidl_typesupport_c
+[0.591s] [ 64%] Built target custom_interface__rosidl_typesupport_introspection_cpp
+[0.591s] [ 74%] Built target custom_interface__rosidl_typesupport_cpp
+[0.591s] [ 74%] Built target custom_interface
+[0.591s] [ 76%] Built target custom_interface__py
+[0.678s] [ 84%] Built target custom_interface__rosidl_generator_py
+[0.712s] running egg_info
+[0.714s] writing custom_interface.egg-info/PKG-INFO
+[0.714s] writing dependency_links to custom_interface.egg-info/dependency_links.txt
+[0.715s] writing top-level names to custom_interface.egg-info/top_level.txt
+[0.720s] reading manifest file 'custom_interface.egg-info/SOURCES.txt'
+[0.721s] writing manifest file 'custom_interface.egg-info/SOURCES.txt'
+[0.758s] [ 89%] Built target custom_interface__rosidl_typesupport_fastrtps_c__pyext
+[0.777s] [ 94%] Built target custom_interface__rosidl_typesupport_c__pyext
+[0.782s] [100%] Built target custom_interface__rosidl_typesupport_introspection_c__pyext
+[0.812s] [100%] Built target ament_cmake_python_build_custom_interface_egg
+[1.135s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/custom_interface -- -j8 -l8
+[1.410s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/custom_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/custom_interface
+[1.444s] -- Install configuration: ""
+[1.444s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/ament_index/resource_index/rosidl_interfaces/custom_interface
+[1.444s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.445s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.445s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.445s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.h
+[1.446s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__functions.h
+[1.446s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__functions.c
+[1.446s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__struct.h
+[1.446s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_c__visibility_control.h
+[1.447s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/initdock.h
+[1.447s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.447s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.447s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__functions.c
+[1.448s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.h
+[1.450s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__functions.h
+[1.452s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__struct.h
+[1.453s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/autodock.h
+[1.455s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/library_path.sh
+[1.457s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/library_path.dsv
+[1.460s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so
+[1.461s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.461s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.461s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.462s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_fastrtps_c.h
+[1.462s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.463s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.463s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.463s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_fastrtps_c.h
+[1.464s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so
+[1.464s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.465s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.465s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.465s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_introspection_c.h
+[1.466s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.c
+[1.466s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.467s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.467s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.468s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h
+[1.469s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.c
+[1.472s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so
+[1.475s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so
+[1.475s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.476s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.477s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.477s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__struct.hpp
+[1.478s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__traits.hpp
+[1.479s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__builder.hpp
+[1.480s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/initdock.hpp
+[1.480s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.480s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.481s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__builder.hpp
+[1.481s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__struct.hpp
+[1.482s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__traits.hpp
+[1.483s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/autodock.hpp
+[1.483s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.484s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.484s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.485s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/dds_fastrtps
+[1.485s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_fastrtps_cpp.hpp
+[1.486s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.487s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.489s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.490s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_fastrtps_cpp.hpp
+[1.501s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/dds_fastrtps
+[1.504s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so
+[1.505s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface
+[1.506s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg
+[1.509s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail
+[1.509s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_introspection_cpp.hpp
+[1.512s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.cpp
+[1.513s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action
+[1.513s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail
+[1.514s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.cpp
+[1.514s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_introspection_cpp.hpp
+[1.515s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so
+[1.516s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so
+[1.518s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/pythonpath.sh
+[1.518s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/pythonpath.dsv
+[1.519s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info
+[1.520s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.522s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/top_level.txt
+[1.523s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.525s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/PKG-INFO
+[1.525s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface
+[1.530s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[1.531s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c
+[1.531s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c
+[1.532s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/libcustom_interface__rosidl_generator_py.so
+[1.532s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg
+[1.533s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/_initdock.py
+[1.533s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/__init__.py
+[1.534s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/_initdock_s.c
+[1.534s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[1.534s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py
+[1.535s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.536s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[1.540s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action
+[1.541s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/_autodock.py
+[1.541s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/__init__.py
+[1.542s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/_autodock_s.c
+[1.545s] Listing '/home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface'...
+[1.545s] Listing '/home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action'...
+[1.546s] Listing '/home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg'...
+[1.547s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[1.547s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[1.548s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[1.549s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so
+[1.551s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/action/Autodock.idl
+[1.552s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/msg/Initdock.idl
+[1.553s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/action/Autodock.action
+[1.553s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/msg/Initdock.msg
+[1.554s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/ament_index/resource_index/package_run_dependencies/custom_interface
+[1.555s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/ament_index/resource_index/parent_prefix_path/custom_interface
+[1.557s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/ament_prefix_path.sh
+[1.557s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/ament_prefix_path.dsv
+[1.558s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/path.sh
+[1.558s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/environment/path.dsv
+[1.559s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/local_setup.bash
+[1.559s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/local_setup.sh
+[1.559s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/local_setup.zsh
+[1.560s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/local_setup.dsv
+[1.560s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/package.dsv
+[1.561s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/ament_index/resource_index/packages/custom_interface
+[1.561s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport.cmake
+[1.562s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport-noconfig.cmake
+[1.563s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport.cmake
+[1.563s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[1.564s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport.cmake
+[1.565s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.565s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport.cmake
+[1.566s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport-noconfig.cmake
+[1.566s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cppExport.cmake
+[1.568s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.568s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[1.569s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport.cmake
+[1.569s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.572s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport.cmake
+[1.572s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport-noconfig.cmake
+[1.573s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport.cmake
+[1.576s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport-noconfig.cmake
+[1.576s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/rosidl_cmake-extras.cmake
+[1.577s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.577s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.578s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[1.578s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_targets-extras.cmake
+[1.579s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.579s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.580s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig.cmake
+[1.581s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig-version.cmake
+[1.581s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/custom_interface/share/custom_interface/package.xml
+[1.776s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/custom_interface

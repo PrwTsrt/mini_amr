@@ -1,0 +1,919 @@
+[0.000000] (-) TimerEvent: {}
+[0.001575] (-) JobUnselected: {'identifier': 'bringup'}
+[0.002052] (-) JobUnselected: {'identifier': 'description'}
+[0.002311] (-) JobUnselected: {'identifier': 'example'}
+[0.003082] (-) JobUnselected: {'identifier': 'micro_ros_agent'}
+[0.003307] (-) JobUnselected: {'identifier': 'micro_ros_msgs'}
+[0.003512] (-) JobUnselected: {'identifier': 'micro_ros_setup'}
+[0.003640] (-) JobUnselected: {'identifier': 'navigation'}
+[0.003799] (-) JobUnselected: {'identifier': 'python_pkg'}
+[0.003959] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.004160] (action_autodock) JobQueued: {'identifier': 'action_autodock', 'dependencies': OrderedDict()}
+[0.004422] (custom_interface) JobQueued: {'identifier': 'custom_interface', 'dependencies': OrderedDict()}
+[0.004553] (dock_lidar) JobQueued: {'identifier': 'dock_lidar', 'dependencies': OrderedDict([('custom_interface', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface')])}
+[0.004730] (custom_interface) JobStarted: {'identifier': 'custom_interface'}
+[0.026713] (action_autodock) JobStarted: {'identifier': 'action_autodock'}
+[0.053277] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'cmake'}
+[0.053795] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '/home/smr/workspaces/amrROS2_ws/src/custom_interface', '-DCMAKE_INSTALL_PREFIX=/home/smr/workspaces/amrROS2_ws/src/install/custom_interface'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'smr'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/smr'), ('MUTTER_DEBUG_ENABLE_ATOMIC_KMS', '0'), ('OLDPWD', '/home/smr/workspaces'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '850'), ('SYSTEMD_EXEC_PID', '1006'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2675'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'smr'), ('JOURNAL_STREAM', '8:14258'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'smr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979'), ('INVOCATION_ID', 'a0edaa305c4a4081a11894dfa25b1805'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LD_PRELOAD', ''), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XY0IT2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd'), ('CLUTTER_PAINT', 'disable-dynamic-max-render-time'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('MUTTER_DEBUG_FORCE_KMS_MODE', 'simple'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble')]), 'shell': False}
+[0.099051] (-) TimerEvent: {}
+[0.199577] (-) TimerEvent: {}
+[0.300024] (-) TimerEvent: {}
+[0.400435] (-) TimerEvent: {}
+[0.500911] (-) TimerEvent: {}
+[0.601338] (-) TimerEvent: {}
+[0.701827] (-) TimerEvent: {}
+[0.772567] (custom_interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.802050] (-) TimerEvent: {}
+[0.902883] (-) TimerEvent: {}
+[1.003691] (-) TimerEvent: {}
+[1.104759] (-) TimerEvent: {}
+[1.205622] (-) TimerEvent: {}
+[1.304842] (custom_interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.305613] (-) TimerEvent: {}
+[1.347073] (custom_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.372141] (action_autodock) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/action_autodock', 'build', '--build-base', '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build', 'install', '--record', '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/action_autodock', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'smr', 'LC_TIME': 'th_TH.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/smr', 'MUTTER_DEBUG_ENABLE_ATOMIC_KMS': '0', 'OLDPWD': '/home/smr/workspaces', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'th_TH.UTF-8', 'MANAGERPID': '850', 'SYSTEMD_EXEC_PID': '1006', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '2675', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/smr/workspaces/amrROS2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'smr', 'JOURNAL_STREAM': '8:14258', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'smr', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979', 'INVOCATION_ID': 'a0edaa305c4a4081a11894dfa25b1805', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'th_TH.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LD_PRELOAD': '', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.XY0IT2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'TERMINATOR_UUID': 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd', 'CLUTTER_PAINT': 'disable-dynamic-max-render-time', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'MUTTER_DEBUG_FORCE_KMS_MODE': 'simple', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description'}, 'shell': False}
+[1.405868] (-) TimerEvent: {}
+[1.506665] (-) TimerEvent: {}
+[1.590006] (custom_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.606756] (-) TimerEvent: {}
+[1.627810] (custom_interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.631196] (custom_interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.634571] (custom_interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.650379] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.706871] (-) TimerEvent: {}
+[1.729864] (action_autodock) StdoutLine: {'line': b'running egg_info\n'}
+[1.730753] (action_autodock) StdoutLine: {'line': b'creating ../build/action_autodock/action_autodock.egg-info\n'}
+[1.731179] (action_autodock) StdoutLine: {'line': b'writing ../build/action_autodock/action_autodock.egg-info/PKG-INFO\n'}
+[1.731746] (action_autodock) StdoutLine: {'line': b'writing dependency_links to ../build/action_autodock/action_autodock.egg-info/dependency_links.txt\n'}
+[1.732509] (action_autodock) StdoutLine: {'line': b'writing entry points to ../build/action_autodock/action_autodock.egg-info/entry_points.txt\n'}
+[1.732921] (action_autodock) StdoutLine: {'line': b'writing requirements to ../build/action_autodock/action_autodock.egg-info/requires.txt\n'}
+[1.733331] (action_autodock) StdoutLine: {'line': b'writing top-level names to ../build/action_autodock/action_autodock.egg-info/top_level.txt\n'}
+[1.733740] (action_autodock) StdoutLine: {'line': b"writing manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'\n"}
+[1.734885] (action_autodock) StdoutLine: {'line': b"reading manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'\n"}
+[1.735406] (action_autodock) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[1.736050] (action_autodock) StdoutLine: {'line': b"writing manifest file '../build/action_autodock/action_autodock.egg-info/SOURCES.txt'\n"}
+[1.736524] (action_autodock) StdoutLine: {'line': b'running build\n'}
+[1.737027] (action_autodock) StdoutLine: {'line': b'running build_py\n'}
+[1.737458] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build\n'}
+[1.737910] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib\n'}
+[1.738455] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock\n'}
+[1.738920] (action_autodock) StdoutLine: {'line': b'copying action_autodock/autodock_action_server.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock\n'}
+[1.739357] (action_autodock) StdoutLine: {'line': b'copying action_autodock/robot_navigator.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock\n'}
+[1.739784] (action_autodock) StdoutLine: {'line': b'copying action_autodock/__init__.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock\n'}
+[1.740210] (action_autodock) StdoutLine: {'line': b'copying action_autodock/example_nav_to_pose.py -> /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock\n'}
+[1.740686] (action_autodock) StdoutLine: {'line': b'running install\n'}
+[1.741126] (action_autodock) StdoutLine: {'line': b'running install_lib\n'}
+[1.741559] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock\n'}
+[1.742019] (action_autodock) StdoutLine: {'line': b'copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/autodock_action_server.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock\n'}
+[1.742449] (action_autodock) StdoutLine: {'line': b'copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/robot_navigator.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock\n'}
+[1.742913] (action_autodock) StdoutLine: {'line': b'copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/__init__.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock\n'}
+[1.743337] (action_autodock) StdoutLine: {'line': b'copying /home/smr/workspaces/amrROS2_ws/src/build/action_autodock/build/lib/action_autodock/example_nav_to_pose.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock\n'}
+[1.743758] (action_autodock) StdoutLine: {'line': b'byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/autodock_action_server.py to autodock_action_server.cpython-310.pyc\n'}
+[1.748382] (action_autodock) StdoutLine: {'line': b'byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/robot_navigator.py to robot_navigator.cpython-310.pyc\n'}
+[1.751453] (action_autodock) StdoutLine: {'line': b'byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/__init__.py to __init__.cpython-310.pyc\n'}
+[1.752371] (action_autodock) StdoutLine: {'line': b'byte-compiling /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock/example_nav_to_pose.py to example_nav_to_pose.cpython-310.pyc\n'}
+[1.753240] (action_autodock) StdoutLine: {'line': b'running install_data\n'}
+[1.753858] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index\n'}
+[1.754544] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index\n'}
+[1.755075] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index/packages\n'}
+[1.755660] (action_autodock) StdoutLine: {'line': b'copying resource/action_autodock -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/ament_index/resource_index/packages\n'}
+[1.756161] (action_autodock) StdoutLine: {'line': b'copying package.xml -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock\n'}
+[1.756699] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/launch\n'}
+[1.757338] (action_autodock) StdoutLine: {'line': b'copying launch/auto_dock_launch.py -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/launch\n'}
+[1.757896] (action_autodock) StdoutLine: {'line': b'creating /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/config\n'}
+[1.758359] (action_autodock) StdoutLine: {'line': b'copying config/auto_dock_config.yaml -> /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/share/action_autodock/config\n'}
+[1.758809] (action_autodock) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.759237] (action_autodock) StdoutLine: {'line': b'Copying ../build/action_autodock/action_autodock.egg-info to /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/python3.10/site-packages/action_autodock-0.0.0-py3.10.egg-info\n'}
+[1.759675] (action_autodock) StdoutLine: {'line': b'running install_scripts\n'}
+[1.793981] (action_autodock) StdoutLine: {'line': b'Installing autodock_action_server script to /home/smr/workspaces/amrROS2_ws/src/install/action_autodock/lib/action_autodock\n'}
+[1.794762] (action_autodock) StdoutLine: {'line': b"writing list of installed files to '/home/smr/workspaces/amrROS2_ws/src/build/action_autodock/install.log'\n"}
+[1.807121] (-) TimerEvent: {}
+[1.863590] (action_autodock) CommandEnded: {'returncode': 0}
+[1.907919] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.908674] (-) TimerEvent: {}
+[1.918024] (action_autodock) JobEnded: {'identifier': 'action_autodock', 'rc': 0}
+[1.960489] (custom_interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.961489] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.963421] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.008794] (-) TimerEvent: {}
+[2.011087] (custom_interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.108904] (-) TimerEvent: {}
+[2.210931] (-) TimerEvent: {}
+[2.311534] (-) TimerEvent: {}
+[2.403961] (custom_interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.411654] (-) TimerEvent: {}
+[2.512079] (-) TimerEvent: {}
+[2.612972] (-) TimerEvent: {}
+[2.643289] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[2.659219] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.683602] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[2.713056] (-) TimerEvent: {}
+[2.805816] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.813167] (-) TimerEvent: {}
+[2.901235] (custom_interface) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[2.913294] (-) TimerEvent: {}
+[3.013736] (-) TimerEvent: {}
+[3.114188] (-) TimerEvent: {}
+[3.214647] (-) TimerEvent: {}
+[3.315102] (-) TimerEvent: {}
+[3.415584] (-) TimerEvent: {}
+[3.516000] (-) TimerEvent: {}
+[3.616417] (-) TimerEvent: {}
+[3.716876] (-) TimerEvent: {}
+[3.817331] (-) TimerEvent: {}
+[3.917754] (-) TimerEvent: {}
+[3.940803] (custom_interface) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[4.017877] (-) TimerEvent: {}
+[4.118307] (-) TimerEvent: {}
+[4.218736] (-) TimerEvent: {}
+[4.319121] (-) TimerEvent: {}
+[4.419542] (-) TimerEvent: {}
+[4.519952] (-) TimerEvent: {}
+[4.540457] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.620071] (-) TimerEvent: {}
+[4.720508] (-) TimerEvent: {}
+[4.820925] (-) TimerEvent: {}
+[4.921382] (-) TimerEvent: {}
+[5.021917] (-) TimerEvent: {}
+[5.122385] (-) TimerEvent: {}
+[5.222827] (-) TimerEvent: {}
+[5.323289] (-) TimerEvent: {}
+[5.355380] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.423407] (-) TimerEvent: {}
+[5.425435] (custom_interface) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[5.433383] (custom_interface) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[5.523533] (-) TimerEvent: {}
+[5.545643] (custom_interface) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[5.546098] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.546300] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[5.546436] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so\n'}
+[5.604024] (custom_interface) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[5.623657] (-) TimerEvent: {}
+[5.724070] (-) TimerEvent: {}
+[5.801813] (custom_interface) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.824202] (-) TimerEvent: {}
+[5.868501] (custom_interface) StdoutLine: {'line': b'-- Generating done\n'}
+[5.873437] (custom_interface) StdoutLine: {'line': b'-- Build files have been written to: /home/smr/workspaces/amrROS2_ws/src/build/custom_interface\n'}
+[5.899799] (custom_interface) CommandEnded: {'returncode': 0}
+[5.901229] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'build'}
+[5.908348] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface', '--', '-j8', '-l8'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'smr'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/smr'), ('MUTTER_DEBUG_ENABLE_ATOMIC_KMS', '0'), ('OLDPWD', '/home/smr/workspaces'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '850'), ('SYSTEMD_EXEC_PID', '1006'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2675'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'smr'), ('JOURNAL_STREAM', '8:14258'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'smr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979'), ('INVOCATION_ID', 'a0edaa305c4a4081a11894dfa25b1805'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LD_PRELOAD', ''), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XY0IT2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd'), ('CLUTTER_PAINT', 'disable-dynamic-max-render-time'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('MUTTER_DEBUG_FORCE_KMS_MODE', 'simple'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble')]), 'shell': False}
+[5.924422] (-) TimerEvent: {}
+[6.025277] (-) TimerEvent: {}
+[6.049144] (custom_interface) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[6.058847] (custom_interface) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_custom_interface\n'}
+[6.074911] (custom_interface) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[6.125354] (-) TimerEvent: {}
+[6.226083] (-) TimerEvent: {}
+[6.326571] (-) TimerEvent: {}
+[6.427084] (-) TimerEvent: {}
+[6.477433] (custom_interface) StdoutLine: {'line': b'running egg_info\n'}
+[6.478406] (custom_interface) StdoutLine: {'line': b'creating custom_interface.egg-info\n'}
+[6.479094] (custom_interface) StdoutLine: {'line': b'writing custom_interface.egg-info/PKG-INFO\n'}
+[6.479628] (custom_interface) StdoutLine: {'line': b'writing dependency_links to custom_interface.egg-info/dependency_links.txt\n'}
+[6.480160] (custom_interface) StdoutLine: {'line': b'writing top-level names to custom_interface.egg-info/top_level.txt\n'}
+[6.480645] (custom_interface) StdoutLine: {'line': b"writing manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[6.486599] (custom_interface) StdoutLine: {'line': b"reading manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[6.487549] (custom_interface) StdoutLine: {'line': b"writing manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[6.527309] (-) TimerEvent: {}
+[6.570635] (custom_interface) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_build_custom_interface_egg\n'}
+[6.627399] (-) TimerEvent: {}
+[6.727819] (-) TimerEvent: {}
+[6.828357] (-) TimerEvent: {}
+[6.917991] (custom_interface) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_c.dir/rosidl_generator_c/custom_interface/msg/detail/initdock__functions.c.o\x1b[0m\n'}
+[6.927520] (custom_interface) StdoutLine: {'line': b'[  7%] Built target custom_interface__cpp\n'}
+[6.928418] (-) TimerEvent: {}
+[6.930201] (custom_interface) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_c.dir/rosidl_generator_c/custom_interface/action/detail/autodock__functions.c.o\x1b[0m\n'}
+[6.944429] (custom_interface) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.951534] (custom_interface) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[6.965258] (custom_interface) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[7.028697] (-) TimerEvent: {}
+[7.129604] (-) TimerEvent: {}
+[7.231130] (-) TimerEvent: {}
+[7.331958] (-) TimerEvent: {}
+[7.334615] (custom_interface) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libcustom_interface__rosidl_generator_c.so\x1b[0m\n'}
+[7.432095] (-) TimerEvent: {}
+[7.482305] (custom_interface) StdoutLine: {'line': b'[ 20%] Built target custom_interface__rosidl_generator_c\n'}
+[7.506266] (custom_interface) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[7.528066] (custom_interface) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[7.530683] (custom_interface) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interface/action/autodock__type_support.cpp.o\x1b[0m\n'}
+[7.532253] (-) TimerEvent: {}
+[7.538628] (custom_interface) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[7.548043] (custom_interface) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interface/msg/initdock__type_support.cpp.o\x1b[0m\n'}
+[7.632481] (-) TimerEvent: {}
+[7.733428] (-) TimerEvent: {}
+[7.783460] (custom_interface) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interface/msg/detail/initdock__type_support.cpp.o\x1b[0m\n'}
+[7.804106] (custom_interface) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interface/action/detail/autodock__type_support.cpp.o\x1b[0m\n'}
+[7.833559] (-) TimerEvent: {}
+[7.863436] (custom_interface) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interface/action/detail/dds_fastrtps/autodock__type_support.cpp.o\x1b[0m\n'}
+[7.933683] (-) TimerEvent: {}
+[8.034099] (-) TimerEvent: {}
+[8.134503] (-) TimerEvent: {}
+[8.202796] (custom_interface) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interface/action/autodock__type_support.cpp.o\x1b[0m\n'}
+[8.234649] (-) TimerEvent: {}
+[8.335092] (-) TimerEvent: {}
+[8.407118] (custom_interface) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interface/action/detail/autodock__type_support_c.cpp.o\x1b[0m\n'}
+[8.435332] (-) TimerEvent: {}
+[8.458106] (custom_interface) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interface/action/detail/autodock__type_support.c.o\x1b[0m\n'}
+[8.535541] (-) TimerEvent: {}
+[8.636627] (-) TimerEvent: {}
+[10.860355] (-) TimerEvent: {}
+[10.961394] (-) TimerEvent: {}
+[11.062271] (-) TimerEvent: {}
+[11.163155] (-) TimerEvent: {}
+[11.264060] (-) TimerEvent: {}
+[11.364878] (-) TimerEvent: {}
+[11.465724] (-) TimerEvent: {}
+[11.566600] (-) TimerEvent: {}
+[11.667493] (-) TimerEvent: {}
+[11.768450] (-) TimerEvent: {}
+[11.869293] (-) TimerEvent: {}
+[11.970258] (-) TimerEvent: {}
+[11.984578] (custom_interface) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[11.989472] (custom_interface) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[11.993622] (custom_interface) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interface/msg/detail/initdock__type_support.c.o\x1b[0m\n'}
+[12.000632] (custom_interface) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interface/msg/detail/initdock__type_support_c.cpp.o\x1b[0m\n'}
+[12.013614] (custom_interface) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interface/msg/initdock__type_support.cpp.o\x1b[0m\n'}
+[12.056015] (custom_interface) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interface/msg/detail/dds_fastrtps/initdock__type_support.cpp.o\x1b[0m\n'}
+[12.070374] (-) TimerEvent: {}
+[12.148700] (custom_interface) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking C shared library libcustom_interface__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[12.170525] (-) TimerEvent: {}
+[12.217994] (custom_interface) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_c.so\x1b[0m\n'}
+[12.270683] (-) TimerEvent: {}
+[12.359120] (custom_interface) StdoutLine: {'line': b'[ 69%] Built target custom_interface__rosidl_typesupport_cpp\n'}
+[12.359547] (custom_interface) StdoutLine: {'line': b'[ 69%] Built target custom_interface__rosidl_typesupport_introspection_c\n'}
+[12.370820] (-) TimerEvent: {}
+[12.397936] (custom_interface) StdoutLine: {'line': b'[ 69%] Built target custom_interface__rosidl_typesupport_introspection_cpp\n'}
+[12.439116] (custom_interface) StdoutLine: {'line': b'[ 69%] Built target custom_interface__rosidl_typesupport_c\n'}
+[12.471071] (-) TimerEvent: {}
+[12.572195] (-) TimerEvent: {}
+[12.673216] (-) TimerEvent: {}
+[12.774156] (-) TimerEvent: {}
+[12.792702] (custom_interface) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[12.847275] (custom_interface) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[12.874266] (-) TimerEvent: {}
+[12.974890] (-) TimerEvent: {}
+[13.005975] (custom_interface) StdoutLine: {'line': b'[ 74%] Built target custom_interface__rosidl_typesupport_fastrtps_c\n'}
+[13.060676] (custom_interface) StdoutLine: {'line': b'[ 74%] Built target custom_interface__rosidl_typesupport_fastrtps_cpp\n'}
+[13.075107] (-) TimerEvent: {}
+[13.133727] (custom_interface) StdoutLine: {'line': b'[ 74%] Built target custom_interface\n'}
+[13.175305] (-) TimerEvent: {}
+[13.210627] (custom_interface) StdoutLine: {'line': b'[ 76%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[13.275487] (-) TimerEvent: {}
+[13.376308] (-) TimerEvent: {}
+[13.477138] (-) TimerEvent: {}
+[13.577623] (-) TimerEvent: {}
+[13.750073] (-) TimerEvent: {}
+[13.850493] (-) TimerEvent: {}
+[13.950896] (-) TimerEvent: {}
+[14.051328] (-) TimerEvent: {}
+[14.151856] (-) TimerEvent: {}
+[14.252256] (-) TimerEvent: {}
+[14.352668] (-) TimerEvent: {}
+[14.453078] (-) TimerEvent: {}
+[14.553497] (-) TimerEvent: {}
+[14.653909] (-) TimerEvent: {}
+[14.728374] (custom_interface) StdoutLine: {'line': b'[ 76%] Built target custom_interface__py\n'}
+[14.754038] (-) TimerEvent: {}
+[14.806050] (custom_interface) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_py.dir/rosidl_generator_py/custom_interface/action/_autodock_s.c.o\x1b[0m\n'}
+[14.806374] (custom_interface) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_py.dir/rosidl_generator_py/custom_interface/msg/_initdock_s.c.o\x1b[0m\n'}
+[14.854168] (-) TimerEvent: {}
+[14.954747] (-) TimerEvent: {}
+[15.055410] (-) TimerEvent: {}
+[15.155900] (-) TimerEvent: {}
+[15.256323] (-) TimerEvent: {}
+[15.277019] (custom_interface) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/libcustom_interface__rosidl_generator_py.so\x1b[0m\n'}
+[15.356454] (-) TimerEvent: {}
+[15.396637] (custom_interface) StdoutLine: {'line': b'[ 84%] Built target custom_interface__rosidl_generator_py\n'}
+[15.435699] (custom_interface) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[15.449314] (custom_interface) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[15.456550] (-) TimerEvent: {}
+[15.469976] (custom_interface) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[15.556683] (-) TimerEvent: {}
+[15.657158] (-) TimerEvent: {}
+[15.664763] (custom_interface) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[15.699160] (custom_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[15.699514] (custom_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[15.757291] (-) TimerEvent: {}
+[15.796816] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[15.832376] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_introspection_c__pyext\n'}
+[15.847166] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_c__pyext\n'}
+[15.857422] (-) TimerEvent: {}
+[15.893964] (custom_interface) CommandEnded: {'returncode': 0}
+[15.957541] (-) TimerEvent: {}
+[16.058100] (-) TimerEvent: {}
+[16.122725] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'install'}
+[16.151469] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'smr'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/smr'), ('MUTTER_DEBUG_ENABLE_ATOMIC_KMS', '0'), ('OLDPWD', '/home/smr/workspaces'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '850'), ('SYSTEMD_EXEC_PID', '1006'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2675'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'smr'), ('JOURNAL_STREAM', '8:14258'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'smr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979'), ('INVOCATION_ID', 'a0edaa305c4a4081a11894dfa25b1805'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LD_PRELOAD', ''), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XY0IT2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd'), ('CLUTTER_PAINT', 'disable-dynamic-max-render-time'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('MUTTER_DEBUG_FORCE_KMS_MODE', 'simple'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/smr/workspaces/amrROS2_ws/src/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble')]), 'shell': False}
+[16.158169] (-) TimerEvent: {}
+[16.210696] (custom_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.217666] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/ament_index/resource_index/rosidl_interfaces/custom_interface\n'}
+[16.221911] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.222564] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.222832] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.223488] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.h\n'}
+[16.224055] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__functions.h\n'}
+[16.224555] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__functions.c\n'}
+[16.225164] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__struct.h\n'}
+[16.226611] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[16.227115] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/initdock.h\n'}
+[16.227600] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.228033] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.228489] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__functions.c\n'}
+[16.228920] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.h\n'}
+[16.229325] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__functions.h\n'}
+[16.229811] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__struct.h\n'}
+[16.230213] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/autodock.h\n'}
+[16.230616] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/library_path.sh\n'}
+[16.231070] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/library_path.dsv\n'}
+[16.231496] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so\n'}
+[16.232001] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so" to ""\n'}
+[16.232438] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.236560] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.237252] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.237769] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_fastrtps_c.h\n'}
+[16.238914] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[16.239398] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.239837] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.240275] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_fastrtps_c.h\n'}
+[16.240793] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so\n'}
+[16.241227] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[16.241672] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.242098] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.242507] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.242934] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_introspection_c.h\n'}
+[16.243360] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.c\n'}
+[16.243777] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[16.244197] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.244613] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.245060] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h\n'}
+[16.245491] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.c\n'}
+[16.246116] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so\n'}
+[16.246594] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so" to ""\n'}
+[16.247031] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so\n'}
+[16.247453] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so" to ""\n'}
+[16.247898] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.248348] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.248766] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.249166] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__struct.hpp\n'}
+[16.249566] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__traits.hpp\n'}
+[16.249965] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__builder.hpp\n'}
+[16.250363] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/initdock.hpp\n'}
+[16.250768] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.251171] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.251652] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__builder.hpp\n'}
+[16.252247] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__struct.hpp\n'}
+[16.252665] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__traits.hpp\n'}
+[16.253078] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/autodock.hpp\n'}
+[16.253486] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.253892] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.254297] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.254740] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/dds_fastrtps\n'}
+[16.255207] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[16.255621] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[16.256026] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.256430] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.256833] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[16.257272] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/dds_fastrtps\n'}
+[16.257688] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[16.258099] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[16.258527] (-) TimerEvent: {}
+[16.258902] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface\n'}
+[16.259321] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[16.259733] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail\n'}
+[16.260138] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__rosidl_typesupport_introspection_cpp.hpp\n'}
+[16.260547] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/msg/detail/initdock__type_support.cpp\n'}
+[16.260952] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action\n'}
+[16.261361] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail\n'}
+[16.261798] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__type_support.cpp\n'}
+[16.262221] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/include/custom_interface/custom_interface/action/detail/autodock__rosidl_typesupport_introspection_cpp.hpp\n'}
+[16.262629] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so\n'}
+[16.263033] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[16.263451] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so\n'}
+[16.263992] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so" to ""\n'}
+[16.264400] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/pythonpath.sh\n'}
+[16.264811] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/pythonpath.dsv\n'}
+[16.265255] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info\n'}
+[16.265668] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[16.266115] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[16.266528] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[16.266935] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[16.267342] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface\n'}
+[16.267746] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.268157] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[16.268616] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c\n'}
+[16.269059] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/libcustom_interface__rosidl_generator_py.so\n'}
+[16.269489] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg\n'}
+[16.269909] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/_initdock.py\n'}
+[16.270326] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/__init__.py\n'}
+[16.270741] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/_initdock_s.c\n'}
+[16.271154] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.271570] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py\n'}
+[16.272061] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[16.272483] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.272892] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action\n'}
+[16.273299] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/_autodock.py\n'}
+[16.273705] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/__init__.py\n'}
+[16.274107] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/_autodock_s.c\n'}
+[16.317741] (custom_interface) StdoutLine: {'line': b"Listing '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface'...\n"}
+[16.319018] (custom_interface) StdoutLine: {'line': b"Compiling '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py'...\n"}
+[16.322286] (custom_interface) StdoutLine: {'line': b"Listing '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action'...\n"}
+[16.323058] (custom_interface) StdoutLine: {'line': b"Compiling '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/__init__.py'...\n"}
+[16.323649] (custom_interface) StdoutLine: {'line': b"Compiling '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/action/_autodock.py'...\n"}
+[16.324353] (custom_interface) StdoutLine: {'line': b"Listing '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg'...\n"}
+[16.324884] (custom_interface) StdoutLine: {'line': b"Compiling '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/__init__.py'...\n"}
+[16.325410] (custom_interface) StdoutLine: {'line': b"Compiling '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/msg/_initdock.py'...\n"}
+[16.333135] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.334087] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[16.334495] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.334715] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[16.334868] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[16.335399] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[16.335646] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so\n'}
+[16.336007] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so" to ""\n'}
+[16.336589] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/action/Autodock.idl\n'}
+[16.337025] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/msg/Initdock.idl\n'}
+[16.337446] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/action/Autodock.action\n'}
+[16.337860] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/msg/Initdock.msg\n'}
+[16.338268] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/ament_index/resource_index/package_run_dependencies/custom_interface\n'}
+[16.338720] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/ament_index/resource_index/parent_prefix_path/custom_interface\n'}
+[16.339122] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/ament_prefix_path.sh\n'}
+[16.340226] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/ament_prefix_path.dsv\n'}
+[16.340940] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/path.sh\n'}
+[16.341669] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/environment/path.dsv\n'}
+[16.342482] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/local_setup.bash\n'}
+[16.342965] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/local_setup.sh\n'}
+[16.343483] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/local_setup.zsh\n'}
+[16.344023] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/local_setup.dsv\n'}
+[16.344481] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/package.dsv\n'}
+[16.344964] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/ament_index/resource_index/packages/custom_interface\n'}
+[16.345395] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport.cmake\n'}
+[16.345815] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[16.346273] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[16.346689] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[16.347107] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[16.347538] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[16.347966] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport.cmake\n'}
+[16.348386] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[16.348810] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cppExport.cmake\n'}
+[16.349216] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[16.349675] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[16.350090] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[16.350542] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[16.350982] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport.cmake\n'}
+[16.351399] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[16.351848] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport.cmake\n'}
+[16.352261] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[16.352679] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/rosidl_cmake-extras.cmake\n'}
+[16.353081] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[16.353491] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[16.353925] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[16.354394] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[16.354883] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[16.355337] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[16.355751] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig.cmake\n'}
+[16.356153] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig-version.cmake\n'}
+[16.356553] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/package.xml\n'}
+[16.358947] (custom_interface) CommandEnded: {'returncode': 0}
+[16.362916] (-) TimerEvent: {}
+[16.463728] (-) TimerEvent: {}
+[16.564756] (-) TimerEvent: {}
+[16.665906] (-) TimerEvent: {}
+[16.734465] (custom_interface) JobEnded: {'identifier': 'custom_interface', 'rc': 0}
+[16.735360] (dock_lidar) JobStarted: {'identifier': 'dock_lidar'}
+[16.759585] (dock_lidar) JobProgress: {'identifier': 'dock_lidar', 'progress': 'cmake'}
+[16.759711] (dock_lidar) Command: {'cmd': ['/usr/bin/cmake', '/home/smr/workspaces/amrROS2_ws/src/dock_lidar', '-DCMAKE_INSTALL_PREFIX=/home/smr/workspaces/amrROS2_ws/src/install/dock_lidar'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/build/dock_lidar', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'smr'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/smr'), ('MUTTER_DEBUG_ENABLE_ATOMIC_KMS', '0'), ('OLDPWD', '/home/smr/workspaces'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '850'), ('SYSTEMD_EXEC_PID', '1006'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2675'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'smr'), ('JOURNAL_STREAM', '8:14258'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'smr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979'), ('INVOCATION_ID', 'a0edaa305c4a4081a11894dfa25b1805'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LD_PRELOAD', ''), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XY0IT2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd'), ('CLUTTER_PAINT', 'disable-dynamic-max-render-time'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('MUTTER_DEBUG_FORCE_KMS_MODE', 'simple'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/smr/workspaces/amrROS2_ws/src/build/dock_lidar'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages:/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble')]), 'shell': False}
+[16.766007] (-) TimerEvent: {}
+[16.866527] (-) TimerEvent: {}
+[16.935489] (dock_lidar) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[16.966666] (-) TimerEvent: {}
+[17.045431] (dock_lidar) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[17.066804] (-) TimerEvent: {}
+[17.103697] (dock_lidar) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[17.166946] (-) TimerEvent: {}
+[17.267483] (-) TimerEvent: {}
+[17.367939] (-) TimerEvent: {}
+[17.382077] (dock_lidar) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[17.402760] (dock_lidar) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[17.406778] (dock_lidar) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[17.409527] (dock_lidar) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[17.420430] (dock_lidar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[17.468188] (-) TimerEvent: {}
+[17.569085] (-) TimerEvent: {}
+[17.635732] (dock_lidar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[17.669315] (-) TimerEvent: {}
+[17.677324] (dock_lidar) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[17.678340] (dock_lidar) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[17.679277] (dock_lidar) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[17.691920] (dock_lidar) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[17.769481] (-) TimerEvent: {}
+[17.870467] (-) TimerEvent: {}
+[17.971387] (-) TimerEvent: {}
+[18.072275] (-) TimerEvent: {}
+[18.142030] (dock_lidar) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[18.172460] (-) TimerEvent: {}
+[18.273378] (-) TimerEvent: {}
+[18.376604] (-) TimerEvent: {}
+[18.419796] (dock_lidar) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[18.476814] (-) TimerEvent: {}
+[18.518853] (dock_lidar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[18.533769] (dock_lidar) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[18.559799] (dock_lidar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[18.577014] (-) TimerEvent: {}
+[18.603468] (dock_lidar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[18.644820] (dock_lidar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[18.677221] (-) TimerEvent: {}
+[18.759273] (dock_lidar) StdoutLine: {'line': b'-- Found tf2: 0.25.7 (/opt/ros/humble/share/tf2/cmake)\n'}
+[18.777428] (-) TimerEvent: {}
+[18.797427] (dock_lidar) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.7 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[18.880074] (-) TimerEvent: {}
+[18.981828] (-) TimerEvent: {}
+[18.996543] (dock_lidar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[19.009264] (dock_lidar) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[19.082031] (-) TimerEvent: {}
+[19.083248] (dock_lidar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[19.110506] (dock_lidar) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[19.182167] (-) TimerEvent: {}
+[19.282713] (-) TimerEvent: {}
+[19.336877] (dock_lidar) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[19.338717] (dock_lidar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[19.382844] (-) TimerEvent: {}
+[19.483287] (-) TimerEvent: {}
+[19.564083] (dock_lidar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[19.565588] (dock_lidar) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[19.583415] (-) TimerEvent: {}
+[19.683847] (-) TimerEvent: {}
+[19.784275] (-) TimerEvent: {}
+[19.840198] (dock_lidar) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.7 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[19.881379] (dock_lidar) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[19.884357] (-) TimerEvent: {}
+[19.884697] (dock_lidar) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[19.885028] (dock_lidar) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[19.894054] (dock_lidar) StdoutLine: {'line': b'-- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)\n'}
+[19.906999] (dock_lidar) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[19.961139] (dock_lidar) StdoutLine: {'line': b'-- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[19.964770] (dock_lidar) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[19.984471] (-) TimerEvent: {}
+[20.015959] (dock_lidar) StdoutLine: {'line': b'-- Found nav2_msgs: 1.1.16 (/opt/ros/humble/share/nav2_msgs/cmake)\n'}
+[20.068223] (dock_lidar) StdoutLine: {'line': b'-- Found custom_interface: 0.0.0 (/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/share/custom_interface/cmake)\n'}
+[20.084922] (-) TimerEvent: {}
+[20.108029] (dock_lidar) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[20.185032] (-) TimerEvent: {}
+[20.285532] (-) TimerEvent: {}
+[20.305691] (dock_lidar) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[20.306107] (dock_lidar) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/smr/workspaces/amrROS2_ws/src/dock_lidar/include>\n'}
+[20.306276] (dock_lidar) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[20.308822] (dock_lidar) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[20.311687] (dock_lidar) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[20.311892] (dock_lidar) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[20.313743] (dock_lidar) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[20.317758] (dock_lidar) StdoutLine: {'line': b'-- Configuring done\n'}
+[20.345769] (dock_lidar) StdoutLine: {'line': b'-- Generating done\n'}
+[20.348980] (dock_lidar) StdoutLine: {'line': b'-- Build files have been written to: /home/smr/workspaces/amrROS2_ws/src/build/dock_lidar\n'}
+[20.368535] (dock_lidar) CommandEnded: {'returncode': 0}
+[20.371163] (dock_lidar) JobProgress: {'identifier': 'dock_lidar', 'progress': 'build'}
+[20.371597] (dock_lidar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/smr/workspaces/amrROS2_ws/src/build/dock_lidar', '--', '-j8', '-l8'], 'cwd': '/home/smr/workspaces/amrROS2_ws/src/build/dock_lidar', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'smr'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent/lib:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/smr'), ('MUTTER_DEBUG_ENABLE_ATOMIC_KMS', '0'), ('OLDPWD', '/home/smr/workspaces'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '850'), ('SYSTEMD_EXEC_PID', '1006'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2675'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'smr'), ('JOURNAL_STREAM', '8:14258'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'smr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/smr-desktop:@/tmp/.ICE-unix/979,unix/smr-desktop:/tmp/.ICE-unix/979'), ('INVOCATION_ID', 'a0edaa305c4a4081a11894dfa25b1805'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LD_PRELOAD', ''), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XY0IT2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98f13d88-8418-4d87-971b-79814ea8b3cd'), ('CLUTTER_PAINT', 'disable-dynamic-max-render-time'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('MUTTER_DEBUG_FORCE_KMS_MODE', 'simple'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/smr/workspaces/amrROS2_ws/src/build/dock_lidar'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface/local/lib/python3.10/dist-packages:/home/smr/workspaces/amrROS2_ws/install/python_pkg/lib/python3.10/site-packages:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/smr/workspaces/amrROS2_ws/src/install/custom_interface:/home/smr/workspaces/amrROS2_ws/install/sllidar_ros2:/home/smr/workspaces/amrROS2_ws/install/navigation:/home/smr/workspaces/amrROS2_ws/install/micro_ros_setup:/home/smr/workspaces/amrROS2_ws/install/bringup:/home/smr/workspaces/amrROS2_ws/install/micro_ros_agent:/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs:/home/smr/workspaces/amrROS2_ws/install/example:/home/smr/workspaces/amrROS2_ws/install/description:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble')]), 'shell': False}
+[20.385753] (-) TimerEvent: {}
+[20.486591] (-) TimerEvent: {}
+[20.520728] (dock_lidar) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/laser_processor.cpp.o\x1b[0m\n'}
+[20.521605] (dock_lidar) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/icp_2d.cpp.o\x1b[0m\n'}
+[20.522838] (dock_lidar) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/dock_coordinates.cpp.o\x1b[0m\n'}
+[20.535740] (dock_lidar) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/linear_pose_filter_2d.cpp.o\x1b[0m\n'}
+[20.538477] (dock_lidar) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/tf2listener.cpp.o\x1b[0m\n'}
+[20.538949] (dock_lidar) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/perception.cpp.o\x1b[0m\n'}
+[20.586697] (-) TimerEvent: {}
+[20.687225] (-) TimerEvent: {}
+[20.787750] (-) TimerEvent: {}
+[20.888218] (-) TimerEvent: {}
+[20.988802] (-) TimerEvent: {}
+[21.089705] (-) TimerEvent: {}
+[21.190652] (-) TimerEvent: {}
+[21.291720] (-) TimerEvent: {}
+[21.392734] (-) TimerEvent: {}
+[21.493673] (-) TimerEvent: {}
+[21.594593] (-) TimerEvent: {}
+[21.697103] (-) TimerEvent: {}
+[21.797863] (-) TimerEvent: {}
+[21.898398] (-) TimerEvent: {}
+[21.998837] (-) TimerEvent: {}
+[22.099274] (-) TimerEvent: {}
+[22.199858] (-) TimerEvent: {}
+[22.300714] (-) TimerEvent: {}
+[22.401579] (-) TimerEvent: {}
+[22.502522] (-) TimerEvent: {}
+[22.603609] (-) TimerEvent: {}
+[22.704421] (-) TimerEvent: {}
+[22.805608] (-) TimerEvent: {}
+[22.909033] (-) TimerEvent: {}
+[23.010637] (-) TimerEvent: {}
+[23.111539] (-) TimerEvent: {}
+[23.215772] (-) TimerEvent: {}
+[23.317908] (-) TimerEvent: {}
+[23.418859] (-) TimerEvent: {}
+[23.520114] (-) TimerEvent: {}
+[23.620969] (-) TimerEvent: {}
+[23.904797] (-) TimerEvent: {}
+[24.006784] (-) TimerEvent: {}
+[24.107501] (-) TimerEvent: {}
+[24.208009] (-) TimerEvent: {}
+[24.308476] (-) TimerEvent: {}
+[24.409010] (-) TimerEvent: {}
+[24.509632] (-) TimerEvent: {}
+[24.610785] (-) TimerEvent: {}
+[24.711884] (-) TimerEvent: {}
+[24.818598] (-) TimerEvent: {}
+[24.924249] (-) TimerEvent: {}
+[25.025950] (-) TimerEvent: {}
+[25.127597] (-) TimerEvent: {}
+[25.228796] (-) TimerEvent: {}
+[25.331985] (-) TimerEvent: {}
+[25.432961] (-) TimerEvent: {}
+[25.533507] (-) TimerEvent: {}
+[25.634144] (-) TimerEvent: {}
+[25.735332] (-) TimerEvent: {}
+[25.842707] (-) TimerEvent: {}
+[25.943808] (-) TimerEvent: {}
+[26.044611] (-) TimerEvent: {}
+[26.145580] (-) TimerEvent: {}
+[26.246854] (-) TimerEvent: {}
+[26.348144] (-) TimerEvent: {}
+[26.449436] (-) TimerEvent: {}
+[26.550607] (-) TimerEvent: {}
+[26.651792] (-) TimerEvent: {}
+[26.753086] (-) TimerEvent: {}
+[26.854459] (-) TimerEvent: {}
+[26.955337] (-) TimerEvent: {}
+[27.056290] (-) TimerEvent: {}
+[27.157584] (-) TimerEvent: {}
+[27.258881] (-) TimerEvent: {}
+[27.360092] (-) TimerEvent: {}
+[27.462224] (-) TimerEvent: {}
+[27.570001] (-) TimerEvent: {}
+[27.670883] (-) TimerEvent: {}
+[27.771939] (-) TimerEvent: {}
+[27.872786] (-) TimerEvent: {}
+[27.973706] (-) TimerEvent: {}
+[28.074779] (-) TimerEvent: {}
+[28.175798] (-) TimerEvent: {}
+[28.276683] (-) TimerEvent: {}
+[28.377708] (-) TimerEvent: {}
+[28.478942] (-) TimerEvent: {}
+[28.580153] (-) TimerEvent: {}
+[29.941059] (-) TimerEvent: {}
+[30.042657] (-) TimerEvent: {}
+[30.143935] (-) TimerEvent: {}
+[30.244907] (-) TimerEvent: {}
+[30.346437] (-) TimerEvent: {}
+[30.447963] (-) TimerEvent: {}
+[30.549232] (-) TimerEvent: {}
+[30.650097] (-) TimerEvent: {}
+[30.751192] (-) TimerEvent: {}
+[30.853275] (-) TimerEvent: {}
+[30.954129] (-) TimerEvent: {}
+[31.054979] (-) TimerEvent: {}
+[31.155817] (-) TimerEvent: {}
+[31.265779] (-) TimerEvent: {}
+[31.367658] (-) TimerEvent: {}
+[31.468982] (-) TimerEvent: {}
+[31.571485] (-) TimerEvent: {}
+[31.672448] (-) TimerEvent: {}
+[31.773319] (-) TimerEvent: {}
+[31.874318] (-) TimerEvent: {}
+[31.976050] (-) TimerEvent: {}
+[32.078046] (-) TimerEvent: {}
+[32.180326] (-) TimerEvent: {}
+[32.281243] (-) TimerEvent: {}
+[32.382535] (-) TimerEvent: {}
+[32.484137] (-) TimerEvent: {}
+[32.585360] (-) TimerEvent: {}
+[32.686410] (-) TimerEvent: {}
+[32.787833] (-) TimerEvent: {}
+[32.891162] (-) TimerEvent: {}
+[32.992839] (-) TimerEvent: {}
+[33.093736] (-) TimerEvent: {}
+[33.194681] (-) TimerEvent: {}
+[33.295974] (-) TimerEvent: {}
+[33.398703] (-) TimerEvent: {}
+[33.499963] (-) TimerEvent: {}
+[33.601134] (-) TimerEvent: {}
+[33.817579] (-) TimerEvent: {}
+[33.918886] (-) TimerEvent: {}
+[34.019710] (-) TimerEvent: {}
+[34.120811] (-) TimerEvent: {}
+[34.229191] (-) TimerEvent: {}
+[34.341229] (-) TimerEvent: {}
+[34.451891] (-) TimerEvent: {}
+[34.558175] (-) TimerEvent: {}
+[34.659131] (-) TimerEvent: {}
+[34.760382] (-) TimerEvent: {}
+[34.861717] (-) TimerEvent: {}
+[34.962881] (-) TimerEvent: {}
+[35.063989] (-) TimerEvent: {}
+[35.165097] (-) TimerEvent: {}
+[35.266166] (-) TimerEvent: {}
+[35.367158] (-) TimerEvent: {}
+[35.468150] (-) TimerEvent: {}
+[35.569303] (-) TimerEvent: {}
+[35.670607] (-) TimerEvent: {}
+[35.771944] (-) TimerEvent: {}
+[35.873199] (-) TimerEvent: {}
+[35.974135] (-) TimerEvent: {}
+[36.075045] (-) TimerEvent: {}
+[36.176175] (-) TimerEvent: {}
+[36.277258] (-) TimerEvent: {}
+[36.378303] (-) TimerEvent: {}
+[36.479572] (-) TimerEvent: {}
+[36.581232] (-) TimerEvent: {}
+[36.682834] (-) TimerEvent: {}
+[36.783694] (-) TimerEvent: {}
+[36.884802] (-) TimerEvent: {}
+[36.985693] (-) TimerEvent: {}
+[37.086578] (-) TimerEvent: {}
+[37.187718] (-) TimerEvent: {}
+[37.288983] (-) TimerEvent: {}
+[37.390233] (-) TimerEvent: {}
+[37.491528] (-) TimerEvent: {}
+[37.593314] (-) TimerEvent: {}
+[37.694457] (-) TimerEvent: {}
+[37.795652] (-) TimerEvent: {}
+[37.896777] (-) TimerEvent: {}
+[37.997956] (-) TimerEvent: {}
+[38.099141] (-) TimerEvent: {}
+[38.200314] (-) TimerEvent: {}
+[38.309909] (-) TimerEvent: {}
+[38.410794] (-) TimerEvent: {}
+[38.512073] (-) TimerEvent: {}
+[38.613235] (-) TimerEvent: {}
+[39.167939] (-) TimerEvent: {}
+[39.269383] (-) TimerEvent: {}
+[39.370296] (-) TimerEvent: {}
+[39.471170] (-) TimerEvent: {}
+[39.572177] (-) TimerEvent: {}
+[39.673154] (-) TimerEvent: {}
+[39.774446] (-) TimerEvent: {}
+[39.875691] (-) TimerEvent: {}
+[39.976877] (-) TimerEvent: {}
+[40.077859] (-) TimerEvent: {}
+[40.179119] (-) TimerEvent: {}
+[40.280084] (-) TimerEvent: {}
+[40.381396] (-) TimerEvent: {}
+[40.482733] (-) TimerEvent: {}
+[40.584050] (-) TimerEvent: {}
+[40.685296] (-) TimerEvent: {}
+[40.786459] (-) TimerEvent: {}
+[40.887670] (-) TimerEvent: {}
+[40.988908] (-) TimerEvent: {}
+[41.090114] (-) TimerEvent: {}
+[42.764654] (-) TimerEvent: {}
+[42.865792] (-) TimerEvent: {}
+[42.966940] (-) TimerEvent: {}
+[43.068050] (-) TimerEvent: {}
+[43.169226] (-) TimerEvent: {}
+[43.270371] (-) TimerEvent: {}
+[43.371386] (-) TimerEvent: {}
+[43.472405] (-) TimerEvent: {}
+[43.573405] (-) TimerEvent: {}
+[43.674418] (-) TimerEvent: {}
+[46.552035] (-) TimerEvent: {}
+[46.652610] (-) TimerEvent: {}
+[46.753113] (-) TimerEvent: {}
+[46.853669] (-) TimerEvent: {}
+[46.954175] (-) TimerEvent: {}
+[47.054781] (-) TimerEvent: {}
+[47.155372] (-) TimerEvent: {}
+[47.255948] (-) TimerEvent: {}
+[47.356490] (-) TimerEvent: {}
+[47.457022] (-) TimerEvent: {}
+[47.557707] (-) TimerEvent: {}
+[47.658771] (-) TimerEvent: {}
+[47.759763] (-) TimerEvent: {}
+[47.860778] (-) TimerEvent: {}
+[47.961838] (-) TimerEvent: {}
+[48.062917] (-) TimerEvent: {}
+[48.164146] (-) TimerEvent: {}
+[48.265405] (-) TimerEvent: {}
+[48.366574] (-) TimerEvent: {}
+[48.468028] (-) TimerEvent: {}
+[48.569275] (-) TimerEvent: {}
+[48.670415] (-) TimerEvent: {}
+[48.771630] (-) TimerEvent: {}
+[48.873126] (-) TimerEvent: {}
+[48.974364] (-) TimerEvent: {}
+[49.075565] (-) TimerEvent: {}
+[49.176842] (-) TimerEvent: {}
+[49.278003] (-) TimerEvent: {}
+[49.379285] (-) TimerEvent: {}
+[49.480677] (-) TimerEvent: {}
+[49.581741] (-) TimerEvent: {}
+[49.682925] (-) TimerEvent: {}
+[51.432873] (-) TimerEvent: {}
+[51.534280] (-) TimerEvent: {}
+[51.635897] (-) TimerEvent: {}
+[51.737517] (-) TimerEvent: {}
+[51.839745] (-) TimerEvent: {}
+[51.941266] (-) TimerEvent: {}
+[52.042737] (-) TimerEvent: {}
+[52.143996] (-) TimerEvent: {}
+[52.245344] (-) TimerEvent: {}
+[52.355218] (-) TimerEvent: {}
+[52.456564] (-) TimerEvent: {}
+[52.557944] (-) TimerEvent: {}
+[52.659281] (-) TimerEvent: {}
+[52.760601] (-) TimerEvent: {}
+[52.862014] (-) TimerEvent: {}
+[52.963509] (-) TimerEvent: {}
+[53.065142] (-) TimerEvent: {}
+[53.166470] (-) TimerEvent: {}
+[53.267959] (-) TimerEvent: {}
+[53.369317] (-) TimerEvent: {}
+[53.471817] (-) TimerEvent: {}
+[53.572735] (-) TimerEvent: {}
+[53.675062] (-) TimerEvent: {}
+[53.777091] (-) TimerEvent: {}
+[53.877961] (-) TimerEvent: {}
+[53.978957] (-) TimerEvent: {}
+[54.080266] (-) TimerEvent: {}
+[54.181653] (-) TimerEvent: {}
+[54.282533] (-) TimerEvent: {}
+[54.388617] (-) TimerEvent: {}
+[54.489879] (-) TimerEvent: {}
+[54.591031] (-) TimerEvent: {}
+[54.692072] (-) TimerEvent: {}
+[55.597231] (-) TimerEvent: {}
+[55.698601] (-) TimerEvent: {}
+[55.800031] (-) TimerEvent: {}
+[55.901297] (-) TimerEvent: {}
+[56.002530] (-) TimerEvent: {}
+[56.103706] (-) TimerEvent: {}
+[56.205262] (-) TimerEvent: {}
+[56.306633] (-) TimerEvent: {}
+[56.408182] (-) TimerEvent: {}
+[56.509842] (-) TimerEvent: {}
+[56.611326] (-) TimerEvent: {}
+[56.712818] (-) TimerEvent: {}
+[56.814187] (-) TimerEvent: {}
+[56.915656] (-) TimerEvent: {}
+[57.016668] (-) TimerEvent: {}
+[57.118190] (-) TimerEvent: {}
+[57.219462] (-) TimerEvent: {}
+[57.320487] (-) TimerEvent: {}
+[57.421739] (-) TimerEvent: {}
+[57.523024] (-) TimerEvent: {}
+[57.624304] (-) TimerEvent: {}
+[57.725829] (-) TimerEvent: {}
+[57.827188] (-) TimerEvent: {}
+[57.928478] (-) TimerEvent: {}
+[58.031869] (-) TimerEvent: {}
+[58.133031] (-) TimerEvent: {}
+[58.234310] (-) TimerEvent: {}
+[58.335783] (-) TimerEvent: {}
+[58.437039] (-) TimerEvent: {}
+[58.538350] (-) TimerEvent: {}
+[58.639894] (-) TimerEvent: {}
+[58.741949] (-) TimerEvent: {}
+[58.842944] (-) TimerEvent: {}
+[58.944244] (-) TimerEvent: {}
+[59.046051] (-) TimerEvent: {}
+[59.147023] (-) TimerEvent: {}
+[59.249400] (-) TimerEvent: {}
+[59.350848] (-) TimerEvent: {}
+[59.452315] (-) TimerEvent: {}
+[59.554473] (-) TimerEvent: {}
+[59.655819] (-) TimerEvent: {}
+[59.756837] (-) TimerEvent: {}
+[59.858485] (-) TimerEvent: {}
+[59.959836] (-) TimerEvent: {}
+[60.061226] (-) TimerEvent: {}
+[60.162515] (-) TimerEvent: {}
+[60.263850] (-) TimerEvent: {}
+[60.365209] (-) TimerEvent: {}
+[60.466533] (-) TimerEvent: {}
+[60.567547] (-) TimerEvent: {}
+[60.669042] (-) TimerEvent: {}
+[60.770923] (-) TimerEvent: {}
+[60.871881] (-) TimerEvent: {}
+[60.972877] (-) TimerEvent: {}
+[61.074135] (-) TimerEvent: {}
+[61.175467] (-) TimerEvent: {}
+[61.276813] (-) TimerEvent: {}
+[61.378173] (-) TimerEvent: {}
+[61.480757] (-) TimerEvent: {}
+[61.582060] (-) TimerEvent: {}
+[61.683349] (-) TimerEvent: {}
+[61.784648] (-) TimerEvent: {}
+[61.885891] (-) TimerEvent: {}
+[61.986777] (-) TimerEvent: {}
+[62.087734] (-) TimerEvent: {}
+[62.188989] (-) TimerEvent: {}
+[62.290203] (-) TimerEvent: {}
+[62.391746] (-) TimerEvent: {}
+[62.493654] (-) TimerEvent: {}
+[62.594550] (-) TimerEvent: {}
+[62.695571] (-) TimerEvent: {}
+[62.796820] (-) TimerEvent: {}
+[62.897790] (-) TimerEvent: {}
+[62.998985] (-) TimerEvent: {}
+[63.100266] (-) TimerEvent: {}
+[63.201555] (-) TimerEvent: {}
+[63.302740] (-) TimerEvent: {}
+[63.403904] (-) TimerEvent: {}
+[63.505134] (-) TimerEvent: {}
+[63.606449] (-) TimerEvent: {}

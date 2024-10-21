@@ -1,0 +1,180 @@
+[0.138s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs -- -j8 -l8
+[0.683s] [  2%] Built target micro_ros_msgs__cpp
+[0.683s] [ 12%] Built target micro_ros_msgs__rosidl_generator_c
+[0.683s] [ 12%] Built target ament_cmake_python_copy_micro_ros_msgs
+[0.684s] [ 23%] Built target micro_ros_msgs__rosidl_typesupport_cpp
+[0.684s] [ 34%] Built target micro_ros_msgs__rosidl_typesupport_introspection_cpp
+[0.684s] [ 44%] Built target micro_ros_msgs__rosidl_typesupport_fastrtps_cpp
+[0.686s] [ 55%] Built target micro_ros_msgs__rosidl_typesupport_c
+[0.686s] [ 65%] Built target micro_ros_msgs__rosidl_typesupport_introspection_c
+[0.686s] [ 76%] Built target micro_ros_msgs__rosidl_typesupport_fastrtps_c
+[0.687s] [ 76%] Built target micro_ros_msgs
+[0.688s] [ 78%] Built target micro_ros_msgs__py
+[0.793s] [ 87%] Built target micro_ros_msgs__rosidl_generator_py
+[0.875s] [ 91%] Built target micro_ros_msgs__rosidl_typesupport_c__pyext
+[0.890s] [ 95%] Built target micro_ros_msgs__rosidl_typesupport_introspection_c__pyext
+[0.896s] [100%] Built target micro_ros_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.950s] running egg_info
+[0.950s] writing micro_ros_msgs.egg-info/PKG-INFO
+[0.951s] writing dependency_links to micro_ros_msgs.egg-info/dependency_links.txt
+[0.952s] writing top-level names to micro_ros_msgs.egg-info/top_level.txt
+[0.957s] reading manifest file 'micro_ros_msgs.egg-info/SOURCES.txt'
+[0.959s] writing manifest file 'micro_ros_msgs.egg-info/SOURCES.txt'
+[1.046s] [100%] Built target ament_cmake_python_build_micro_ros_msgs_egg
+[1.269s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs -- -j8 -l8
+[1.578s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs
+[1.596s] -- Install configuration: ""
+[1.597s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/ament_index/resource_index/rosidl_interfaces/micro_ros_msgs
+[1.599s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.600s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.604s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/node.h
+[1.607s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.608s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__functions.h
+[1.609s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__functions.c
+[1.609s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__struct.h
+[1.609s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__struct.h
+[1.609s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__functions.c
+[1.610s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__functions.h
+[1.610s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__type_support.h
+[1.610s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__functions.c
+[1.611s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__type_support.h
+[1.614s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__type_support.h
+[1.615s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__functions.h
+[1.616s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__struct.h
+[1.616s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.617s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/graph.h
+[1.618s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/entity.h
+[1.619s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/library_path.sh
+[1.620s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/library_path.dsv
+[1.620s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_generator_c.so
+[1.620s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.621s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.621s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.622s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__rosidl_typesupport_fastrtps_c.h
+[1.622s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__rosidl_typesupport_fastrtps_c.h
+[1.623s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__rosidl_typesupport_fastrtps_c.h
+[1.623s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.631s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_c.so
+[1.635s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.635s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.636s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.636s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__type_support.c
+[1.637s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__rosidl_typesupport_introspection_c.h
+[1.638s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__type_support.c
+[1.638s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__rosidl_typesupport_introspection_c.h
+[1.638s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__rosidl_typesupport_introspection_c.h
+[1.638s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__type_support.c
+[1.638s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.648s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_introspection_c.so
+[1.655s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_c.so
+[1.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__traits.hpp
+[1.657s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__traits.hpp
+[1.658s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__struct.hpp
+[1.658s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__traits.hpp
+[1.658s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__builder.hpp
+[1.659s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__struct.hpp
+[1.667s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__struct.hpp
+[1.671s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__builder.hpp
+[1.671s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__builder.hpp
+[1.671s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/node.hpp
+[1.672s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/graph.hpp
+[1.672s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/entity.hpp
+[1.672s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.674s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.674s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.675s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__rosidl_typesupport_fastrtps_cpp.hpp
+[1.675s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__rosidl_typesupport_fastrtps_cpp.hpp
+[1.675s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/dds_fastrtps
+[1.676s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__rosidl_typesupport_fastrtps_cpp.hpp
+[1.676s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.678s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.678s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs
+[1.678s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg
+[1.678s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail
+[1.679s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__type_support.cpp
+[1.679s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/node__rosidl_typesupport_introspection_cpp.hpp
+[1.680s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__rosidl_typesupport_introspection_cpp.hpp
+[1.681s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__rosidl_typesupport_introspection_cpp.hpp
+[1.682s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/entity__type_support.cpp
+[1.682s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/include/micro_ros_msgs/micro_ros_msgs/msg/detail/graph__type_support.cpp
+[1.688s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_introspection_cpp.so
+[1.695s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_typesupport_cpp.so
+[1.696s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/pythonpath.sh
+[1.697s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/pythonpath.dsv
+[1.698s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs-3.0.1-py3.10.egg-info
+[1.698s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs-3.0.1-py3.10.egg-info/dependency_links.txt
+[1.699s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs-3.0.1-py3.10.egg-info/top_level.txt
+[1.699s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs-3.0.1-py3.10.egg-info/SOURCES.txt
+[1.700s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs-3.0.1-py3.10.egg-info/PKG-INFO
+[1.704s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs
+[1.705s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[1.707s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/_micro_ros_msgs_s.ep.rosidl_typesupport_c.c
+[1.708s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/_micro_ros_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[1.709s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg
+[1.709s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_node.py
+[1.709s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_graph_s.c
+[1.709s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_graph.py
+[1.710s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_entity_s.c
+[1.710s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_node_s.c
+[1.710s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/_entity.py
+[1.710s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg/__init__.py
+[1.711s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/libmicro_ros_msgs__rosidl_generator_py.so
+[1.711s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/_micro_ros_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.712s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[1.712s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[1.712s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/__init__.py
+[1.762s] Listing '/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs'...
+[1.763s] Listing '/home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/msg'...
+[1.786s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[1.787s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[1.788s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[1.791s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/lib/libmicro_ros_msgs__rosidl_generator_py.so
+[1.792s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Graph.idl
+[1.792s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Node.idl
+[1.793s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Entity.idl
+[1.793s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Graph.msg
+[1.794s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Node.msg
+[1.794s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/msg/Entity.msg
+[1.795s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/ament_index/resource_index/package_run_dependencies/micro_ros_msgs
+[1.795s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/ament_index/resource_index/parent_prefix_path/micro_ros_msgs
+[1.796s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/ament_prefix_path.sh
+[1.813s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/ament_prefix_path.dsv
+[1.815s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/path.sh
+[1.817s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/environment/path.dsv
+[1.818s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/local_setup.bash
+[1.819s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/local_setup.sh
+[1.820s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/local_setup.zsh
+[1.820s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/local_setup.dsv
+[1.821s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/package.dsv
+[1.822s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/ament_index/resource_index/packages/micro_ros_msgs
+[1.823s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_generator_cExport.cmake
+[1.824s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_generator_cExport-noconfig.cmake
+[1.827s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.828s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[1.828s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.829s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.842s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_cExport.cmake
+[1.842s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[1.845s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_generator_cppExport.cmake
+[1.846s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.847s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[1.851s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.852s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.853s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_cppExport.cmake
+[1.854s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[1.855s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_generator_pyExport.cmake
+[1.856s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/export_micro_ros_msgs__rosidl_generator_pyExport-noconfig.cmake
+[1.856s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/rosidl_cmake-extras.cmake
+[1.857s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.857s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.858s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.858s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.859s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.859s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.860s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgsConfig.cmake
+[1.860s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/cmake/micro_ros_msgsConfig-version.cmake
+[1.860s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/micro_ros_msgs/share/micro_ros_msgs/package.xml
+[2.700s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/micro_ros_msgs

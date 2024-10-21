@@ -1,0 +1,3 @@
+[console_scripts]
+autodock_action_server = action_autodock.autodock_action_server:main
+

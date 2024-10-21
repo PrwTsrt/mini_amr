@@ -1,0 +1,40 @@
+running egg_info
+creating ../../build/robot_nav_tool/robot_nav_tool.egg-info
+writing ../../build/robot_nav_tool/robot_nav_tool.egg-info/PKG-INFO
+writing dependency_links to ../../build/robot_nav_tool/robot_nav_tool.egg-info/dependency_links.txt
+writing entry points to ../../build/robot_nav_tool/robot_nav_tool.egg-info/entry_points.txt
+writing requirements to ../../build/robot_nav_tool/robot_nav_tool.egg-info/requires.txt
+writing top-level names to ../../build/robot_nav_tool/robot_nav_tool.egg-info/top_level.txt
+writing manifest file '../../build/robot_nav_tool/robot_nav_tool.egg-info/SOURCES.txt'
+reading manifest file '../../build/robot_nav_tool/robot_nav_tool.egg-info/SOURCES.txt'
+writing manifest file '../../build/robot_nav_tool/robot_nav_tool.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build
+creating /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib
+creating /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool
+copying robot_nav_tool/robot_nav_operator.py -> /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool
+copying robot_nav_tool/__init__.py -> /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool
+copying robot_nav_tool/nav_gui_bridge.py -> /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool
+running install
+running install_lib
+creating /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool
+copying /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool/robot_nav_operator.py -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool
+copying /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool/__init__.py -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool
+copying /home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/build/lib/robot_nav_tool/nav_gui_bridge.py -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool
+byte-compiling /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool/robot_nav_operator.py to robot_nav_operator.cpython-310.pyc
+byte-compiling /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool/nav_gui_bridge.py to nav_gui_bridge.cpython-310.pyc
+running install_data
+creating /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/ament_index
+creating /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/ament_index/resource_index
+creating /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/ament_index/resource_index/packages
+copying resource/robot_nav_tool -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/ament_index/resource_index/packages
+copying package.xml -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/robot_nav_tool
+creating /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/robot_nav_tool/launch
+copying launch/nav_gui_bridge.launch.py -> /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/share/robot_nav_tool/launch
+running install_egg_info
+Copying ../../build/robot_nav_tool/robot_nav_tool.egg-info to /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/python3.10/site-packages/robot_nav_tool-0.0.0-py3.10.egg-info
+running install_scripts
+Installing nav_gui_bridge script to /home/smr/workspaces/amrROS2_ws/install/robot_nav_tool/lib/robot_nav_tool
+writing list of installed files to '/home/smr/workspaces/amrROS2_ws/build/robot_nav_tool/install.log'

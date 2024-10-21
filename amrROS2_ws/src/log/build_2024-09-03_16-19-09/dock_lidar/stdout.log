@@ -1,0 +1,35 @@
+[35m[1mConsolidate compiler generated dependencies of target dock_coordinates[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/dock_coordinates.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/tf2listener.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/icp_2d.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/dock_coordinates.dir/src/perception.cpp.o[0m
+[ 71%] [32m[1mLinking CXX executable dock_coordinates[0m
+[100%] Built target dock_coordinates
+-- Install configuration: ""
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/linear_pose_filter_2d.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/laser_processor.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/icp_2d.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/dock_candidate.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/perception.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/include/dock_lidar/tf2listener.h
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/config
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/config/dock_config.yaml
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/lib/dock_lidar/dock_coordinates
+-- Set runtime path of "/home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/lib/dock_lidar/dock_coordinates" to ""
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/ament_index/resource_index/package_run_dependencies/dock_lidar
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/ament_index/resource_index/parent_prefix_path/dock_lidar
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/environment/ament_prefix_path.sh
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/environment/ament_prefix_path.dsv
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/environment/path.sh
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/environment/path.dsv
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/local_setup.bash
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/local_setup.sh
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/local_setup.zsh
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/local_setup.dsv
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/package.dsv
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/ament_index/resource_index/packages/dock_lidar
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/cmake/dock_lidarConfig.cmake
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/cmake/dock_lidarConfig-version.cmake
+-- Installing: /home/smr/workspaces/amrROS2_ws/src/install/dock_lidar/share/dock_lidar/package.xml

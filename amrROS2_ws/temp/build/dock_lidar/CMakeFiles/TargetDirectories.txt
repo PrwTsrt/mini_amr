@@ -1,0 +1,10 @@
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/uninstall.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/dock_lidar_uninstall.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/dock_coordinates.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/test.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/edit_cache.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/rebuild_cache.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/list_install_components.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/install.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/install/local.dir
+/home/smr/workspaces/amrROS2_ws/build/dock_lidar/CMakeFiles/install/strip.dir

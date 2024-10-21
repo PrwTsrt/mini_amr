@@ -1,0 +1,17 @@
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/urdf/robot.urdf
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/urdf/robotgot.urdf
+/home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/package_run_dependencies/example
+/home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/parent_prefix_path/example
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/ament_prefix_path.sh
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/ament_prefix_path.dsv
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/path.sh
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/environment/path.dsv
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.bash
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.sh
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.zsh
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/local_setup.dsv
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/package.dsv
+/home/smr/workspaces/amrROS2_ws/install/example/share/ament_index/resource_index/packages/example
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/cmake/exampleConfig.cmake
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/cmake/exampleConfig-version.cmake
+/home/smr/workspaces/amrROS2_ws/install/example/share/example/package.xml

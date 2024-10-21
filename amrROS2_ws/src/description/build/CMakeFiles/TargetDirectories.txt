@@ -1,0 +1,9 @@
+/home/p_rawicht/amr/src/description/build/CMakeFiles/uninstall.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/description_uninstall.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/test.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/edit_cache.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/rebuild_cache.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/list_install_components.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/install.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/install/local.dir
+/home/p_rawicht/amr/src/description/build/CMakeFiles/install/strip.dir

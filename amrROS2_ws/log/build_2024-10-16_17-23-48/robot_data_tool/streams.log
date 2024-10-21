@@ -1,0 +1,23 @@
+[2.030s] Invoking command in '/home/smr/workspaces/amrROS2_ws/src/robot_data_tool': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/robot_data_tool/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_data_tool build --build-base /home/smr/workspaces/amrROS2_ws/build/robot_data_tool/build install --record /home/smr/workspaces/amrROS2_ws/build/robot_data_tool/install.log --single-version-externally-managed install_data
+[2.401s] running egg_info
+[2.402s] writing ../../build/robot_data_tool/robot_data_tool.egg-info/PKG-INFO
+[2.403s] writing dependency_links to ../../build/robot_data_tool/robot_data_tool.egg-info/dependency_links.txt
+[2.404s] writing entry points to ../../build/robot_data_tool/robot_data_tool.egg-info/entry_points.txt
+[2.404s] writing requirements to ../../build/robot_data_tool/robot_data_tool.egg-info/requires.txt
+[2.405s] writing top-level names to ../../build/robot_data_tool/robot_data_tool.egg-info/top_level.txt
+[2.407s] reading manifest file '../../build/robot_data_tool/robot_data_tool.egg-info/SOURCES.txt'
+[2.411s] writing manifest file '../../build/robot_data_tool/robot_data_tool.egg-info/SOURCES.txt'
+[2.413s] running build
+[2.413s] running build_py
+[2.414s] running install
+[2.414s] running install_lib
+[2.418s] running install_data
+[2.418s] running install_egg_info
+[2.419s] removing '/home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/python3.10/site-packages/robot_data_tool-0.0.0-py3.10.egg-info' (and everything under it)
+[2.419s] Copying ../../build/robot_data_tool/robot_data_tool.egg-info to /home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/python3.10/site-packages/robot_data_tool-0.0.0-py3.10.egg-info
+[2.422s] running install_scripts
+[2.494s] Installing absolute_origin_laser script to /home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/robot_data_tool
+[2.495s] Installing map_pose_provider script to /home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/robot_data_tool
+[2.496s] Installing robot_detail script to /home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/robot_data_tool
+[2.497s] writing list of installed files to '/home/smr/workspaces/amrROS2_ws/build/robot_data_tool/install.log'
+[2.666s] Invoked command in '/home/smr/workspaces/amrROS2_ws/src/robot_data_tool' returned '0': PYTHONPATH=/home/smr/workspaces/amrROS2_ws/build/robot_data_tool/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_data_tool build --build-base /home/smr/workspaces/amrROS2_ws/build/robot_data_tool/build install --record /home/smr/workspaces/amrROS2_ws/build/robot_data_tool/install.log --single-version-externally-managed install_data

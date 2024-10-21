@@ -1,0 +1,276 @@
+#include <Arduino.h>
+#include "kinematics.h"
+#include "motor.h"
+#include <encoder.h>
+
+#define PWM_M1      4
+#define DIR_M1      5
+#define PWM_M2      15
+#define DIR_M2      16
+
+#define H1A          6
+#define H1B          7
+#define H2A          47
+#define H2B          48
+
+#define BASE DIFFERENTIAL_DRIVE  
+#define MOTOR_MAX_RPM 67 
+#define MAX_RPM_RATIO 0.85
+#define WHEEL_DIAMETER 0.127            
+#define LR_WHEELS_DISTANCE 0.121
+#define MOTOR_OPERATING_VOLTAGE 12
+#define MOTOR_POWER_MAX_VOLTAGE 12 
+
+const int freq = 21000;
+const int PWM_CH_MOTOR_LEFT = 0;
+const int PWM_CH_MOTOR_RIGHT = 0;
+const int resolution = 8;
+int dutyCycle = 130;
+
+// class Motor{
+//     public:
+//         Motor(uint8_t pwm_pin, uint8_t dir_pin, uint8_t channal, uint16_t frequency, uint8_t resolution)
+//             : pwm_pin_(pwm_pin), dir_pin_(dir_pin), channal_(channal), frequency_(frequency), resolution_(resolution){
+
+//             pinMode(pwm_pin_, OUTPUT);
+//             pinMode(dir_pin_, OUTPUT);
+//             ledcSetup(channal_, frequency_, resolution_);
+//             ledcAttachPin(pwm_pin_, channal_);
+
+//             Serial1.printf("Created Motor instance with %d %d %d %d %d\n", pwm_pin_, dir_pin_, channal_, frequency_,resolution_);
+//         }
+
+//         void drive(int cmd){
+            
+//             uint16_t pwm_limit = pow(2, resolution_) - 1;  
+//             uint16_t pwm;  
+//             bool dir;        
+
+//             if (cmd > 0){ 
+//                 dir = HIGH;
+//                 pwm = cmd;}
+//             else {
+//                 dir = LOW;
+//                 pwm = cmd * -1;}
+
+//             if(pwm > pwm_limit){
+//                 pwm = pwm_limit;}
+
+//             ledcWrite(channal_, pwm);
+//             digitalWrite(dir_pin_, dir);
+
+//             Serial1.printf("DutyCycle: %d in Direction: %d\n", pwm, dir);
+//         }
+
+
+//     private:
+//         uint8_t pwm_pin_;
+//         uint8_t dir_pin_;
+//         uint8_t channal_;
+//         uint8_t resolution_;
+//         uint16_t frequency_;
+
+// };
+
+// class Encoder{
+//     public:
+//         Encoder(uint8_t which_enc, uint8_t pinA, uint8_t pinB)
+//             : which_enc_(which_enc), pinA_(pinA), pinB_(pinB) {}
+
+//         void begin(){
+
+//             pinMode(pinA_, INPUT);
+//             pinMode(pinB_, INPUT);
+
+//             switch (which_enc_)
+//             {
+//             case 0 :
+//                 attachInterrupt(digitalPinToInterrupt(pinA_), Encoder::ISR0, CHANGE);
+//                 attachInterrupt(digitalPinToInterrupt(pinB_), Encoder::ISR0, CHANGE);
+//                 instance0_ = this;
+//                 break;
+            
+//             case 1 :
+//                 attachInterrupt(digitalPinToInterrupt(pinA_), Encoder::ISR1, CHANGE);
+//                 attachInterrupt(digitalPinToInterrupt(pinB_), Encoder::ISR1, CHANGE);
+//                 instance1_ = this;
+//                 break;
+            
+//             case 2 :
+//                 attachInterrupt(digitalPinToInterrupt(pinA_), Encoder::ISR2, CHANGE);
+//                 attachInterrupt(digitalPinToInterrupt(pinB_), Encoder::ISR2, CHANGE);
+//                 instance2_ = this;
+//                 break;
+
+//             case 3 :
+//                 attachInterrupt(digitalPinToInterrupt(pinA_), Encoder::ISR3, CHANGE);
+//                 attachInterrupt(digitalPinToInterrupt(pinB_), Encoder::ISR3, CHANGE);
+//                 instance3_ = this;
+//                 break;
+            
+//             default:
+//                 Serial1.printf("This class is provided for encoder number 0 - 3.");
+//                 break;
+//             }
+
+//         }
+
+//         long get_count() const{
+//             return count_;
+//         }
+
+//     private:
+//         static Encoder *instance0_ ;
+//         static Encoder *instance1_ ;
+//         static Encoder *instance2_ ;
+//         static Encoder *instance3_ ;
+
+//         uint8_t which_enc_;
+//         uint8_t pinA_;
+//         uint8_t pinB_;
+//         volatile long count_;
+
+//         static void ISR0() {
+//           instance0_->handleInterrupt();
+//         }
+
+//         static void ISR1() {
+//           instance1_->handleInterrupt();
+//         }
+
+//         static void ISR2() {
+//           instance2_->handleInterrupt();
+//         }
+
+//         static void ISR3() {
+//           instance3_->handleInterrupt();
+//         }
+
+//         void handleInterrupt(){
+//             static uint8_t lastEncoded = 0;
+//             bool MSB = digitalRead(pinA_); 
+//             bool LSB = digitalRead(pinB_); 
+
+//             uint8_t encoded = (MSB << 1) | LSB; 
+//             uint8_t sum  = (lastEncoded << 2) | encoded; 
+
+//             if(sum == 0b1101 || sum == 0b0100 || sum == 0b0010 || sum == 0b1011) count_++;
+//             if(sum == 0b1110 || sum == 0b0111 || sum == 0b0001 || sum == 0b1000) count_--;
+
+//             lastEncoded = encoded; 
+//         }
+// };
+
+// class Kinematics {
+//     public:
+//         Kinematics(float wheel_diameter, float wheels_y_distance, float motor_max_rpm):
+//             wheel_diameter_(wheel_diameter),
+//             wheels_y_distance_(wheels_y_distance),
+//             motor_max_rpm_(motor_max_rpm),
+//             wheel_circumference_(PI * wheel_diameter){}
+
+//         struct rpm
+//         {
+//             float motor1;
+//             float motor2;
+//             float motor3;
+//             float motor4;
+//         };
+        
+//         struct velocities
+//         {
+//             float linear_x;
+//             float linear_y;
+//             float angular_z;
+//         };
+
+//         struct pwm
+//         {
+//             int motor1;
+//             int motor2;
+//             int motor3;
+//             int motor4;
+//         };
+
+//         velocities getVelocities(float rpm1, float rpm2, float rpm3, float rpm4)
+//         {
+
+
+//         }
+
+//         rpm getRPM(float linear_x, float linear_y, float angular_z)
+//         {
+
+
+//         }
+
+//     private:
+
+//         float wheel_diameter_;
+//         float wheels_y_distance_;
+//         float motor_max_rpm_;
+//         float wheel_circumference_;
+
+//         rpm calculateRPM(float linear_x, float linear_y, float angular_z)
+//         {
+
+//         }
+// };
+
+Motor motor1(PWM_M1, DIR_M1, 0, freq, resolution);
+Motor motor2(PWM_M2, DIR_M2, 0, freq, resolution);
+
+Encoder* Encoder::instance0_ ;
+Encoder* Encoder::instance1_ ;
+Encoder* Encoder::instance2_ ;
+Encoder* Encoder::instance3_ ;
+
+Encoder encoder1(0, H1A, H1B);
+Encoder encoder2(1, H2A, H2B);
+
+// Kinematics kinematics(
+//     BASE,
+//     MOTOR_MAX_RPM,
+//     MAX_RPM_RATIO,
+//     MOTOR_OPERATING_VOLTAGE,
+//     MOTOR_POWER_MAX_VOLTAGE,
+//     WHEEL_DIAMETER,
+//     LR_WHEELS_DISTANCE
+// );
+
+int dir = 1;
+int cmd1 = 0;
+int cmd2 = 0;
+
+void setup() {
+
+    encoder1.begin();
+    encoder2.begin();
+
+    Serial0.begin(115200);                      // Serial port for communication
+    Serial1.begin(115200, SERIAL_8N1, 35, 36);  // Serial port for monitoring
+
+}
+
+
+void loop() {
+
+    if (dutyCycle > 180){
+        dutyCycle = 130;
+        dir *= -1;
+    }
+    else {dutyCycle++;}
+
+    cmd1 = dutyCycle*dir;
+    cmd2 = cmd1* (-1);
+
+    motor1.drive(cmd1);
+    motor2.drive(cmd2);
+
+    long count1 = encoder1.get_count();
+    long count2 = encoder2.get_count();
+    Serial1.printf("Count 1: %ld\n", count1);
+    Serial1.printf("Count 2: %ld\n", count2);
+
+    delay(100);
+}

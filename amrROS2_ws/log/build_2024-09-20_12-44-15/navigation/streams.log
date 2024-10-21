@@ -1,0 +1,36 @@
+[0.660s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/navigation -- -j8 -l8
+[1.204s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/navigation -- -j8 -l8
+[1.312s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/navigation
+[1.398s] -- Install configuration: ""
+[1.398s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/launch
+[1.398s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/launch/navigation_launch.py
+[1.398s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/launch/collision_monitor_node.launch.py
+[1.398s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/launch/navigation.launch.py
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/launch/slam.launch.py
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/config
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/config/navigation.yaml
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/config/slam_localization.yaml
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/config/mapper_params_online_async.yaml
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/config/collision_monitor_params.yaml
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/rviz
+[1.399s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/rviz/slam.rviz
+[1.404s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/rviz/navigation.rviz
+[1.406s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/maps
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/maps/Turtlebot_Arena_map.yaml
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/maps/Turtlebot_Arena_map.pgm
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/ament_index/resource_index/package_run_dependencies/navigation
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/ament_index/resource_index/parent_prefix_path/navigation
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/environment/ament_prefix_path.sh
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/environment/ament_prefix_path.dsv
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/environment/path.sh
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/environment/path.dsv
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/local_setup.bash
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/local_setup.sh
+[1.407s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/local_setup.zsh
+[1.410s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/local_setup.dsv
+[1.442s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/package.dsv
+[1.442s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/ament_index/resource_index/packages/navigation
+[1.442s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/cmake/navigationConfig.cmake
+[1.443s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/cmake/navigationConfig-version.cmake
+[1.443s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/navigation/share/navigation/package.xml
+[1.466s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/navigation

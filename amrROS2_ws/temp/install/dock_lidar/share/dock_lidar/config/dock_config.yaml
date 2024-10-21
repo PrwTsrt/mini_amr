@@ -1,0 +1,12 @@
+---
+dock_coordinates:
+  ros__parameters:
+    #ระยะห่างมากที่สุดของ point ที่ติดกัน - หากจุดมีระยะห่างมากกว่าค่านี้จะแบ่ง point cloud เป็นกลุ่มใหม่
+    point_cloud_split_dist: 0.05
+    #จำนวน point ที่น้อยที่สุดใน point cloud แต่ละกลุ่ม - หากมีจำนวนน้อยกว่านี้จะไม่พิจารณา point cloud กลุ่มนี้
+    minimum_point_cloud: 5
+    #ค่า maximum error  ระหว่าง point cloud ที่อ่านได้จาก lidar กับ reference - หา error มากกว่าค่านี้จะไม่คิดเป็น dock
+    max_alignment_error: 0.007
+    #ช่วงระยะความกว้างของ dock ที่เป็นไปได้
+    max_dock_width: 0.24
+    min_dock_width: 0.20

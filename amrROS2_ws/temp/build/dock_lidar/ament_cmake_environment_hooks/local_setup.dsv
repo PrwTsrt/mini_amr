@@ -1,0 +1,2 @@
+source;share/dock_lidar/environment/ament_prefix_path.sh
+source;share/dock_lidar/environment/path.sh

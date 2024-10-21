@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<robot name="example">
+
+  <material name="yellow">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.345 0.14"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="right_leg">
+    <visual>
+      <geometry>
+        <cylinder length="0.0254" radius="0.0635"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_leg" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_leg"/>
+    <origin xyz="0.1 -0.05 -0.05" rpy="0 1.57 0"/>
+    
+  </joint>
+
+  <link name="left_leg">
+    <visual>
+      <geometry>
+        <cylinder length="0.0254" radius="0.0635"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_leg" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_leg"/>
+    <origin xyz="-0.1 -0.05 -0.05" rpy="0 1.57 0"/>
+    
+  </joint>
+
+  <link name="lidar">
+    <visual>
+      <geometry>
+        <cylinder length="0.0254" radius="0.03"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_lidar" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar"/>
+    <origin xyz="0 -0.1 0.08" rpy="0 0 0"/>
+    
+  </joint>
+
+  <link name="sensorcenter">
+    <visual>
+      <geometry>
+        <box size="0.05 0.04 0.04"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_sensorcenter" type="fixed">
+    <parent link="base_link"/>
+    <child link="sensorcenter"/>
+    <origin xyz="0 -0.2 0.01" rpy="0 0 0"/>
+    
+  </joint>
+
+  <link name="sensorleft">
+    <visual>
+      <geometry>
+        <box size="0.06 0.04 0.04"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_sensorleft" type="fixed">
+    <parent link="base_link"/>
+    <child link="sensorleft"/>
+    <origin xyz="0.08 -0.2 0.01" rpy="0 0 0.5"/>
+    
+  </joint>
+
+  <link name="sensorright">
+    <visual>
+      <geometry>
+        <box size="0.06 0.04 0.04"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_sensorright" type="fixed">
+    <parent link="base_link"/>
+    <child link="sensorright"/>
+    <origin xyz="-0.08 -0.2 0.01" rpy="0 0 -0.5"/>
+    
+  </joint>
+
+  <link name="camera">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="Green"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <origin xyz="0 -0.16 0.08" rpy="0 0 0"/>
+    
+  </joint>
+
+</robot>

@@ -1,0 +1,53 @@
+[1.328s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/sllidar_ros2 -- -j8 -l8
+[1.660s] [ 10%] Built target sllidar_client
+[1.696s] [100%] Built target sllidar_node
+[1.771s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/sllidar_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/sllidar_ros2 -- -j8 -l8
+[2.215s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/sllidar_ros2
+[2.249s] -- Install configuration: ""
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a3_launch.py
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_a2m12_launch.py
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a2m7_launch.py
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_a1_launch.py
+[2.249s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_s2_launch.py
+[2.250s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a2m8_launch.py
+[2.250s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_s3_launch.py
+[2.250s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_t1_launch.py
+[2.250s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a2m12_launch .py
+[2.250s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_s1_launch.py
+[2.251s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_s2_launch.py
+[2.252s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_s1_launch.py
+[2.253s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_c1_launch.py
+[2.253s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_a3_launch.py
+[2.254s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_t1_launch.py
+[2.254s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_s2e_launch.py
+[2.260s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a1_launch.py
+[2.264s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_s2e_launch.py
+[2.265s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_a2m7_launch.py
+[2.266s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_s3_launch.py
+[2.266s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_s1_tcp_launch.py
+[2.267s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_s1_tcp_launch.py
+[2.271s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_c1_launch.py
+[2.308s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/launch/view_sllidar_a2m8_launch.py
+[2.308s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/rviz
+[2.309s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/rviz/sllidar_ros2.rviz
+[2.309s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/lib/sllidar_ros2/sllidar_node
+[2.309s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/lib/sllidar_ros2/sllidar_client
+[2.309s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/ament_index/resource_index/package_run_dependencies/sllidar_ros2
+[2.311s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/ament_index/resource_index/parent_prefix_path/sllidar_ros2
+[2.313s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/environment/ament_prefix_path.sh
+[2.315s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/environment/ament_prefix_path.dsv
+[2.316s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/environment/path.sh
+[2.317s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/environment/path.dsv
+[2.318s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/local_setup.bash
+[2.318s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/local_setup.sh
+[2.319s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/local_setup.zsh
+[2.319s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/local_setup.dsv
+[2.319s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/package.dsv
+[2.320s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/ament_index/resource_index/packages/sllidar_ros2
+[2.320s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.321s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.329s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/cmake/sllidar_ros2Config.cmake
+[2.330s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/cmake/sllidar_ros2Config-version.cmake
+[2.331s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/sllidar_ros2/share/sllidar_ros2/package.xml
+[2.380s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/sllidar_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/robot_nav_tool:/home/smr/workspaces/amrROS2_ws/install/robot_data_tool:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/home/smr/workspaces/amrROS2_ws/install/action_autodock:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/sllidar_ros2

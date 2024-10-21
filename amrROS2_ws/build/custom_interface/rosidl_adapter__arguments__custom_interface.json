@@ -1,0 +1,7 @@
+{
+  "package_name": "custom_interface",
+  "non_idl_tuples": [
+    "/home/smr/workspaces/amrROS2_ws/src/custom_interface:action/Autodock.action",
+    "/home/smr/workspaces/amrROS2_ws/src/custom_interface:msg/Initdock.msg"
+  ]
+}

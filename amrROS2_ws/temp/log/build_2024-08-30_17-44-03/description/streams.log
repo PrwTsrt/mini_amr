@@ -1,0 +1,40 @@
+[0.059s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/description -- -j8 -l8
+[0.558s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --build /home/smr/workspaces/amrROS2_ws/build/description -- -j8 -l8
+[0.636s] Invoking command in '/home/smr/workspaces/amrROS2_ws/build/description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/description
+[0.654s] -- Install configuration: ""
+[0.655s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf
+[0.655s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/property
+[0.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/property/robot_property.urdf.xacro
+[0.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/sensors
+[0.656s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/sensors/range_sensor.urdf.xacro
+[0.657s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/sensors/imu.urdf.xacro
+[0.657s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/sensors/laser.urdf.xacro
+[0.657s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/sensors/camera.urdf.xacro
+[0.657s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/controllers
+[0.658s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/controllers/diff_drive_controller.urdf.xacro
+[0.658s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/mech
+[0.663s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/mech/wheel.urdf.xacro
+[0.663s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/mech/caster_wheel.urdf.xacro
+[0.663s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/mech/base.urdf.xacro
+[0.663s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/robot
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/urdf/robot/robot.urdf.xacro
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/rviz
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/rviz/description.rviz
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/launch
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/launch/description.launch.py
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/ament_index/resource_index/package_run_dependencies/description
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/ament_index/resource_index/parent_prefix_path/description
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/environment/ament_prefix_path.sh
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/environment/ament_prefix_path.dsv
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/environment/path.sh
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/environment/path.dsv
+[0.664s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/local_setup.bash
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/local_setup.sh
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/local_setup.zsh
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/local_setup.dsv
+[0.665s] -- Installing: /home/smr/workspaces/amrROS2_ws/install/description/share/description/package.dsv
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/ament_index/resource_index/packages/description
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/cmake/descriptionConfig.cmake
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/cmake/descriptionConfig-version.cmake
+[0.665s] -- Up-to-date: /home/smr/workspaces/amrROS2_ws/install/description/share/description/package.xml
+[0.666s] Invoked command in '/home/smr/workspaces/amrROS2_ws/build/description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/smr/workspaces/amrROS2_ws/install/python_pkg:/opt/ros/humble /usr/bin/cmake --install /home/smr/workspaces/amrROS2_ws/build/description

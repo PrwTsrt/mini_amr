@@ -1,0 +1,3 @@
+[console_scripts]
+nav_gui_bridge = robot_nav_tool.nav_gui_bridge:main
+
