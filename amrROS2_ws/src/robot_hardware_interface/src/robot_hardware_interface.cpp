@@ -99,6 +99,8 @@ void HardwareInterface::ParseData(uint8_t FUNC_TYPE, const std::vector<uint8_t>&
         linear_acceleration.y = acc_y / 1000.0;
         linear_acceleration.z = acc_z / 1000.0;
 
+        update_imu_ = true;
+
         if(DEBUG_IMU){
             std::cout << "IMU -";
             std::cout << " " << angular_velocity.x;
@@ -118,6 +120,8 @@ void HardwareInterface::ParseData(uint8_t FUNC_TYPE, const std::vector<uint8_t>&
         odom_velocity.y = Vy / 1000.0;
         odom_velocity.z = Wz / 1000.0;
 
+        update_odom_ = true;
+
         if(DEBUG_ODOM){
             std::cout << "Odom -";
             std::cout << " " << odom_velocity.x / 1000.0;
@@ -134,6 +138,8 @@ void HardwareInterface::ParseData(uint8_t FUNC_TYPE, const std::vector<uint8_t>&
         range_center = range_2 / 1000.0;
         range_right  = range_3 / 1000.0;
 
+        update_range_ = true;
+
         if(DEBUG_RANGE){
             std::cout << "Range -";
             std::cout << " " << range_left;
@@ -148,12 +154,19 @@ void HardwareInterface::ParseData(uint8_t FUNC_TYPE, const std::vector<uint8_t>&
         voltage_ = voltage / 1000.0;
         current_ = current;
 
+        update_batt_ = true;
+
         if(DEBUG_BATT){
             std::cout << "Battery -";
             std::cout << " " << voltage;
             std::cout << " " << current << std::endl;
         }
     }
+
+    // update_imu_ = false;
+    // update_odom_ = false;
+    // update_range_ = false;
+    // update_batt_ = false;
 }
 
 void HardwareInterface::SendData(uint8_t FUNC_TYPE, const std::vector<uint8_t>& param) {

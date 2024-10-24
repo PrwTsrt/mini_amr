@@ -39,6 +39,11 @@ public:
     float voltage_;
     float current_;
 
+    bool update_imu_;
+    bool update_odom_;
+    bool update_range_;
+    bool update_batt_;
+
     HardwareInterface(const std::string& port);
 
     ~HardwareInterface();

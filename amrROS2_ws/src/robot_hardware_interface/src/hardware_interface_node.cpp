@@ -40,11 +40,16 @@ public:
     range_center_pub_ = create_publisher<sensor_msgs::msg::Range>("range/center", 10);
     range_right_pub_  = create_publisher<sensor_msgs::msg::Range>("range/right", 10);
 
-    timer_imu_  = create_wall_timer(25ms , std::bind(&HardwareInterfaceNode::timerIMUCallback, this));
-    timer_odom_ = create_wall_timer(25ms , std::bind(&HardwareInterfaceNode::timerOdomCallback, this));    
-    timer_ip_   = create_wall_timer(10s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
-    timer_range_ = create_wall_timer(25ms, std::bind(&HardwareInterfaceNode::timerRangeCallback, this));
-    timer_batt_ = create_wall_timer(200ms, std::bind(&HardwareInterfaceNode::timerBattCallback, this));
+  /////////////////////////////////////////////////////////////////////////////////////////
+    // timer_imu_  = create_wall_timer(25ms , std::bind(&HardwareInterfaceNode::timerIMUCallback, this));
+    // timer_odom_ = create_wall_timer(25ms , std::bind(&HardwareInterfaceNode::timerOdomCallback, this));    
+    // timer_range_ = create_wall_timer(25ms, std::bind(&HardwareInterfaceNode::timerRangeCallback, this));
+    // timer_batt_ = create_wall_timer(200ms, std::bind(&HardwareInterfaceNode::timerBattCallback, this));
+    // timer_ip_          = create_wall_timer(10s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
+  /////////////////////////////////////////////////////////////////////////////////////////
+
+    timer_ip_          = create_wall_timer(10s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
+    timer_update_data_ = create_wall_timer(1ms  , std::bind(&HardwareInterfaceNode::timerUpdateCallback, this));
 
     ut_fov_       = 20.0;
     ut_min_range_ = 0.03;
@@ -101,16 +106,22 @@ private:
   rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_left_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_center_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_right_pub_;
+  
+/////////////////////////////////////////////////////////////////////////////////////////
+  // rclcpp::TimerBase::SharedPtr timer_imu_;
+  // rclcpp::TimerBase::SharedPtr timer_odom_;
+  // rclcpp::TimerBase::SharedPtr timer_range_;
+  // rclcpp::TimerBase::SharedPtr timer_ip_;
+  // rclcpp::TimerBase::SharedPtr timer_batt_;
+/////////////////////////////////////////////////////////////////////////////////////////
 
-  rclcpp::TimerBase::SharedPtr timer_imu_;
-  rclcpp::TimerBase::SharedPtr timer_odom_;
-  rclcpp::TimerBase::SharedPtr timer_range_;
   rclcpp::TimerBase::SharedPtr timer_ip_;
-  rclcpp::TimerBase::SharedPtr timer_batt_;
+  rclcpp::TimerBase::SharedPtr timer_update_data_;
 
   sensor_msgs::msg::Imu msg_imu_;
   nav_msgs::msg::Odometry msg_odom_;
   sensor_msgs::msg::Range msg_range_left_, msg_range_center_, msg_range_right_;
+  sensor_msgs::msg::BatteryState msg_batt_;
 
   float ut_fov_;
   float ut_min_range_;
@@ -133,54 +144,110 @@ private:
     }
   }
 
-  void timerIMUCallback()
+  void timerUpdateCallback()
   {
-    msg_imu_.header.stamp = get_clock()->now();
+    auto current_time = get_clock()->now();
 
-    msg_imu_.angular_velocity.x = hardware_interface->angular_velocity.x;
-    msg_imu_.angular_velocity.y = hardware_interface->angular_velocity.y;
-    msg_imu_.angular_velocity.z = hardware_interface->angular_velocity.z;
+    if (hardware_interface->update_imu_)
+    {
+      msg_imu_.header.stamp = current_time;
+      msg_imu_.angular_velocity.x = hardware_interface->angular_velocity.x;
+      msg_imu_.angular_velocity.y = hardware_interface->angular_velocity.y;
+      msg_imu_.angular_velocity.z = hardware_interface->angular_velocity.z;
 
-    msg_imu_.linear_acceleration.x = hardware_interface->linear_acceleration.x;
-    msg_imu_.linear_acceleration.y = hardware_interface->linear_acceleration.y;
-    msg_imu_.linear_acceleration.z = hardware_interface->linear_acceleration.z;
+      msg_imu_.linear_acceleration.x = hardware_interface->linear_acceleration.x;
+      msg_imu_.linear_acceleration.y = hardware_interface->linear_acceleration.y;
+      msg_imu_.linear_acceleration.z = hardware_interface->linear_acceleration.z;
 
-    imu_pub_->publish(msg_imu_);
+      hardware_interface->update_imu_ = false;
+      imu_pub_->publish(msg_imu_);
+    }
+    else if (hardware_interface->update_odom_)
+    {
+      msg_odom_.header.stamp = current_time;
+      msg_odom_.twist.twist.linear.x = hardware_interface->odom_velocity.x;
+      msg_odom_.twist.twist.linear.y = hardware_interface->odom_velocity.y;
+      msg_odom_.twist.twist.angular.z = hardware_interface->odom_velocity.z;
+
+      hardware_interface->update_odom_ = false;
+      odom_pub_->publish(msg_odom_);
+    }
+    else if (hardware_interface->update_range_)
+    {
+      msg_range_left_.header.stamp   = current_time;
+      msg_range_center_.header.stamp = current_time;
+      msg_range_right_.header.stamp  = current_time;
+
+      msg_range_left_.range = hardware_interface->range_left;
+      msg_range_center_.range = hardware_interface->range_center;
+      msg_range_right_.range = hardware_interface->range_right;
+
+      hardware_interface->update_range_ = false;
+
+      range_left_pub_->publish(msg_range_left_);
+      range_center_pub_->publish(msg_range_center_);
+      range_right_pub_->publish(msg_range_right_);
+    }
+    else if (hardware_interface->update_batt_)
+    {
+      msg_batt_.voltage = hardware_interface->voltage_;
+      msg_batt_.current = hardware_interface->current_;
+
+      hardware_interface->update_batt_ = false;
+
+      batt_pub_->publish(msg_batt_);
+    }
+
   }
 
-  void timerOdomCallback()
-  {
-    msg_odom_.header.stamp = get_clock()->now();
-    msg_odom_.twist.twist.linear.x = hardware_interface->odom_velocity.x;
-    msg_odom_.twist.twist.linear.y = hardware_interface->odom_velocity.y;
-    msg_odom_.twist.twist.angular.z = hardware_interface->odom_velocity.z;
-    odom_pub_->publish(msg_odom_);
-  }
+  // void timerIMUCallback()
+  // {
+  //   msg_imu_.header.stamp = get_clock()->now();
 
-  void timerRangeCallback()
-  {
-    msg_range_left_.header.stamp = get_clock()->now();
-    msg_range_center_.header.stamp = get_clock()->now();
-    msg_range_right_.header.stamp = get_clock()->now();
+  //   msg_imu_.angular_velocity.x = hardware_interface->angular_velocity.x;
+  //   msg_imu_.angular_velocity.y = hardware_interface->angular_velocity.y;
+  //   msg_imu_.angular_velocity.z = hardware_interface->angular_velocity.z;
 
-    msg_range_left_.range = hardware_interface->range_left;
-    msg_range_center_.range = hardware_interface->range_center;
-    msg_range_right_.range = hardware_interface->range_right;
+  //   msg_imu_.linear_acceleration.x = hardware_interface->linear_acceleration.x;
+  //   msg_imu_.linear_acceleration.y = hardware_interface->linear_acceleration.y;
+  //   msg_imu_.linear_acceleration.z = hardware_interface->linear_acceleration.z;
 
-    range_left_pub_->publish(msg_range_left_);
-    range_center_pub_->publish(msg_range_center_);
-    range_right_pub_->publish(msg_range_right_);
-  }
+  //   imu_pub_->publish(msg_imu_);
+  // }
 
-  void timerBattCallback()
-  {
-    auto msg_batt = sensor_msgs::msg::BatteryState();
+  // void timerOdomCallback()
+  // {
+  //   msg_odom_.header.stamp = get_clock()->now();
+  //   msg_odom_.twist.twist.linear.x = hardware_interface->odom_velocity.x;
+  //   msg_odom_.twist.twist.linear.y = hardware_interface->odom_velocity.y;
+  //   msg_odom_.twist.twist.angular.z = hardware_interface->odom_velocity.z;
+  //   odom_pub_->publish(msg_odom_);
+  // }
 
-    msg_batt.voltage = hardware_interface->voltage_;
-    msg_batt.current = hardware_interface->current_;
+  // void timerRangeCallback()
+  // {
+  //   msg_range_left_.header.stamp = get_clock()->now();
+  //   msg_range_center_.header.stamp = get_clock()->now();
+  //   msg_range_right_.header.stamp = get_clock()->now();
 
-    batt_pub_->publish(msg_batt);
-  }
+  //   msg_range_left_.range = hardware_interface->range_left;
+  //   msg_range_center_.range = hardware_interface->range_center;
+  //   msg_range_right_.range = hardware_interface->range_right;
+
+  //   range_left_pub_->publish(msg_range_left_);
+  //   range_center_pub_->publish(msg_range_center_);
+  //   range_right_pub_->publish(msg_range_right_);
+  // }
+
+  // void timerBattCallback()
+  // {
+  //   auto msg_batt = sensor_msgs::msg::BatteryState();
+
+  //   msg_batt.voltage = hardware_interface->voltage_;
+  //   msg_batt.current = hardware_interface->current_;
+
+  //   batt_pub_->publish(msg_batt);
+  // }
 
   void timerIPCallback()
   {

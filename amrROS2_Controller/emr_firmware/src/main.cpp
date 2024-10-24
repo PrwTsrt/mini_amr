@@ -60,11 +60,12 @@
 #define LR_WHEELS_DISTANCE      0.121
 #define MOTOR_OPERATING_VOLTAGE 12
 #define MOTOR_POWER_MAX_VOLTAGE 12 
+#define ENC_PULSE_PER_REV       6114
 
 #define PWM_NEG_M1 -120
-#define PWM_POS_M1 120
+#define PWM_POS_M1  120
 #define PWM_NEG_M2 -120
-#define PWM_POS_M2 120
+#define PWM_POS_M2  120
 
 const int freq = 21000;
 const int PWM_CH_MOTOR_LEFT = 0;
@@ -91,8 +92,8 @@ Encoder* Encoder::instance1_ ;
 Encoder* Encoder::instance2_ ;
 Encoder* Encoder::instance3_ ;
 
-Encoder encoder1(0, H1A, H1B, 6114);
-Encoder encoder2(1, H2A, H2B, 6114);
+Encoder encoder1(0, H1A, H1B, ENC_PULSE_PER_REV);
+Encoder encoder2(1, H2A, H2B, ENC_PULSE_PER_REV);
 
 Kinematics kinematics(
     Kinematics::BASE,
@@ -422,9 +423,6 @@ void ranger_task(void *arg)
             range[i] = ultrasonic[i].MeasureInCentimeters();            
             if (range[i] > 50) {range[i] = 50;}
 
-            range_samples[i][currentSample] = range[i];
-            filtered_range[i] = getMovingAverage(range_samples[i], ut_sample_size);
-
             if (DEBUG_RANGE){
                 uint64_t end_time = millis();
                 uint32_t dt = end_time - start_time;
@@ -434,11 +432,9 @@ void ranger_task(void *arg)
             }
         }  
 
-        currentSample = (currentSample + 1) % ut_sample_size;
-
-        int16_t range_right   = static_cast<int16_t>(filtered_range[0] *10);
-        int16_t range_center = static_cast<int16_t>(filtered_range[1] *10);
-        int16_t range_left  = static_cast<int16_t>(filtered_range[2] *10);
+        int16_t range_right  = static_cast<int16_t>(range[0] *10);
+        int16_t range_center = static_cast<int16_t>(range[1] *10);
+        int16_t range_left   = static_cast<int16_t>(range[2] *10);
 
         std::vector<uint8_t> cmd = {
             static_cast<uint8_t>(range_left   & 0xFF), static_cast<uint8_t>((range_left   >> 8) & 0xFF),
@@ -475,7 +471,9 @@ void oled_task(void *arg)
 
     while(1)
     {
-        Serial1.println(connected);
+
+        if(DEBUG_OLED){Serial1.println(connected);}
+
         if (connected){
             if( millis() - prev_ip_time > 15000 ){connected = false;}
             centerText(ip_address, 3);
@@ -538,7 +536,7 @@ void oled_task(void *arg)
 
         centerText(warn_msg, 1);
 
-        vTaskDelay(pdMS_TO_TICKS(500));
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
 
@@ -548,8 +546,8 @@ void safty_task(void *arg)
     {
         uint64_t cliff_start_time = millis(); 
 
-        float cliff_range = vl.readRange();   
-        // float cliff_range = 15.0;   
+        // float cliff_range = vl.readRange();   
+        float cliff_range = 15.0;   
 
         bumper_state = !digitalRead(BUMPER_PIN);
         emer_state   = !digitalRead(EMER_PIN);
@@ -661,7 +659,7 @@ void setup() {
     xTaskCreatePinnedToCore(recive_data_task, "recive_data_task", 4096, NULL, 1, NULL, 0);  
     xTaskCreatePinnedToCore(control_task    , "control_task"    , 4096, NULL, 1, NULL, 1);  
     xTaskCreatePinnedToCore(ranger_task     , "ranger_task"     , 4096, NULL, 1, NULL, 0);  
-    xTaskCreatePinnedToCore(oled_task       , "oled_task"       , 4096, NULL, 1, NULL, 1); 
+    // xTaskCreatePinnedToCore(oled_task       , "oled_task"       , 4096, NULL, 1, NULL, 0); 
     // xTaskCreatePinnedToCore(battery_task    , "battery_task"    , 4096, NULL, 1, NULL, 1);   
     // xTaskCreatePinnedToCore(safty_task      , "safty_task"      , 4096, NULL, 1, NULL, 0);                 
 
