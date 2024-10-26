@@ -10,6 +10,7 @@
 #include <chrono>
 #include <arpa/inet.h>
 #include <ifaddrs.h>
+#include <math.h>
 
 #include "hardware_interface/robot_hardware_interface.h"
 
@@ -127,6 +128,27 @@ private:
   float ut_min_range_;
   float ut_max_range_;
 
+  float pos_x_;
+  float pos_y_;
+  float heading_;
+
+  uint64_t prev_update_;
+
+  void odom_euler_to_quat(float roll, float pitch, float yaw, float *q)
+  {
+    float cy = cos(yaw * 0.5);
+    float sy = sin(yaw * 0.5);
+    float cp = cos(pitch * 0.5);
+    float sp = sin(pitch * 0.5);
+    float cr = cos(roll * 0.5);
+    float sr = sin(roll * 0.5);
+
+    q[0] = cy * cp * cr + sy * sp * sr;
+    q[1] = cy * cp * sr - sy * sp * cr;
+    q[2] = sy * cp * sr + cy * sp * cr;
+    q[3] = sy * cp * cr - cy * sp * sr;
+  }
+
   void twistCallback(const geometry_msgs::msg::Twist & msg)
   {
     // RCLCPP_INFO(this->get_logger(), "Received linear x: '%f', angular z: '%f'", msg.linear.x, msg.angular.z);
@@ -162,9 +184,38 @@ private:
       hardware_interface->update_imu_ = false;
       imu_pub_->publish(msg_imu_);
     }
+
     else if (hardware_interface->update_odom_)
     {
+      uint64_t dt = current_time.nanoseconds() - prev_update_;
+      float dt_seconds = static_cast<float>(dt) / 1000000000.0f;
+
+      float delta_heading = hardware_interface->odom_velocity.z * dt_seconds; // radians
+      float cos_h = cos(heading_);
+      float sin_h = sin(heading_);
+      float delta_x = (hardware_interface->odom_velocity.x * cos_h - hardware_interface->odom_velocity.y * sin_h) * dt_seconds; // m
+      float delta_y = (hardware_interface->odom_velocity.x * sin_h + hardware_interface->odom_velocity.x * cos_h) * dt_seconds; // m
+
+      // printf("delta_x: %f, delta_y: %f\n", delta_x, delta_y);
+
+      pos_x_ += delta_x;
+      pos_y_ += delta_y;
+      heading_ += delta_heading;
+
+      float q[4];
+      odom_euler_to_quat(0, 0, heading_, q);
+
       msg_odom_.header.stamp = current_time;
+
+      msg_odom_.pose.pose.position.x = pos_x_;
+      msg_odom_.pose.pose.position.y = pos_y_;
+      msg_odom_.pose.pose.position.z = 0.0;
+
+      msg_odom_.pose.pose.orientation.x = (double)q[1];
+      msg_odom_.pose.pose.orientation.y = (double)q[2];
+      msg_odom_.pose.pose.orientation.z = (double)q[3];
+      msg_odom_.pose.pose.orientation.w = (double)q[0];
+
       msg_odom_.twist.twist.linear.x = hardware_interface->odom_velocity.x;
       msg_odom_.twist.twist.linear.y = hardware_interface->odom_velocity.y;
       msg_odom_.twist.twist.angular.z = hardware_interface->odom_velocity.z;
@@ -172,6 +223,7 @@ private:
       hardware_interface->update_odom_ = false;
       odom_pub_->publish(msg_odom_);
     }
+
     else if (hardware_interface->update_range_)
     {
       msg_range_left_.header.stamp   = current_time;
@@ -188,6 +240,7 @@ private:
       range_center_pub_->publish(msg_range_center_);
       range_right_pub_->publish(msg_range_right_);
     }
+
     else if (hardware_interface->update_batt_)
     {
       msg_batt_.voltage = hardware_interface->voltage_;
@@ -197,6 +250,8 @@ private:
 
       batt_pub_->publish(msg_batt_);
     }
+
+    prev_update_ = current_time.nanoseconds();
 
   }
 
