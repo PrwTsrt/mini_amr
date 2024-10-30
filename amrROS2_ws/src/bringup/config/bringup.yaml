@@ -26,7 +26,7 @@ ekf_filter_node:
                         false, false, true,
                         false, false, false,
                         false, false, true,
-                        false, false, false]    
+                        false, false, false]     
 
 imu_filter:
     ros__parameters:

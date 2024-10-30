@@ -1,0 +1,143 @@
+/*
+    INA226 Bi-directional Current/Power Monitor. Simple Example.
+    Read more: http://www.jarzebski.pl/arduino/czujniki-i-sensory/cyfrowy-czujnik-pradu-mocy-ina226.html
+    GIT: https://github.com/jarzebski/Arduino-INA226
+    Web: http://www.jarzebski.pl
+    (c) 2014 by Korneliusz Jarzebski
+*/
+
+#include <Arduino.h>
+#include <Wire.h>
+#include <INA226.h>
+
+INA226 ina(Wire);
+
+void checkConfig()
+{
+  Serial1.print("Mode:                  ");
+  switch (ina.getMode())
+  {
+    case INA226_MODE_POWER_DOWN:      Serial1.println("Power-Down"); break;
+    case INA226_MODE_SHUNT_TRIG:      Serial1.println("Shunt Voltage, Triggered"); break;
+    case INA226_MODE_BUS_TRIG:        Serial1.println("Bus Voltage, Triggered"); break;
+    case INA226_MODE_SHUNT_BUS_TRIG:  Serial1.println("Shunt and Bus, Triggered"); break;
+    case INA226_MODE_ADC_OFF:         Serial1.println("ADC Off"); break;
+    case INA226_MODE_SHUNT_CONT:      Serial1.println("Shunt Voltage, Continuous"); break;
+    case INA226_MODE_BUS_CONT:        Serial1.println("Bus Voltage, Continuous"); break;
+    case INA226_MODE_SHUNT_BUS_CONT:  Serial1.println("Shunt and Bus, Continuous"); break;
+    default: Serial1.println("unknown");
+  }
+  
+  Serial1.print("Samples average:       ");
+  switch (ina.getAverages())
+  {
+    case INA226_AVERAGES_1:           Serial1.println("1 sample"); break;
+    case INA226_AVERAGES_4:           Serial1.println("4 samples"); break;
+    case INA226_AVERAGES_16:          Serial1.println("16 samples"); break;
+    case INA226_AVERAGES_64:          Serial1.println("64 samples"); break;
+    case INA226_AVERAGES_128:         Serial1.println("128 samples"); break;
+    case INA226_AVERAGES_256:         Serial1.println("256 samples"); break;
+    case INA226_AVERAGES_512:         Serial1.println("512 samples"); break;
+    case INA226_AVERAGES_1024:        Serial1.println("1024 samples"); break;
+    default: Serial1.println("unknown");
+  }
+
+  Serial1.print("Bus conversion time:   ");
+  switch (ina.getBusConversionTime())
+  {
+    case INA226_BUS_CONV_TIME_140US:  Serial1.println("140uS"); break;
+    case INA226_BUS_CONV_TIME_204US:  Serial1.println("204uS"); break;
+    case INA226_BUS_CONV_TIME_332US:  Serial1.println("332uS"); break;
+    case INA226_BUS_CONV_TIME_588US:  Serial1.println("558uS"); break;
+    case INA226_BUS_CONV_TIME_1100US: Serial1.println("1.100ms"); break;
+    case INA226_BUS_CONV_TIME_2116US: Serial1.println("2.116ms"); break;
+    case INA226_BUS_CONV_TIME_4156US: Serial1.println("4.156ms"); break;
+    case INA226_BUS_CONV_TIME_8244US: Serial1.println("8.244ms"); break;
+    default: Serial1.println("unknown");
+  }
+
+  Serial1.print("Shunt conversion time: ");
+  switch (ina.getShuntConversionTime())
+  {
+    case INA226_SHUNT_CONV_TIME_140US:  Serial1.println("140uS"); break;
+    case INA226_SHUNT_CONV_TIME_204US:  Serial1.println("204uS"); break;
+    case INA226_SHUNT_CONV_TIME_332US:  Serial1.println("332uS"); break;
+    case INA226_SHUNT_CONV_TIME_588US:  Serial1.println("558uS"); break;
+    case INA226_SHUNT_CONV_TIME_1100US: Serial1.println("1.100ms"); break;
+    case INA226_SHUNT_CONV_TIME_2116US: Serial1.println("2.116ms"); break;
+    case INA226_SHUNT_CONV_TIME_4156US: Serial1.println("4.156ms"); break;
+    case INA226_SHUNT_CONV_TIME_8244US: Serial1.println("8.244ms"); break;
+    default: Serial1.println("unknown");
+  }
+  
+  Serial1.print("Max possible current:  ");
+  Serial1.print(ina.getMaxPossibleCurrent());
+  Serial1.println(" A");
+
+  Serial1.print("Max current:           ");
+  Serial1.print(ina.getMaxCurrent());
+  Serial1.println(" A");
+
+  Serial1.print("Max shunt voltage:     ");
+  Serial1.print(ina.getMaxShuntVoltage());
+  Serial1.println(" V");
+
+  Serial1.print("Max power:             ");
+  Serial1.print(ina.getMaxPower());
+  Serial1.println(" W");
+}
+
+void setup() 
+{
+//   Serial.begin(115200);
+  Serial1.begin(115200, SERIAL_8N1, 35, 36);
+
+  Serial1.println("Initialize INA226");
+  Serial1.println("-----------------------------------------------");
+
+  Wire.begin();
+
+  // Default INA226 address is 0x40
+  bool success = ina.begin();
+
+  // Check if the connection was successful, stop if not
+  if(!success)
+  {
+    Serial1.println("Connection error");
+    while(1);
+  }
+
+  // Configure INA226
+  ina.configure(INA226_AVERAGES_1, INA226_BUS_CONV_TIME_1100US, INA226_SHUNT_CONV_TIME_1100US, INA226_MODE_SHUNT_BUS_CONT);
+
+  // Calibrate INA226. Rshunt = 0.01 ohm, Max excepted current = 4A
+  ina.calibrate(0.01, 4);
+
+  // Display configuration
+  checkConfig();
+
+  Serial1.println("-----------------------------------------------");
+}
+
+void loop()
+{
+  Serial1.print("Bus voltage:   ");
+  Serial1.print(ina.readBusVoltage(), 5);
+  Serial1.println(" V");
+
+  Serial1.print("Bus power:     ");
+  Serial1.print(ina.readBusPower(), 5);
+  Serial1.println(" W");
+
+
+  Serial1.print("Shunt voltage: ");
+  Serial1.print(ina.readShuntVoltage(), 5);
+  Serial1.println(" V");
+
+  Serial1.print("Shunt current: ");
+  Serial1.print(ina.readShuntCurrent(), 5);
+  Serial1.println(" A");
+
+  Serial1.println("");
+  delay(1000);
+}

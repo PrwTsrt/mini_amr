@@ -13,7 +13,8 @@
 #include <Ultrasonic.h>
 #include <ACROBOTIC_SSD1306.h>
 #include <Adafruit_VL6180X.h>
-#include <Adafruit_INA219.h>
+#include <INA226.h>
+// #include <Adafruit_INA219.h>
 
 #define DEBUG           false
 #define DEBUG_IMU       false
@@ -25,11 +26,12 @@
 #define DEBUG_SEND      false
 #define DEBUG_RECEIVE   false
 #define DEBUG_OLED      false
-#define DEBUG_SAFTY     false
+#define DEBUG_SAFTY     true
 #define DEBUG_BATT      false
 
 #define EMER_PIN    37
 #define BUMPER_PIN  8
+#define LED_PIN     38
 
 #define HEAD        0xFF
 #define HOST_ID     0x00
@@ -57,7 +59,7 @@
 #define MOTOR_MAX_RPM           67 
 #define MAX_RPM_RATIO           0.85
 #define WHEEL_DIAMETER          0.127            
-#define LR_WHEELS_DISTANCE      0.121
+#define LR_WHEELS_DISTANCE      0.242
 #define MOTOR_OPERATING_VOLTAGE 12
 #define MOTOR_POWER_MAX_VOLTAGE 12 
 #define ENC_PULSE_PER_REV       6114
@@ -117,7 +119,8 @@ Ultrasonic ultrasonic[3] = {
 };
 
 Adafruit_VL6180X vl = Adafruit_VL6180X();
-Adafruit_INA219 ina219;
+INA226 INA(0x40);
+// Adafruit_INA219 ina219;
 
 String ip_address, prev_ip; 
 uint8_t status, prev_status;
@@ -465,68 +468,73 @@ void centerText(String text, uint8_t row)
 
 void oled_task(void *arg)
 {     
-    String warn_msg;
-    bool connected = false; 
+    String warn_msg, prev_warn;
+    bool connected = false, prev_state; 
     bool flag = false;
 
     while(1)
     {
-
-        if(DEBUG_OLED){Serial1.println(connected);}
+        uint64_t start_time = millis();
 
         if (connected){
             if( millis() - prev_ip_time > 15000 ){connected = false;}
-            centerText(ip_address, 3);
-            centerText(" ", 4);
-            centerText(" ", 6);
         }
         else{
             if( millis() - prev_ip_time < 1000){
-                if(flag){
-                    connected = true;
+                if(flag){connected = true;}
+                else{             
+                    flag = true;
+                    centerText(" ", 3);
+                    centerText("WAITING  FOR", 4);
+                    centerText("CONNECTION", 6);
                 }
-                flag = true;
-            }
-            centerText(" ", 3);
-            centerText("WAITING  FOR", 4);
-            centerText("CONNECTION", 6);
-        }
-        
-        if(status != prev_status){
-            String str_status;
-            switch (status)
-            {
-                case 0 :
-                str_status = " UNKNOWN";
-                break;
-                case 1 :
-                str_status = " ACCEPTED";
-                break;
-                case 2 :
-                str_status = "EXECUTING";
-                break;
-                case 3 :
-                str_status = "CANCELING";
-                break;
-                case 4 :
-                str_status = "SUCCEEDED";
-                break;
-                case 5 :
-                str_status = " CANCELED";
-                break;
-                case 6 :
-                str_status = " ABORTED";
-                break;
-                default:
-                break;
-            }
-            if(status != 0){
-                centerText("STATUS:" + str_status, 5);
+        }}
+
+        if(connected != prev_state){
+            if(connected){
+                centerText(ip_address, 3);
+                centerText(" ", 4);
+                centerText(" ", 6);
+
+                if(status != prev_status){
+                    String str_status;
+                    switch (status)
+                    {
+                        case 0 :
+                        str_status = " UNKNOWN";
+                        break;
+                        case 1 :
+                        str_status = " ACCEPTED";
+                        break;
+                        case 2 :
+                        str_status = "EXECUTING";
+                        break;
+                        case 3 :
+                        str_status = "CANCELING";
+                        break;
+                        case 4 :
+                        str_status = "SUCCEEDED";
+                        break;
+                        case 5 :
+                        str_status = " CANCELED";
+                        break;
+                        case 6 :
+                        str_status = " ABORTED";
+                        break;
+                        default:
+                        break;
+                    }
+                    if(status != 0){centerText("STATUS:" + str_status, 5);}
+                    else{centerText(" ", 5);}
+                }
             }
             else{
-                centerText(" ", 5);
+                centerText(" ", 3);
+                centerText("WAITING  FOR", 4);
+                centerText("CONNECTION", 6);
             }
             prev_status = status;
+            prev_state = connected;
         }
 
         if (cliff_state){warn_msg = "CLIFF DETECTED";}
@@ -534,9 +542,20 @@ void oled_task(void *arg)
         else if(stop||emer_state){warn_msg = "EMERGENCY STOP";}
         else {warn_msg = "NECTEC SMR";}
 
-        centerText(warn_msg, 1);
+        if(warn_msg != prev_warn){centerText(warn_msg, 1);}
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        prev_warn = warn_msg;
+        
+        if(DEBUG_OLED){
+            uint64_t end_time = millis();
+            uint32_t dt = end_time - start_time;
+            Serial1.printf(">dt :%d\n", dt);
+            Serial1.printf(">Connected :%d\n", connected);
+        }
+
+        digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
@@ -546,8 +565,8 @@ void safty_task(void *arg)
     {
         uint64_t cliff_start_time = millis(); 
 
-        // float cliff_range = vl.readRange();   
-        float cliff_range = 15.0;   
+        float cliff_range = vl.readRange();   
+        // float cliff_range = 15.0;   
 
         bumper_state = !digitalRead(BUMPER_PIN);
         emer_state   = !digitalRead(EMER_PIN);
@@ -574,10 +593,7 @@ void safty_task(void *arg)
 
 void battery_task(void *arg)
 {
-    float previous_filtered_voltage;
-    float previous_filtered_current;
-    float alpha = 0.1;
-    float offset = -0.09;
+    float offset = -0.36;
 
     float shuntvoltage = 0;
     float busvoltage = 0;
@@ -587,19 +603,13 @@ void battery_task(void *arg)
 
     while(1)
     {
-        shuntvoltage = ina219.getShuntVoltage_mV();
-        busvoltage = ina219.getBusVoltage_V();
-        current_mA = ina219.getCurrent_mA();
+        shuntvoltage = INA.getShuntVoltage_mV();
+        busvoltage = INA.getBusVoltage();
+        current_mA = INA.getCurrent_mA();
         loadvoltage = busvoltage + (shuntvoltage / 1000) + offset;
 
-        float filtered_voltage = alpha * loadvoltage + (1.0 - alpha) * previous_filtered_voltage;
-        float filtered_current = alpha * current_mA  + (1.0 - alpha) * previous_filtered_current;
-
-        previous_filtered_voltage = filtered_voltage;
-        previous_filtered_current = filtered_current;
-
-        uint16_t voltage   = static_cast<int16_t>(filtered_voltage *1000);
-        uint16_t current   = static_cast<int16_t>(filtered_current);
+        uint16_t voltage   = static_cast<int16_t>(loadvoltage *1000);
+        uint16_t current   = static_cast<int16_t>(current_mA);
 
         std::vector<uint8_t> cmd = {
             static_cast<uint8_t>(voltage & 0xFF), static_cast<uint8_t>((voltage >> 8) & 0xFF),
@@ -609,10 +619,10 @@ void battery_task(void *arg)
         send_data(FUNC_BATT, cmd);
 
         if (DEBUG_BATT){
-            Serial1.printf(">Load Voltage    :  %f V\n"     , loadvoltage); 
-            Serial1.printf(">Filtered Voltage:  %f V\n"     , filtered_voltage); 
-            Serial1.printf(">Current         :  %f mA\n"    , current_mA); 
-            Serial1.printf(">Filtered Current:  %f mA\n"    , filtered_current); 
+            Serial1.printf(">Current      :  %f mA\n", current_mA); 
+            Serial1.printf(">Shunt Voltage:  %f mV\n", shuntvoltage); 
+            Serial1.printf(">Bus Voltage  :  %f V\n" , busvoltage); 
+            Serial1.printf(">Load Voltage :  %f V\n" , loadvoltage); 
         }
         vTaskDelay(pdMS_TO_TICKS(200));
     }
@@ -621,8 +631,12 @@ void battery_task(void *arg)
 void setup() {
 
     Wire.begin(40,39);	
+    Wire1.begin(2, 1);
     vl.begin();
-    ina219.begin();
+    // ina219.begin();
+
+    if (!INA.begin()){Serial.println("could not connect. Fix and Reboot");}
+    INA.setMaxCurrentShunt(1, 0.002);
 
     encoder1.begin();
     encoder2.begin();
@@ -644,6 +658,7 @@ void setup() {
 
     pinMode(BUMPER_PIN, INPUT_PULLUP);
     pinMode(EMER_PIN  , INPUT_PULLUP);
+    pinMode(LED_PIN   , OUTPUT);
 
     delay(100);
 
@@ -659,9 +674,9 @@ void setup() {
     xTaskCreatePinnedToCore(recive_data_task, "recive_data_task", 4096, NULL, 1, NULL, 0);  
     xTaskCreatePinnedToCore(control_task    , "control_task"    , 4096, NULL, 1, NULL, 1);  
     xTaskCreatePinnedToCore(ranger_task     , "ranger_task"     , 4096, NULL, 1, NULL, 0);  
-    // xTaskCreatePinnedToCore(oled_task       , "oled_task"       , 4096, NULL, 1, NULL, 0); 
-    // xTaskCreatePinnedToCore(battery_task    , "battery_task"    , 4096, NULL, 1, NULL, 1);   
-    // xTaskCreatePinnedToCore(safty_task      , "safty_task"      , 4096, NULL, 1, NULL, 0);                 
+    xTaskCreatePinnedToCore(oled_task       , "oled_task"       , 4096, NULL, 1, NULL, 0); 
+    xTaskCreatePinnedToCore(battery_task    , "battery_task"    , 4096, NULL, 1, NULL, 1);   
+    xTaskCreatePinnedToCore(safty_task      , "safty_task"      , 4096, NULL, 1, NULL, 0);                 
 
 }
 

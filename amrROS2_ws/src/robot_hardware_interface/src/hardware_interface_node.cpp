@@ -128,25 +128,28 @@ private:
   float ut_min_range_;
   float ut_max_range_;
 
-  float pos_x_;
-  float pos_y_;
-  float heading_;
+  double pos_x_;
+  double pos_y_;
+  double heading_;
+
+  double yaw_;
 
   uint64_t prev_update_;
+  uint64_t imu_prev_update_;
 
   void odom_euler_to_quat(float roll, float pitch, float yaw, float *q)
   {
     float cy = cos(yaw * 0.5);
     float sy = sin(yaw * 0.5);
-    float cp = cos(pitch * 0.5);
-    float sp = sin(pitch * 0.5);
-    float cr = cos(roll * 0.5);
-    float sr = sin(roll * 0.5);
+    float cp = cos(pitch * 0.5); //1
+    float sp = sin(pitch * 0.5); //0
+    float cr = cos(roll * 0.5);  //1
+    float sr = sin(roll * 0.5);  //0
 
     q[0] = cy * cp * cr + sy * sp * sr;
-    q[1] = cy * cp * sr - sy * sp * cr;
-    q[2] = sy * cp * sr + cy * sp * cr;
-    q[3] = sy * cp * cr - cy * sp * sr;
+    q[1] = cy * cp * sr - sy * sp * cr; //x    cy * 1 * 0 - sy * 0 * 
+    q[2] = sy * cp * sr + cy * sp * cr; //y
+    q[3] = sy * cp * cr - cy * sp * sr; //z
   }
 
   void twistCallback(const geometry_msgs::msg::Twist & msg)
@@ -173,39 +176,54 @@ private:
     if (hardware_interface->update_imu_)
     {
       msg_imu_.header.stamp = current_time;
-      msg_imu_.angular_velocity.x = hardware_interface->angular_velocity.x;
-      msg_imu_.angular_velocity.y = hardware_interface->angular_velocity.y;
+
+      uint64_t dt = current_time.nanoseconds() - imu_prev_update_;
+      double dt_seconds = static_cast<double>(dt) / 1000000000.0;
+
+      double imu_delta_z = static_cast<double>(hardware_interface->angular_velocity.z) * dt_seconds;
+      yaw_ += imu_delta_z;
+
+      float imu_q[4];
+      odom_euler_to_quat(0.0, 0.0, static_cast<float>(yaw_), imu_q);
+
+      msg_imu_.orientation.x = (double)imu_q[1];
+      msg_imu_.orientation.y = (double)imu_q[2];
+      msg_imu_.orientation.z = (double)imu_q[3];
+      msg_imu_.orientation.w = (double)imu_q[0];
+
+      msg_imu_.angular_velocity.x = hardware_interface->angular_velocity.y;
+      msg_imu_.angular_velocity.y = hardware_interface->angular_velocity.x * (-1);
       msg_imu_.angular_velocity.z = hardware_interface->angular_velocity.z;
 
-      msg_imu_.linear_acceleration.x = hardware_interface->linear_acceleration.x;
-      msg_imu_.linear_acceleration.y = hardware_interface->linear_acceleration.y;
+      msg_imu_.linear_acceleration.x = hardware_interface->linear_acceleration.y;
+      msg_imu_.linear_acceleration.y = hardware_interface->linear_acceleration.x * (-1);
       msg_imu_.linear_acceleration.z = hardware_interface->linear_acceleration.z;
 
       hardware_interface->update_imu_ = false;
       imu_pub_->publish(msg_imu_);
+
+      imu_prev_update_ = current_time.nanoseconds();
     }
 
     else if (hardware_interface->update_odom_)
     {
+      msg_odom_.header.stamp = current_time;
+
       uint64_t dt = current_time.nanoseconds() - prev_update_;
-      float dt_seconds = static_cast<float>(dt) / 1000000000.0f;
+      double dt_seconds = static_cast<double>(dt) / 1000000000.0f;
 
-      float delta_heading = hardware_interface->odom_velocity.z * dt_seconds; // radians
-      float cos_h = cos(heading_);
-      float sin_h = sin(heading_);
-      float delta_x = (hardware_interface->odom_velocity.x * cos_h - hardware_interface->odom_velocity.y * sin_h) * dt_seconds; // m
-      float delta_y = (hardware_interface->odom_velocity.x * sin_h + hardware_interface->odom_velocity.x * cos_h) * dt_seconds; // m
-
-      // printf("delta_x: %f, delta_y: %f\n", delta_x, delta_y);
+      double delta_heading = static_cast<double>(hardware_interface->odom_velocity.z) * dt_seconds; // radians
+      double cos_h = cos(heading_);
+      double sin_h = sin(heading_);
+      double delta_x = (static_cast<double>(hardware_interface->odom_velocity.x) * cos_h - static_cast<double>(hardware_interface->odom_velocity.y) * sin_h) * dt_seconds; // m
+      double delta_y = (static_cast<double>(hardware_interface->odom_velocity.x) * sin_h + static_cast<double>(hardware_interface->odom_velocity.y) * cos_h) * dt_seconds; // m
 
       pos_x_ += delta_x;
       pos_y_ += delta_y;
       heading_ += delta_heading;
 
       float q[4];
-      odom_euler_to_quat(0, 0, heading_, q);
-
-      msg_odom_.header.stamp = current_time;
+      odom_euler_to_quat(0.0, 0.0, static_cast<float>(heading_), q);
 
       msg_odom_.pose.pose.position.x = pos_x_;
       msg_odom_.pose.pose.position.y = pos_y_;
@@ -222,6 +240,8 @@ private:
 
       hardware_interface->update_odom_ = false;
       odom_pub_->publish(msg_odom_);
+
+      prev_update_ = current_time.nanoseconds();
     }
 
     else if (hardware_interface->update_range_)
@@ -250,9 +270,6 @@ private:
 
       batt_pub_->publish(msg_batt_);
     }
-
-    prev_update_ = current_time.nanoseconds();
-
   }
 
   // void timerIMUCallback()

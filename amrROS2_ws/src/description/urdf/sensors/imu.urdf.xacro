@@ -6,7 +6,8 @@
       <joint name="imu_to_base_link" type="fixed">
         <parent link="base_link"/>
         <child link="imu_frame"/>
-        <origin xyz="0.0245 -0.057 0.022" rpy="0 0 1.57"/>
+        <!-- <origin xyz="0.0245 -0.057 0.022" rpy="0 0 1.57"/> -->
+        <origin xyz="0.0245 -0.057 0.022" rpy="0 0 0"/>
       </joint>
   
       <gazebo reference="imu_link">
