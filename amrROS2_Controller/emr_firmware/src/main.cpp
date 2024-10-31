@@ -118,7 +118,7 @@ Ultrasonic ultrasonic[3] = {
 };
 
 Adafruit_VL6180X vl = Adafruit_VL6180X();
-INA226 INA(0x40);
+INA226 INA(0x40, &Wire1);
 // Adafruit_INA219 ina219;
 
 String ip_address, prev_ip; 
@@ -456,6 +456,7 @@ void centerText(String text, uint8_t row)
         paddedText += " "; 
     }
     paddedText += text + paddedText;
+    if(paddedText.length() < 16){paddedText += " ";}
 
     oled.setTextXY(row,0);
     oled.putString(paddedText);
@@ -472,7 +473,7 @@ void oled_task(void *arg)
         uint64_t start_time = millis();
 
         if (connected){
-            if( millis() - prev_ip_time > 15000 ){connected = false;}
+            if( millis() - prev_ip_time > 2000 ){connected = false;}
         }
         else{
             if( millis() - prev_ip_time < 1000){
@@ -485,52 +486,55 @@ void oled_task(void *arg)
                 }
         }}
 
-        if(connected != prev_state){
-            if(connected){
+        if(connected){
+
+            if(connected != prev_state)
+            {
                 centerText(ip_address, 3);
                 centerText(" ", 4);
                 centerText(" ", 6);
+            }
 
-                if(status != prev_status){
-                    String str_status;
-                    switch (status)
-                    {
-                        case 0 :
-                        str_status = " UNKNOWN";
-                        break;
-                        case 1 :
-                        str_status = " ACCEPTED";
-                        break;
-                        case 2 :
-                        str_status = "EXECUTING";
-                        break;
-                        case 3 :
-                        str_status = "CANCELING";
-                        break;
-                        case 4 :
-                        str_status = "SUCCEEDED";
-                        break;
-                        case 5 :
-                        str_status = " CANCELED";
-                        break;
-                        case 6 :
-                        str_status = " ABORTED";
-                        break;
-                        default:
-                        break;
-                    }
-                    if(status != 0){centerText("STATUS:" + str_status, 5);}
-                    else{centerText(" ", 5);}
+            if(status != prev_status){
+                String str_status;
+                switch (status)
+                {
+                    case 0 :
+                    str_status = " UNKNOWN";
+                    break;
+                    case 1 :
+                    str_status = " ACCEPTED";
+                    break;
+                    case 2 :
+                    str_status = "EXECUTING";
+                    break;
+                    case 3 :
+                    str_status = "CANCELING";
+                    break;
+                    case 4 :
+                    str_status = "SUCCEEDED";
+                    break;
+                    case 5 :
+                    str_status = " CANCELED";
+                    break;
+                    case 6 :
+                    str_status = " ABORTED";
+                    break;
+                    default:
+                    break;
                 }
+                if(status != 0){centerText("STATUS:" + str_status, 5);}
+                else{centerText(" ", 5);}
             }
-            else{
-                centerText(" ", 3);
-                centerText("WAITING  FOR", 4);
-                centerText("CONNECTION", 6);
-            }
-            prev_status = status;
-            prev_state = connected;
         }
+        else{
+            centerText(" ", 3);
+            centerText("WAITING  FOR", 4);
+            centerText(" ", 5);
+            centerText("CONNECTION", 6);
+        }
+        prev_status = status;
+        prev_state = connected;
 
         if (cliff_state){warn_msg = "CLIFF DETECTED";}
         else if(bumper_state){warn_msg = "BUMP DETECTED";}   
@@ -566,7 +570,7 @@ void safty_task(void *arg)
         bumper_state = !digitalRead(BUMPER_PIN);
         emer_state   = !digitalRead(EMER_PIN);
 
-        if (cliff_range > 40.0){cliff_state = true;}
+        if (cliff_range > 60.0){cliff_state = true;}
         else {cliff_state = false;}
 
         if(bumper_state || cliff_state){stop = true;}
@@ -627,7 +631,7 @@ void setup() {
 
     Wire.begin(40,39);	
     Wire1.begin(2, 1);
-    vl.begin();
+    vl.begin(&Wire1);
     // ina219.begin();
 
     if (!INA.begin()){Serial.println("could not connect. Fix and Reboot");}
