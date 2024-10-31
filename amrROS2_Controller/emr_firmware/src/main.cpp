@@ -14,7 +14,6 @@
 #include <ACROBOTIC_SSD1306.h>
 #include <Adafruit_VL6180X.h>
 #include <INA226.h>
-// #include <Adafruit_INA219.h>
 
 #define DEBUG           false
 #define DEBUG_IMU       false
@@ -26,11 +25,11 @@
 #define DEBUG_SEND      false
 #define DEBUG_RECEIVE   false
 #define DEBUG_OLED      false
-#define DEBUG_SAFTY     true
+#define DEBUG_SAFTY     false
 #define DEBUG_BATT      false
 
-#define EMER_PIN    37
-#define BUMPER_PIN  8
+#define EMER_PIN    8
+#define BUMPER_PIN  37
 #define LED_PIN     38
 
 #define HEAD        0xFF
@@ -289,10 +288,6 @@ void imu_update_task(void *arg)
 
     while (1)
     {   
-        // imu_gyro_dps[0] = JY61P.getRoll();
-        // imu_gyro_dps[1] = JY61P.getPitch();
-        // imu_gyro_dps[2] = JY61P.getYaw();
-
         imu_gyro_dps[0] = (JY61P.getGyroX() / 180) * 3.14;
         imu_gyro_dps[1] = (JY61P.getGyroY() / 180) * 3.14;
         imu_gyro_dps[2] = (JY61P.getGyroZ() / 180) * 3.14;
