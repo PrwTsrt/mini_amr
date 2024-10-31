@@ -49,7 +49,7 @@ public:
     // timer_ip_          = create_wall_timer(10s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
   /////////////////////////////////////////////////////////////////////////////////////////
 
-    timer_ip_          = create_wall_timer(10s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
+    timer_ip_          = create_wall_timer(1s  , std::bind(&HardwareInterfaceNode::timerIPCallback, this));
     timer_update_data_ = create_wall_timer(1ms  , std::bind(&HardwareInterfaceNode::timerUpdateCallback, this));
 
     ut_fov_       = 20.0;
