@@ -41,7 +41,7 @@ def generate_launch_description():
     
     declare_use_sim_time_cmd = DeclareLaunchArgument(
             name='sim', 
-            default_value='z',
+            default_value='true',
             description='Enable use_sime_time to true'
         )
     declare_use_namespace_cmd = DeclareLaunchArgument(
@@ -88,10 +88,9 @@ def generate_launch_description():
     )
     
     scan = IncludeLaunchDescription(os.path.join(
-        get_package_share_directory("sllidar_ros2"),"launch","sllidar_c1_launch.py"),
-        launch_arguments={
-                'serial_port': '/dev/ttyUSB1',
-        }.items()
+        get_package_share_directory("sllidar_ros2"),
+        "launch",
+        "sllidar_c1_launch.py")
     ) 
 
     camera = Node(
@@ -147,7 +146,7 @@ def generate_launch_description():
         executable="robot_hardware",
         name="robot_hardware",
         output="screen",
-        parameters=[{'serial_port': "/dev/ttyUSB0"}],
+        parameters=[{'serial_port': "/dev/ttyUSB1"}],
     )
 
     launch_elements = GroupAction(
