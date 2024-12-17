@@ -1,0 +1,16 @@
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino: In function 'void recive_data_task(void*)':
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino:148:63: error: cannot convert '<brace-enclosed initializer list>' to 'uint8_t*' {aka 'unsigned char*'} in assignment
+  148 |                     data = {0xf4, 0x01, 0x00, 0x00, 0x00, 0x00}
+      |                                                               ^
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino:104:13: warning: unused variable 'data_to_mem' [-Wunused-variable]
+  104 |     uint8_t data_to_mem = 0;
+      |             ^~~~~~~~~~~
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino:105:13: warning: unused variable 'value' [-Wunused-variable]
+  105 |     uint8_t value;
+      |             ^~~~~
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino: In function 'void control_task(void*)':
+/home/smr/workspaces/mini_amr/amrROS2_Controller/sontana_firmware/src/firmware.ino:302:17: warning: unused variable 'cmd' [-Wunused-variable]
+  302 |         uint8_t cmd[6] = {
+      |                 ^~~
+*** [.pio/build/teensymm/src/firmware.ino.cpp.o] Error 1
+============== [FAILED] Took 2.66 seconds ==============

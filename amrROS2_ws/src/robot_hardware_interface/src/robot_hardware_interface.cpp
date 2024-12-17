@@ -191,7 +191,8 @@ void HardwareInterface::SendData(uint8_t FUNC_TYPE, const std::vector<uint8_t>& 
         if (DEBUG_SEND) {
             std::cout << "Sending command: ";
             for (const auto& byte : cmd) {
-                std::cout << "0x" << std::hex << std::setw(2) << std::setfill('0') << (int)byte << " ";
+                // std::cout << "0x" << std::hex << std::setw(2) << std::setfill('0') << (int)byte << " ";
+                std::cout << std::dec << std::setw(3) << std::setfill(' ') << (int)byte << " ";
             }
             std::cout << std::endl;
         }

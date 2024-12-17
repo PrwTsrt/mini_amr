@@ -23,7 +23,7 @@ class HardwareInterfaceNode : public rclcpp::Node
 public:
   HardwareInterfaceNode() : Node("hardware_interface")
   {
-    declare_parameter("serial_port", "/dev/ttyUSB0");
+    declare_parameter("serial_port", "/dev/ttyACM0");
     serial_port_ = get_parameter("serial_port").as_string();
     hardware_interface = std::make_shared<HardwareInterface>(serial_port_);
 
