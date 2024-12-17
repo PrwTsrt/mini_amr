@@ -1,0 +1,4 @@
+[submodule "amrROS2_ws/src/witmotion_ros"]
+	path = amrROS2_ws/src/witmotion_ros
+	url = https://github.com/ElettraSciComp/witmotion_IMU_ros.git
+	branch = ros2
