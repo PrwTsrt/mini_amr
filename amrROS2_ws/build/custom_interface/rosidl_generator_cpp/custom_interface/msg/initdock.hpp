@@ -7,5 +7,6 @@
 #include "custom_interface/msg/detail/initdock__struct.hpp"
 #include "custom_interface/msg/detail/initdock__builder.hpp"
 #include "custom_interface/msg/detail/initdock__traits.hpp"
+#include "custom_interface/msg/detail/initdock__type_support.hpp"
 
 #endif  // CUSTOM_INTERFACE__MSG__INITDOCK_HPP_

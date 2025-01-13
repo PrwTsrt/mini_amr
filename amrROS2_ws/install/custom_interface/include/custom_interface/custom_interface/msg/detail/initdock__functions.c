@@ -81,7 +81,7 @@ custom_interface__msg__Initdock__copy(
 }
 
 custom_interface__msg__Initdock *
-custom_interface__msg__Initdock__create()
+custom_interface__msg__Initdock__create(void)
 {
   rcutils_allocator_t allocator = rcutils_get_default_allocator();
   custom_interface__msg__Initdock * msg = (custom_interface__msg__Initdock *)allocator.allocate(sizeof(custom_interface__msg__Initdock), allocator.state);

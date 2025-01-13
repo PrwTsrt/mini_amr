@@ -2,6 +2,13 @@
 # with input from custom_interface:action/Autodock.idl
 # generated code does not contain a copyright notice
 
+# This is being done at the module level and not on the instance level to avoid looking
+# for the same variable multiple times on each instance. This variable is not supposed to
+# change during runtime so it makes sense to only look for it once.
+from os import getenv
+
+ros_python_check_fields = getenv('ROS_PYTHON_CHECK_FIELDS', default='')
+
 
 # Import statements for member types
 
@@ -56,20 +63,28 @@ class Autodock_Goal(metaclass=Metaclass_Autodock_Goal):
 
     __slots__ = [
         '_is_dock',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
         'is_dock': 'boolean',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.is_dock = kwargs.get('is_dock', bool())
 
     def __repr__(self):
@@ -77,7 +92,7 @@ class Autodock_Goal(metaclass=Metaclass_Autodock_Goal):
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -91,11 +106,12 @@ class Autodock_Goal(metaclass=Metaclass_Autodock_Goal):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -117,7 +133,7 @@ class Autodock_Goal(metaclass=Metaclass_Autodock_Goal):
 
     @is_dock.setter
     def is_dock(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, bool), \
                 "The 'is_dock' field must be of type 'bool'"
@@ -175,25 +191,33 @@ class Autodock_Result(metaclass=Metaclass_Autodock_Result):
     """Message class 'Autodock_Result'."""
 
     __slots__ = [
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -207,11 +231,12 @@ class Autodock_Result(metaclass=Metaclass_Autodock_Result):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -285,6 +310,7 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
     __slots__ = [
         '_step',
         '_text',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -292,15 +318,22 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
         'text': 'std_msgs/String',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('int32'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['std_msgs', 'msg'], 'String'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.step = kwargs.get('step', int())
         from std_msgs.msg import String
         self.text = kwargs.get('text', String())
@@ -310,7 +343,7 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -324,11 +357,12 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -352,7 +386,7 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
 
     @step.setter
     def step(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, int), \
                 "The 'step' field must be of type 'int'"
@@ -367,7 +401,7 @@ class Autodock_Feedback(metaclass=Metaclass_Autodock_Feedback):
 
     @text.setter
     def text(self, value):
-        if __debug__:
+        if self._check_fields:
             from std_msgs.msg import String
             assert \
                 isinstance(value, String), \
@@ -439,6 +473,7 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
     __slots__ = [
         '_goal_id',
         '_goal',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -446,15 +481,22 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
         'goal': 'custom_interface/Autodock_Goal',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['unique_identifier_msgs', 'msg'], 'UUID'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_Goal'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from unique_identifier_msgs.msg import UUID
         self.goal_id = kwargs.get('goal_id', UUID())
         from custom_interface.action._autodock import Autodock_Goal
@@ -465,7 +507,7 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -479,11 +521,12 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -507,7 +550,7 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
 
     @goal_id.setter
     def goal_id(self, value):
-        if __debug__:
+        if self._check_fields:
             from unique_identifier_msgs.msg import UUID
             assert \
                 isinstance(value, UUID), \
@@ -521,7 +564,7 @@ class Autodock_SendGoal_Request(metaclass=Metaclass_Autodock_SendGoal_Request):
 
     @goal.setter
     def goal(self, value):
-        if __debug__:
+        if self._check_fields:
             from custom_interface.action._autodock import Autodock_Goal
             assert \
                 isinstance(value, Autodock_Goal), \
@@ -589,6 +632,7 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
     __slots__ = [
         '_accepted',
         '_stamp',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -596,15 +640,22 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
         'stamp': 'builtin_interfaces/Time',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['builtin_interfaces', 'msg'], 'Time'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.accepted = kwargs.get('accepted', bool())
         from builtin_interfaces.msg import Time
         self.stamp = kwargs.get('stamp', Time())
@@ -614,7 +665,7 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -628,11 +679,12 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -656,7 +708,7 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
 
     @accepted.setter
     def accepted(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, bool), \
                 "The 'accepted' field must be of type 'bool'"
@@ -669,12 +721,212 @@ class Autodock_SendGoal_Response(metaclass=Metaclass_Autodock_SendGoal_Response)
 
     @stamp.setter
     def stamp(self, value):
-        if __debug__:
+        if self._check_fields:
             from builtin_interfaces.msg import Time
             assert \
                 isinstance(value, Time), \
                 "The 'stamp' field must be a sub message of type 'Time'"
         self._stamp = value
+
+
+# Import statements for member types
+
+# already imported above
+# import builtins
+
+# already imported above
+# import rosidl_parser.definition
+
+
+class Metaclass_Autodock_SendGoal_Event(type):
+    """Metaclass of message 'Autodock_SendGoal_Event'."""
+
+    _CREATE_ROS_MESSAGE = None
+    _CONVERT_FROM_PY = None
+    _CONVERT_TO_PY = None
+    _DESTROY_ROS_MESSAGE = None
+    _TYPE_SUPPORT = None
+
+    __constants = {
+    }
+
+    @classmethod
+    def __import_type_support__(cls):
+        try:
+            from rosidl_generator_py import import_type_support
+            module = import_type_support('custom_interface')
+        except ImportError:
+            import logging
+            import traceback
+            logger = logging.getLogger(
+                'custom_interface.action.Autodock_SendGoal_Event')
+            logger.debug(
+                'Failed to import needed modules for type support:\n' +
+                traceback.format_exc())
+        else:
+            cls._CREATE_ROS_MESSAGE = module.create_ros_message_msg__action__autodock__send_goal__event
+            cls._CONVERT_FROM_PY = module.convert_from_py_msg__action__autodock__send_goal__event
+            cls._CONVERT_TO_PY = module.convert_to_py_msg__action__autodock__send_goal__event
+            cls._TYPE_SUPPORT = module.type_support_msg__action__autodock__send_goal__event
+            cls._DESTROY_ROS_MESSAGE = module.destroy_ros_message_msg__action__autodock__send_goal__event
+
+            from service_msgs.msg import ServiceEventInfo
+            if ServiceEventInfo.__class__._TYPE_SUPPORT is None:
+                ServiceEventInfo.__class__.__import_type_support__()
+
+    @classmethod
+    def __prepare__(cls, name, bases, **kwargs):
+        # list constant names here so that they appear in the help text of
+        # the message class under "Data and other attributes defined here:"
+        # as well as populate each message instance
+        return {
+        }
+
+
+class Autodock_SendGoal_Event(metaclass=Metaclass_Autodock_SendGoal_Event):
+    """Message class 'Autodock_SendGoal_Event'."""
+
+    __slots__ = [
+        '_info',
+        '_request',
+        '_response',
+        '_check_fields',
+    ]
+
+    _fields_and_field_types = {
+        'info': 'service_msgs/ServiceEventInfo',
+        'request': 'sequence<custom_interface/Autodock_SendGoal_Request, 1>',
+        'response': 'sequence<custom_interface/Autodock_SendGoal_Response, 1>',
+    }
+
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
+    SLOT_TYPES = (
+        rosidl_parser.definition.NamespacedType(['service_msgs', 'msg'], 'ServiceEventInfo'),  # noqa: E501
+        rosidl_parser.definition.BoundedSequence(rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_SendGoal_Request'), 1),  # noqa: E501
+        rosidl_parser.definition.BoundedSequence(rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_SendGoal_Response'), 1),  # noqa: E501
+    )
+
+    def __init__(self, **kwargs):
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        from service_msgs.msg import ServiceEventInfo
+        self.info = kwargs.get('info', ServiceEventInfo())
+        self.request = kwargs.get('request', [])
+        self.response = kwargs.get('response', [])
+
+    def __repr__(self):
+        typename = self.__class__.__module__.split('.')
+        typename.pop()
+        typename.append(self.__class__.__name__)
+        args = []
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
+            field = getattr(self, s)
+            fieldstr = repr(field)
+            # We use Python array type for fields that can be directly stored
+            # in them, and "normal" sequences for everything else.  If it is
+            # a type that we store in an array, strip off the 'array' portion.
+            if (
+                isinstance(t, rosidl_parser.definition.AbstractSequence) and
+                isinstance(t.value_type, rosidl_parser.definition.BasicType) and
+                t.value_type.typename in ['float', 'double', 'int8', 'uint8', 'int16', 'uint16', 'int32', 'uint32', 'int64', 'uint64']
+            ):
+                if len(field) == 0:
+                    fieldstr = '[]'
+                else:
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
+                    prefix = "array('X', "
+                    suffix = ')'
+                    fieldstr = fieldstr[len(prefix):-len(suffix)]
+            args.append(s + '=' + fieldstr)
+        return '%s(%s)' % ('.'.join(typename), ', '.join(args))
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        if self.info != other.info:
+            return False
+        if self.request != other.request:
+            return False
+        if self.response != other.response:
+            return False
+        return True
+
+    @classmethod
+    def get_fields_and_field_types(cls):
+        from copy import copy
+        return copy(cls._fields_and_field_types)
+
+    @builtins.property
+    def info(self):
+        """Message field 'info'."""
+        return self._info
+
+    @info.setter
+    def info(self, value):
+        if self._check_fields:
+            from service_msgs.msg import ServiceEventInfo
+            assert \
+                isinstance(value, ServiceEventInfo), \
+                "The 'info' field must be a sub message of type 'ServiceEventInfo'"
+        self._info = value
+
+    @builtins.property
+    def request(self):
+        """Message field 'request'."""
+        return self._request
+
+    @request.setter
+    def request(self, value):
+        if self._check_fields:
+            from custom_interface.action import Autodock_SendGoal_Request
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
+            assert \
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) <= 1 and
+                 all(isinstance(v, Autodock_SendGoal_Request) for v in value) and
+                 True), \
+                "The 'request' field must be a set or sequence with length <= 1 and each value of type 'Autodock_SendGoal_Request'"
+        self._request = value
+
+    @builtins.property
+    def response(self):
+        """Message field 'response'."""
+        return self._response
+
+    @response.setter
+    def response(self, value):
+        if self._check_fields:
+            from custom_interface.action import Autodock_SendGoal_Response
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
+            assert \
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) <= 1 and
+                 all(isinstance(v, Autodock_SendGoal_Response) for v in value) and
+                 True), \
+                "The 'response' field must be a set or sequence with length <= 1 and each value of type 'Autodock_SendGoal_Response'"
+        self._response = value
 
 
 class Metaclass_Autodock_SendGoal(type):
@@ -703,11 +955,14 @@ class Metaclass_Autodock_SendGoal(type):
                 _autodock.Metaclass_Autodock_SendGoal_Request.__import_type_support__()
             if _autodock.Metaclass_Autodock_SendGoal_Response._TYPE_SUPPORT is None:
                 _autodock.Metaclass_Autodock_SendGoal_Response.__import_type_support__()
+            if _autodock.Metaclass_Autodock_SendGoal_Event._TYPE_SUPPORT is None:
+                _autodock.Metaclass_Autodock_SendGoal_Event.__import_type_support__()
 
 
 class Autodock_SendGoal(metaclass=Metaclass_Autodock_SendGoal):
     from custom_interface.action._autodock import Autodock_SendGoal_Request as Request
     from custom_interface.action._autodock import Autodock_SendGoal_Response as Response
+    from custom_interface.action._autodock import Autodock_SendGoal_Event as Event
 
     def __init__(self):
         raise NotImplementedError('Service classes can not be instantiated')
@@ -772,20 +1027,28 @@ class Autodock_GetResult_Request(metaclass=Metaclass_Autodock_GetResult_Request)
 
     __slots__ = [
         '_goal_id',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
         'goal_id': 'unique_identifier_msgs/UUID',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['unique_identifier_msgs', 'msg'], 'UUID'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from unique_identifier_msgs.msg import UUID
         self.goal_id = kwargs.get('goal_id', UUID())
 
@@ -794,7 +1057,7 @@ class Autodock_GetResult_Request(metaclass=Metaclass_Autodock_GetResult_Request)
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -808,11 +1071,12 @@ class Autodock_GetResult_Request(metaclass=Metaclass_Autodock_GetResult_Request)
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -834,7 +1098,7 @@ class Autodock_GetResult_Request(metaclass=Metaclass_Autodock_GetResult_Request)
 
     @goal_id.setter
     def goal_id(self, value):
-        if __debug__:
+        if self._check_fields:
             from unique_identifier_msgs.msg import UUID
             assert \
                 isinstance(value, UUID), \
@@ -902,6 +1166,7 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
     __slots__ = [
         '_status',
         '_result',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -909,15 +1174,22 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
         'result': 'custom_interface/Autodock_Result',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('int8'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_Result'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.status = kwargs.get('status', int())
         from custom_interface.action._autodock import Autodock_Result
         self.result = kwargs.get('result', Autodock_Result())
@@ -927,7 +1199,7 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -941,11 +1213,12 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -969,7 +1242,7 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
 
     @status.setter
     def status(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, int), \
                 "The 'status' field must be of type 'int'"
@@ -984,12 +1257,212 @@ class Autodock_GetResult_Response(metaclass=Metaclass_Autodock_GetResult_Respons
 
     @result.setter
     def result(self, value):
-        if __debug__:
+        if self._check_fields:
             from custom_interface.action._autodock import Autodock_Result
             assert \
                 isinstance(value, Autodock_Result), \
                 "The 'result' field must be a sub message of type 'Autodock_Result'"
         self._result = value
+
+
+# Import statements for member types
+
+# already imported above
+# import builtins
+
+# already imported above
+# import rosidl_parser.definition
+
+
+class Metaclass_Autodock_GetResult_Event(type):
+    """Metaclass of message 'Autodock_GetResult_Event'."""
+
+    _CREATE_ROS_MESSAGE = None
+    _CONVERT_FROM_PY = None
+    _CONVERT_TO_PY = None
+    _DESTROY_ROS_MESSAGE = None
+    _TYPE_SUPPORT = None
+
+    __constants = {
+    }
+
+    @classmethod
+    def __import_type_support__(cls):
+        try:
+            from rosidl_generator_py import import_type_support
+            module = import_type_support('custom_interface')
+        except ImportError:
+            import logging
+            import traceback
+            logger = logging.getLogger(
+                'custom_interface.action.Autodock_GetResult_Event')
+            logger.debug(
+                'Failed to import needed modules for type support:\n' +
+                traceback.format_exc())
+        else:
+            cls._CREATE_ROS_MESSAGE = module.create_ros_message_msg__action__autodock__get_result__event
+            cls._CONVERT_FROM_PY = module.convert_from_py_msg__action__autodock__get_result__event
+            cls._CONVERT_TO_PY = module.convert_to_py_msg__action__autodock__get_result__event
+            cls._TYPE_SUPPORT = module.type_support_msg__action__autodock__get_result__event
+            cls._DESTROY_ROS_MESSAGE = module.destroy_ros_message_msg__action__autodock__get_result__event
+
+            from service_msgs.msg import ServiceEventInfo
+            if ServiceEventInfo.__class__._TYPE_SUPPORT is None:
+                ServiceEventInfo.__class__.__import_type_support__()
+
+    @classmethod
+    def __prepare__(cls, name, bases, **kwargs):
+        # list constant names here so that they appear in the help text of
+        # the message class under "Data and other attributes defined here:"
+        # as well as populate each message instance
+        return {
+        }
+
+
+class Autodock_GetResult_Event(metaclass=Metaclass_Autodock_GetResult_Event):
+    """Message class 'Autodock_GetResult_Event'."""
+
+    __slots__ = [
+        '_info',
+        '_request',
+        '_response',
+        '_check_fields',
+    ]
+
+    _fields_and_field_types = {
+        'info': 'service_msgs/ServiceEventInfo',
+        'request': 'sequence<custom_interface/Autodock_GetResult_Request, 1>',
+        'response': 'sequence<custom_interface/Autodock_GetResult_Response, 1>',
+    }
+
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
+    SLOT_TYPES = (
+        rosidl_parser.definition.NamespacedType(['service_msgs', 'msg'], 'ServiceEventInfo'),  # noqa: E501
+        rosidl_parser.definition.BoundedSequence(rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_GetResult_Request'), 1),  # noqa: E501
+        rosidl_parser.definition.BoundedSequence(rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_GetResult_Response'), 1),  # noqa: E501
+    )
+
+    def __init__(self, **kwargs):
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        from service_msgs.msg import ServiceEventInfo
+        self.info = kwargs.get('info', ServiceEventInfo())
+        self.request = kwargs.get('request', [])
+        self.response = kwargs.get('response', [])
+
+    def __repr__(self):
+        typename = self.__class__.__module__.split('.')
+        typename.pop()
+        typename.append(self.__class__.__name__)
+        args = []
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
+            field = getattr(self, s)
+            fieldstr = repr(field)
+            # We use Python array type for fields that can be directly stored
+            # in them, and "normal" sequences for everything else.  If it is
+            # a type that we store in an array, strip off the 'array' portion.
+            if (
+                isinstance(t, rosidl_parser.definition.AbstractSequence) and
+                isinstance(t.value_type, rosidl_parser.definition.BasicType) and
+                t.value_type.typename in ['float', 'double', 'int8', 'uint8', 'int16', 'uint16', 'int32', 'uint32', 'int64', 'uint64']
+            ):
+                if len(field) == 0:
+                    fieldstr = '[]'
+                else:
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
+                    prefix = "array('X', "
+                    suffix = ')'
+                    fieldstr = fieldstr[len(prefix):-len(suffix)]
+            args.append(s + '=' + fieldstr)
+        return '%s(%s)' % ('.'.join(typename), ', '.join(args))
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        if self.info != other.info:
+            return False
+        if self.request != other.request:
+            return False
+        if self.response != other.response:
+            return False
+        return True
+
+    @classmethod
+    def get_fields_and_field_types(cls):
+        from copy import copy
+        return copy(cls._fields_and_field_types)
+
+    @builtins.property
+    def info(self):
+        """Message field 'info'."""
+        return self._info
+
+    @info.setter
+    def info(self, value):
+        if self._check_fields:
+            from service_msgs.msg import ServiceEventInfo
+            assert \
+                isinstance(value, ServiceEventInfo), \
+                "The 'info' field must be a sub message of type 'ServiceEventInfo'"
+        self._info = value
+
+    @builtins.property
+    def request(self):
+        """Message field 'request'."""
+        return self._request
+
+    @request.setter
+    def request(self, value):
+        if self._check_fields:
+            from custom_interface.action import Autodock_GetResult_Request
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
+            assert \
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) <= 1 and
+                 all(isinstance(v, Autodock_GetResult_Request) for v in value) and
+                 True), \
+                "The 'request' field must be a set or sequence with length <= 1 and each value of type 'Autodock_GetResult_Request'"
+        self._request = value
+
+    @builtins.property
+    def response(self):
+        """Message field 'response'."""
+        return self._response
+
+    @response.setter
+    def response(self, value):
+        if self._check_fields:
+            from custom_interface.action import Autodock_GetResult_Response
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
+            assert \
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) <= 1 and
+                 all(isinstance(v, Autodock_GetResult_Response) for v in value) and
+                 True), \
+                "The 'response' field must be a set or sequence with length <= 1 and each value of type 'Autodock_GetResult_Response'"
+        self._response = value
 
 
 class Metaclass_Autodock_GetResult(type):
@@ -1018,11 +1491,14 @@ class Metaclass_Autodock_GetResult(type):
                 _autodock.Metaclass_Autodock_GetResult_Request.__import_type_support__()
             if _autodock.Metaclass_Autodock_GetResult_Response._TYPE_SUPPORT is None:
                 _autodock.Metaclass_Autodock_GetResult_Response.__import_type_support__()
+            if _autodock.Metaclass_Autodock_GetResult_Event._TYPE_SUPPORT is None:
+                _autodock.Metaclass_Autodock_GetResult_Event.__import_type_support__()
 
 
 class Autodock_GetResult(metaclass=Metaclass_Autodock_GetResult):
     from custom_interface.action._autodock import Autodock_GetResult_Request as Request
     from custom_interface.action._autodock import Autodock_GetResult_Response as Response
+    from custom_interface.action._autodock import Autodock_GetResult_Event as Event
 
     def __init__(self):
         raise NotImplementedError('Service classes can not be instantiated')
@@ -1092,6 +1568,7 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
     __slots__ = [
         '_goal_id',
         '_feedback',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -1099,15 +1576,22 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
         'feedback': 'custom_interface/Autodock_Feedback',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['unique_identifier_msgs', 'msg'], 'UUID'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['custom_interface', 'action'], 'Autodock_Feedback'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from unique_identifier_msgs.msg import UUID
         self.goal_id = kwargs.get('goal_id', UUID())
         from custom_interface.action._autodock import Autodock_Feedback
@@ -1118,7 +1602,7 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -1132,11 +1616,12 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -1160,7 +1645,7 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
 
     @goal_id.setter
     def goal_id(self, value):
-        if __debug__:
+        if self._check_fields:
             from unique_identifier_msgs.msg import UUID
             assert \
                 isinstance(value, UUID), \
@@ -1174,7 +1659,7 @@ class Autodock_FeedbackMessage(metaclass=Metaclass_Autodock_FeedbackMessage):
 
     @feedback.setter
     def feedback(self, value):
-        if __debug__:
+        if self._check_fields:
             from custom_interface.action._autodock import Autodock_Feedback
             assert \
                 isinstance(value, Autodock_Feedback), \

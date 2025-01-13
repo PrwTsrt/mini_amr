@@ -13,8 +13,8 @@ set_target_properties(custom_interface::custom_interface__rosidl_typesupport_cpp
   IMPORTED_SONAME_NOCONFIG "libcustom_interface__rosidl_typesupport_cpp.so"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS custom_interface::custom_interface__rosidl_typesupport_cpp )
-list(APPEND _IMPORT_CHECK_FILES_FOR_custom_interface::custom_interface__rosidl_typesupport_cpp "${_IMPORT_PREFIX}/lib/libcustom_interface__rosidl_typesupport_cpp.so" )
+list(APPEND _cmake_import_check_targets custom_interface::custom_interface__rosidl_typesupport_cpp )
+list(APPEND _cmake_import_check_files_for_custom_interface::custom_interface__rosidl_typesupport_cpp "${_IMPORT_PREFIX}/lib/libcustom_interface__rosidl_typesupport_cpp.so" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

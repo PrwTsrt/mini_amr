@@ -2,6 +2,9 @@
 // with input from custom_interface:msg/Initdock.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "custom_interface/msg/initdock.hpp"
+
+
 #ifndef CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__STRUCT_HPP_
 #define CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__STRUCT_HPP_
 

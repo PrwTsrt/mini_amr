@@ -108,6 +108,27 @@ const rosidl_message_type_support_t *
 }
 #endif
 
+// already included above
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "rosidl_typesupport_interface/macros.h"
+// already included above
+// #include "rosidl_typesupport_introspection_cpp/visibility_control.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+// TODO(dirk-thomas) these visibility macros should be message package specific
+ROSIDL_TYPESUPPORT_INTROSPECTION_CPP_PUBLIC
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_cpp, custom_interface, action, Autodock_SendGoal_Event)();
+
+#ifdef __cplusplus
+}
+#endif
+
 #include "rosidl_runtime_c/service_type_support_struct.h"
 // already included above
 // #include "rosidl_typesupport_interface/macros.h"
@@ -164,6 +185,27 @@ extern "C"
 ROSIDL_TYPESUPPORT_INTROSPECTION_CPP_PUBLIC
 const rosidl_message_type_support_t *
   ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_cpp, custom_interface, action, Autodock_GetResult_Response)();
+
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "rosidl_typesupport_interface/macros.h"
+// already included above
+// #include "rosidl_typesupport_introspection_cpp/visibility_control.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+// TODO(dirk-thomas) these visibility macros should be message package specific
+ROSIDL_TYPESUPPORT_INTROSPECTION_CPP_PUBLIC
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_cpp, custom_interface, action, Autodock_GetResult_Event)();
 
 #ifdef __cplusplus
 }

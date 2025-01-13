@@ -4,6 +4,7 @@
 
 #include "cstddef"
 #include "rosidl_runtime_c/message_type_support_struct.h"
+#include "custom_interface/msg/detail/initdock__functions.h"
 #include "custom_interface/msg/detail/initdock__struct.hpp"
 #include "rosidl_typesupport_cpp/identifier.hpp"
 #include "rosidl_typesupport_cpp/message_type_support.hpp"
@@ -72,6 +73,9 @@ static const rosidl_message_type_support_t Initdock_message_type_support_handle 
   ::rosidl_typesupport_cpp::typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Initdock_message_typesupport_map),
   ::rosidl_typesupport_cpp::get_message_typesupport_handle_function,
+  &custom_interface__msg__Initdock__get_type_hash,
+  &custom_interface__msg__Initdock__get_type_description,
+  &custom_interface__msg__Initdock__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_cpp

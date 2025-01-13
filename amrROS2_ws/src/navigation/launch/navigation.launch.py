@@ -4,7 +4,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction, GroupAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression, EnvironmentVariable, TextSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression, EnvironmentVariable, TextSubstitution, IfElseSubstitution
 from launch_ros.substitutions import FindPackageShare
 from launch.conditions import IfCondition, UnlessCondition
 
@@ -25,47 +25,58 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('sim')
     use_slam_tb = LaunchConfiguration('slam_tb')
     use_mapping = LaunchConfiguration('use_mapping')
-    params_file = LaunchConfiguration('params_file')    
-    slam_params_file = LaunchConfiguration('slam_params_file')
+    nav_params_file = LaunchConfiguration('nav_params_file')    
+    localize_params_file = LaunchConfiguration('localize_params_file')
     mapping_params_file = LaunchConfiguration('mapping_params_file')
+    rviz_config_file = LaunchConfiguration('rviz_config_file')
     map = LaunchConfiguration("map")
 
-    default_map_path = os.path.join(robot_navigation_dir, "maps/Turtlebot_Arena_map.yaml")
-    slam_config_path = os.path.join(robot_navigation_dir, "config/slam_localization.yaml")
+    default_map_path = os.environ.get('ROS_WS')+"/maps"+"/test_1"
+    # default_map_path = os.path.join(robot_navigation_dir, "maps/Turtlebot_Arena_map.yaml")
 
-    slam_params_file = ReplaceString(
-        source_file=slam_params_file,
-        replacements={'<robot_namespace>': ("/",namespace)},
-        condition=IfCondition(use_namespace))   
+    namespace_replacement = IfElseSubstitution(
+        use_namespace,
+        if_value = ('/', namespace),
+        else_value = '')
+    slam_toolbox_params_file = IfElseSubstitution(
+        use_mapping,
+        if_value = mapping_params_file,
+        else_value = localize_params_file)
+
+    localize_params_file = ReplaceString(
+        source_file=localize_params_file,
+        replacements={'<robot_namespace>': namespace_replacement})
     
     mapping_params_file = ReplaceString(
         source_file=mapping_params_file,
-        replacements={'<robot_namespace>': ("/",namespace)},
-        condition=IfCondition(use_namespace))   
+        replacements={'<robot_namespace>': namespace_replacement})
 
-    params_file = ReplaceString(
-            source_file=params_file,
-            replacements={'<robot_namespace>': ("/",namespace)},
-            condition=IfCondition(use_namespace))     
+    nav_params_file = ReplaceString(
+        source_file=nav_params_file,
+        replacements={'<robot_namespace>': namespace_replacement})   
+    
     
     declare_namespace_cmd = DeclareLaunchArgument(
-        'namespace',
-        default_value= [EnvironmentVariable('NAMESPACE')],
-        description='prefix for node name')
+            'namespace',
+            # default_value= [EnvironmentVariable('NAMESPACE')],
+            default_value= '',
+            description='prefix for node name'
+        )
     
     declare_use_namespace_cmd = DeclareLaunchArgument(
-        'use_namespace',
-        default_value='true',
-        description='Whether to apply a namespace to the navigation stack')
+            'use_namespace',
+            default_value='false',
+            description='Whether to apply a namespace to the navigation stack'
+        )
 
     declare_map_cmd = DeclareLaunchArgument(
             name='map', 
-            default_value='/home/smr/maps/test03',
+            default_value= default_map_path,
             description='Navigation map path'
         )
     declare_use_sim_time_cmd = DeclareLaunchArgument(
             name='sim', 
-            default_value='false',
+            default_value='true',
             description='Enable use_sime_time to true'
         )
     declare_use_rviz_cmd = DeclareLaunchArgument(
@@ -84,14 +95,14 @@ def generate_launch_description():
             description='Using slam toolbox mapping'
         )
     
-    declare_params_file_cmd = DeclareLaunchArgument(
-        'params_file',
-        default_value= PathJoinSubstitution([robot_navigation_dir, "config", "navigation.yaml"]),
+    declare_nav_params_file_cmd = DeclareLaunchArgument(
+        'nav_params_file',
+        default_value= PathJoinSubstitution([robot_navigation_dir, "config", "nav2_params.yaml"]),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
     
-    declare_slam_params_file_cmd = DeclareLaunchArgument(
-        'slam_params_file',
-        default_value= slam_config_path,
+    declare_localize_params_file_cmd = DeclareLaunchArgument(
+        'localize_params_file',
+        default_value= PathJoinSubstitution([robot_navigation_dir, "config", "slam_localization.yaml"]),
         description='Full path to the SLAM localization parameters file')
     
     declare_mapping_params_file_cmd = DeclareLaunchArgument(
@@ -99,37 +110,29 @@ def generate_launch_description():
         default_value=PathJoinSubstitution([robot_navigation_dir, "config", "mapper_params_online_async.yaml"]),
         description='Full path to the SLAM mapping parameters file')
     
-    slam_configured_params = ParameterFile(
-        RewrittenYaml(
-            source_file=slam_params_file,
-            root_key=namespace,
-            param_rewrites='',
-            convert_types=True),
-        allow_substs=True)
+    declare_rviz_config_file_cmd = DeclareLaunchArgument(
+        'rviz_config_file',
+        default_value=os.path.join(robot_navigation_dir, 'rviz', 'nav2_default_view.rviz'),
+        description='Full path to the RVIZ config file to use',
+    )
     
-    mapping_params = ParameterFile(
-        RewrittenYaml(
-            source_file=mapping_params_file,
-            root_key=namespace,
-            param_rewrites='',
-            convert_types=True),
-        allow_substs=True)
-    
-    rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="screen",
+    rviz_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(robot_navigation_dir, "launch", 'rviz_launch.py')),
         condition=IfCondition(use_rviz),
-        arguments=["-d", os.path.join(robot_navigation_dir, "rviz", "navigation.rviz")],
-        )
+        launch_arguments={
+            'namespace': namespace,
+            'use_namespace': use_namespace,
+            'use_sim_time': use_sim_time,
+            'rviz_config': rviz_config_file,
+        }.items(),
+    )
  
     navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution(
                 [robot_navigation_dir, 'launch', 'navigation_launch.py'])),
             launch_arguments={
                 'use_sim_time': use_sim_time,
-                'params_file':  params_file,
+                'params_file':  nav_params_file,
                 'map_subscribe_transient_local': 'true'
             }.items()
         )
@@ -140,55 +143,35 @@ def generate_launch_description():
             condition=IfCondition(
                 PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'false'" ])),
             launch_arguments={
-                'map' : default_map_path,
+                'map' : map,
                 'use_sim_time': use_sim_time,
-                'params_file':  params_file,
+                'params_file':  nav_params_file,
             }.items()
         )
     
-    slam_tb_mapping = Node(
-        parameters=[
-          mapping_params,
-          {'use_sim_time': use_sim_time}
-        ],
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
-        output='screen',
-        condition=IfCondition(use_mapping),
-        remappings=[
-                ("/map", "map"),
-                ("/map_metadata", "map_metadata")]    
+    slam_toolbox = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution(
+                [robot_navigation_dir, 'launch', 'slam_toolbox_launch.py'])),
+            launch_arguments={                
+                'autostart':  'true',
+                'use_sim_time': use_sim_time,
+                'slam_params_file' : slam_toolbox_params_file,
+                'use_lifecycle_manager': 'false',
+                'namespace': namespace,
+                'use_namespace': use_namespace,
+                'map_file_name': map,
+            }.items()
         )
-
-    slam_tb_localization = Node(
-        condition=IfCondition(
-                PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'true'" ])),
-        parameters=[
-          slam_configured_params,
-          {
-            'use_sim_time': use_sim_time,
-            'map_file_name': map
-        }],
-        package='slam_toolbox',
-        executable='localization_slam_toolbox_node',
-        name='slam_toolbox',
-        output='screen',
-        remappings=[
-                ("/map", "map"),
-                ("/map_metadata", "map_metadata")]    
-        )   
 
     launch_elements = GroupAction(
      actions=[
-        PushRosNamespace(namespace),
+        PushRosNamespace(condition=IfCondition(use_namespace), namespace=namespace),
         SetRemap('/tf','tf'),
         SetRemap('/tf_static','tf_static'),
-        slam_tb_mapping,
         amcl,
-        slam_tb_localization,
+        slam_toolbox,
         navigation,
-        rviz_node,
+        rviz_cmd,
       ]
    )
 
@@ -197,13 +180,14 @@ def generate_launch_description():
         declare_namespace_cmd,
         declare_use_namespace_cmd,
         declare_use_mapping_cmd,
-        declare_params_file_cmd,
-        declare_slam_params_file_cmd,
+        declare_nav_params_file_cmd,
+        declare_localize_params_file_cmd,
         declare_mapping_params_file_cmd,
         declare_map_cmd,
         declare_use_sim_time_cmd,
         declare_use_rviz_cmd,
         declare_use_slam_tb_cmd,
+        declare_rviz_config_file_cmd,
         #Launch all navigation nodes
         launch_elements
     ])

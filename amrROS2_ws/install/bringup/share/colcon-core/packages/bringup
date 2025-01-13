@@ -1,1 +1,1 @@
-joint_state_publisher:joint_state_publisher_gui:micro_ros_agent:rclcpp:robot_localization:robot_state_publisher:rviz2:sensor_msgs:std_msgs:urdf:xacro
+gazebo_ros:gazebo_ros2_control:joint_state_publisher:joint_state_publisher_gui:rclcpp:robot_localization:robot_state_publisher:ros2_control:ros2_controllers:rviz2:sensor_msgs:std_msgs:urdf:xacro

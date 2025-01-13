@@ -2,6 +2,9 @@
 // with input from custom_interface:action/Autodock.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "custom_interface/action/autodock.hpp"
+
+
 #ifndef CUSTOM_INTERFACE__ACTION__DETAIL__AUTODOCK__STRUCT_HPP_
 #define CUSTOM_INTERFACE__ACTION__DETAIL__AUTODOCK__STRUCT_HPP_
 
@@ -624,6 +627,141 @@ using Autodock_SendGoal_Response =
 
 }  // namespace custom_interface
 
+
+// Include directives for member types
+// Member 'info'
+#include "service_msgs/msg/detail/service_event_info__struct.hpp"
+
+#ifndef _WIN32
+# define DEPRECATED__custom_interface__action__Autodock_SendGoal_Event __attribute__((deprecated))
+#else
+# define DEPRECATED__custom_interface__action__Autodock_SendGoal_Event __declspec(deprecated)
+#endif
+
+namespace custom_interface
+{
+
+namespace action
+{
+
+// message struct
+template<class ContainerAllocator>
+struct Autodock_SendGoal_Event_
+{
+  using Type = Autodock_SendGoal_Event_<ContainerAllocator>;
+
+  explicit Autodock_SendGoal_Event_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : info(_init)
+  {
+    (void)_init;
+  }
+
+  explicit Autodock_SendGoal_Event_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : info(_alloc, _init)
+  {
+    (void)_init;
+  }
+
+  // field types and members
+  using _info_type =
+    service_msgs::msg::ServiceEventInfo_<ContainerAllocator>;
+  _info_type info;
+  using _request_type =
+    rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_SendGoal_Request_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_SendGoal_Request_<ContainerAllocator>>>;
+  _request_type request;
+  using _response_type =
+    rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_SendGoal_Response_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_SendGoal_Response_<ContainerAllocator>>>;
+  _response_type response;
+
+  // setters for named parameter idiom
+  Type & set__info(
+    const service_msgs::msg::ServiceEventInfo_<ContainerAllocator> & _arg)
+  {
+    this->info = _arg;
+    return *this;
+  }
+  Type & set__request(
+    const rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_SendGoal_Request_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_SendGoal_Request_<ContainerAllocator>>> & _arg)
+  {
+    this->request = _arg;
+    return *this;
+  }
+  Type & set__response(
+    const rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_SendGoal_Response_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_SendGoal_Response_<ContainerAllocator>>> & _arg)
+  {
+    this->response = _arg;
+    return *this;
+  }
+
+  // constant declarations
+
+  // pointer types
+  using RawPtr =
+    custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> *;
+  using ConstRawPtr =
+    const custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> *;
+  using SharedPtr =
+    std::shared_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>>;
+  using ConstSharedPtr =
+    std::shared_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> const>;
+
+  template<typename Deleter = std::default_delete<
+      custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>>>
+  using UniquePtrWithDeleter =
+    std::unique_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>, Deleter>;
+
+  using UniquePtr = UniquePtrWithDeleter<>;
+
+  template<typename Deleter = std::default_delete<
+      custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>>>
+  using ConstUniquePtrWithDeleter =
+    std::unique_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> const, Deleter>;
+  using ConstUniquePtr = ConstUniquePtrWithDeleter<>;
+
+  using WeakPtr =
+    std::weak_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>>;
+  using ConstWeakPtr =
+    std::weak_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> const>;
+
+  // pointer types similar to ROS 1, use SharedPtr / ConstSharedPtr instead
+  // NOTE: Can't use 'using' here because GNU C++ can't parse attributes properly
+  typedef DEPRECATED__custom_interface__action__Autodock_SendGoal_Event
+    std::shared_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator>>
+    Ptr;
+  typedef DEPRECATED__custom_interface__action__Autodock_SendGoal_Event
+    std::shared_ptr<custom_interface::action::Autodock_SendGoal_Event_<ContainerAllocator> const>
+    ConstPtr;
+
+  // comparison operators
+  bool operator==(const Autodock_SendGoal_Event_ & other) const
+  {
+    if (this->info != other.info) {
+      return false;
+    }
+    if (this->request != other.request) {
+      return false;
+    }
+    if (this->response != other.response) {
+      return false;
+    }
+    return true;
+  }
+  bool operator!=(const Autodock_SendGoal_Event_ & other) const
+  {
+    return !this->operator==(other);
+  }
+};  // struct Autodock_SendGoal_Event_
+
+// alias to use template instance with default allocator
+using Autodock_SendGoal_Event =
+  custom_interface::action::Autodock_SendGoal_Event_<std::allocator<void>>;
+
+// constant definitions
+
+}  // namespace action
+
+}  // namespace custom_interface
+
 namespace custom_interface
 {
 
@@ -634,6 +772,7 @@ struct Autodock_SendGoal
 {
   using Request = custom_interface::action::Autodock_SendGoal_Request;
   using Response = custom_interface::action::Autodock_SendGoal_Response;
+  using Event = custom_interface::action::Autodock_SendGoal_Event;
 };
 
 }  // namespace action
@@ -884,6 +1023,142 @@ using Autodock_GetResult_Response =
 
 }  // namespace custom_interface
 
+
+// Include directives for member types
+// Member 'info'
+// already included above
+// #include "service_msgs/msg/detail/service_event_info__struct.hpp"
+
+#ifndef _WIN32
+# define DEPRECATED__custom_interface__action__Autodock_GetResult_Event __attribute__((deprecated))
+#else
+# define DEPRECATED__custom_interface__action__Autodock_GetResult_Event __declspec(deprecated)
+#endif
+
+namespace custom_interface
+{
+
+namespace action
+{
+
+// message struct
+template<class ContainerAllocator>
+struct Autodock_GetResult_Event_
+{
+  using Type = Autodock_GetResult_Event_<ContainerAllocator>;
+
+  explicit Autodock_GetResult_Event_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : info(_init)
+  {
+    (void)_init;
+  }
+
+  explicit Autodock_GetResult_Event_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : info(_alloc, _init)
+  {
+    (void)_init;
+  }
+
+  // field types and members
+  using _info_type =
+    service_msgs::msg::ServiceEventInfo_<ContainerAllocator>;
+  _info_type info;
+  using _request_type =
+    rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_GetResult_Request_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_GetResult_Request_<ContainerAllocator>>>;
+  _request_type request;
+  using _response_type =
+    rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_GetResult_Response_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_GetResult_Response_<ContainerAllocator>>>;
+  _response_type response;
+
+  // setters for named parameter idiom
+  Type & set__info(
+    const service_msgs::msg::ServiceEventInfo_<ContainerAllocator> & _arg)
+  {
+    this->info = _arg;
+    return *this;
+  }
+  Type & set__request(
+    const rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_GetResult_Request_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_GetResult_Request_<ContainerAllocator>>> & _arg)
+  {
+    this->request = _arg;
+    return *this;
+  }
+  Type & set__response(
+    const rosidl_runtime_cpp::BoundedVector<custom_interface::action::Autodock_GetResult_Response_<ContainerAllocator>, 1, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<custom_interface::action::Autodock_GetResult_Response_<ContainerAllocator>>> & _arg)
+  {
+    this->response = _arg;
+    return *this;
+  }
+
+  // constant declarations
+
+  // pointer types
+  using RawPtr =
+    custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> *;
+  using ConstRawPtr =
+    const custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> *;
+  using SharedPtr =
+    std::shared_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>>;
+  using ConstSharedPtr =
+    std::shared_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> const>;
+
+  template<typename Deleter = std::default_delete<
+      custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>>>
+  using UniquePtrWithDeleter =
+    std::unique_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>, Deleter>;
+
+  using UniquePtr = UniquePtrWithDeleter<>;
+
+  template<typename Deleter = std::default_delete<
+      custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>>>
+  using ConstUniquePtrWithDeleter =
+    std::unique_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> const, Deleter>;
+  using ConstUniquePtr = ConstUniquePtrWithDeleter<>;
+
+  using WeakPtr =
+    std::weak_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>>;
+  using ConstWeakPtr =
+    std::weak_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> const>;
+
+  // pointer types similar to ROS 1, use SharedPtr / ConstSharedPtr instead
+  // NOTE: Can't use 'using' here because GNU C++ can't parse attributes properly
+  typedef DEPRECATED__custom_interface__action__Autodock_GetResult_Event
+    std::shared_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator>>
+    Ptr;
+  typedef DEPRECATED__custom_interface__action__Autodock_GetResult_Event
+    std::shared_ptr<custom_interface::action::Autodock_GetResult_Event_<ContainerAllocator> const>
+    ConstPtr;
+
+  // comparison operators
+  bool operator==(const Autodock_GetResult_Event_ & other) const
+  {
+    if (this->info != other.info) {
+      return false;
+    }
+    if (this->request != other.request) {
+      return false;
+    }
+    if (this->response != other.response) {
+      return false;
+    }
+    return true;
+  }
+  bool operator!=(const Autodock_GetResult_Event_ & other) const
+  {
+    return !this->operator==(other);
+  }
+};  // struct Autodock_GetResult_Event_
+
+// alias to use template instance with default allocator
+using Autodock_GetResult_Event =
+  custom_interface::action::Autodock_GetResult_Event_<std::allocator<void>>;
+
+// constant definitions
+
+}  // namespace action
+
+}  // namespace custom_interface
+
 namespace custom_interface
 {
 
@@ -894,6 +1169,7 @@ struct Autodock_GetResult
 {
   using Request = custom_interface::action::Autodock_GetResult_Request;
   using Response = custom_interface::action::Autodock_GetResult_Response;
+  using Event = custom_interface::action::Autodock_GetResult_Event;
 };
 
 }  // namespace action

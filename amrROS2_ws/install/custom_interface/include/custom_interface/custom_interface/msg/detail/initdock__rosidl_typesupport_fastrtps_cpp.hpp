@@ -5,6 +5,7 @@
 #ifndef CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
 #define CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
 
+#include <cstddef>
 #include "rosidl_runtime_c/message_type_support_struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h"
@@ -54,6 +55,25 @@ get_serialized_size(
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_custom_interface
 max_serialized_size_Initdock(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_custom_interface
+cdr_serialize_key(
+  const custom_interface::msg::Initdock & ros_message,
+  eprosima::fastcdr::Cdr &);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_custom_interface
+get_serialized_size_key(
+  const custom_interface::msg::Initdock & ros_message,
+  size_t current_alignment);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_custom_interface
+max_serialized_size_key_Initdock(
   bool & full_bounded,
   bool & is_plain,
   size_t current_alignment);

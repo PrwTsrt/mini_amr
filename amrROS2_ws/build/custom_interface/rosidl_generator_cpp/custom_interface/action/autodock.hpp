@@ -7,5 +7,6 @@
 #include "custom_interface/action/detail/autodock__struct.hpp"
 #include "custom_interface/action/detail/autodock__builder.hpp"
 #include "custom_interface/action/detail/autodock__traits.hpp"
+#include "custom_interface/action/detail/autodock__type_support.hpp"
 
 #endif  // CUSTOM_INTERFACE__ACTION__AUTODOCK_HPP_

@@ -49,63 +49,46 @@ amcl:
 
 amcl_map_client:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 amcl_rclcpp_node:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 bt_navigator:
   ros__parameters:
-    use_sim_time: false
     global_frame: map
     robot_base_frame: base_link
     odom_topic: <robot_namespace>/odom
     bt_loop_duration: 10
     default_server_timeout: 20
-    enable_groot_monitoring: true
-    groot_zmq_publisher_port: 1666
-    groot_zmq_server_port: 1667
-    plugin_lib_names:
-    - nav2_compute_path_to_pose_action_bt_node
-    - nav2_compute_path_through_poses_action_bt_node
-    - nav2_follow_path_action_bt_node
-    - nav2_back_up_action_bt_node
-    - nav2_spin_action_bt_node
-    - nav2_wait_action_bt_node
-    - nav2_clear_costmap_service_bt_node
-    - nav2_is_stuck_condition_bt_node
-    - nav2_goal_reached_condition_bt_node
-    - nav2_goal_updated_condition_bt_node
-    - nav2_initial_pose_received_condition_bt_node
-    - nav2_reinitialize_global_localization_service_bt_node
-    - nav2_rate_controller_bt_node
-    - nav2_distance_controller_bt_node
-    - nav2_speed_controller_bt_node
-    - nav2_truncate_path_action_bt_node
-    - nav2_goal_updater_node_bt_node
-    - nav2_recovery_node_bt_node
-    - nav2_pipeline_sequence_bt_node
-    - nav2_round_robin_node_bt_node
-    - nav2_transform_available_condition_bt_node
-    - nav2_time_expired_condition_bt_node
-    - nav2_distance_traveled_condition_bt_node
-    - nav2_single_trigger_bt_node
-    - nav2_is_battery_low_condition_bt_node
-    - nav2_navigate_through_poses_action_bt_node
-    - nav2_navigate_to_pose_action_bt_node
-    - nav2_remove_passed_goals_action_bt_node
-    - nav2_planner_selector_bt_node
-    - nav2_controller_selector_bt_node
-    - nav2_goal_checker_selector_bt_node
+    wait_for_service_timeout: 1000
+    action_server_result_timeout: 900.0
+    navigators: ["navigate_to_pose", "navigate_through_poses"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+    navigate_through_poses:
+      plugin: "nav2_bt_navigator::NavigateThroughPosesNavigator"
+    # 'default_nav_through_poses_bt_xml' and 'default_nav_to_pose_bt_xml' are use defaults:
+    # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
+    # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
+    # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
+
+    # plugin_lib_names is used to add custom BT plugins to the executor (vector of strings).
+    # Built-in plugins are added automatically
+    # plugin_lib_names: []
+
+    error_code_names:
+      - compute_path_error_code
+      - follow_path_error_code
 
 bt_navigator_rclcpp_node:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 controller_server:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
     controller_frequency: 20.0
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
@@ -154,90 +137,15 @@ controller_server:
       rotate_to_heading_min_angle: 0.785
       max_angular_accel: 2.5
       max_robot_pose_search_dist: 10.0
-
-    # FollowPath:
-    #   plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-    #   desired_linear_vel: 0.25
-    #   lookahead_dist: 0.4
-    #   min_lookahead_dist: 0.3
-    #   max_lookahead_dist: 0.6
-    #   lookahead_time: 1.5
-    #   rotate_to_heading_angular_vel: 0.6
-    #   transform_tolerance: 0.1
-    #   use_velocity_scaled_lookahead_dist: false
-    #   min_approach_linear_velocity: 0.05
-    #   approach_velocity_scaling_dist: 0.6
-    #   use_collision_detection: false
-    #   max_allowed_time_to_collision_up_to_carrot: 1.0
-    #   use_regulated_linear_velocity_scaling: true
-    #   use_fixed_curvature_lookahead: false
-    #   curvature_lookahead_dist: 0.25
-    #   use_cost_regulated_linear_velocity_scaling: false
-    #   regulated_linear_scaling_min_radius: 0.6
-    #   regulated_linear_scaling_min_speed: 0.20
-    #   use_rotate_to_heading: true
-    #   allow_reversing: false
-    #   rotate_to_heading_min_angle: 0.175
-    #   max_angular_accel: 2.5
-    #   max_robot_pose_search_dist: 10.0
-
-    # DWB parameters
-    # FollowPath:
-    #   plugin: "nav2_rotation_shim_controller::RotationShimController"
-    #   angular_dist_threshold: 0.785
-    #   forward_sampling_distance: 0.5
-    #   rotate_to_heading_angular_vel: 1.8
-    #   max_angular_accel: 3.2
-    #   simulate_ahead_time: 1.0
-    #   plugin: "dwb_core::DWBLocalPlanner"
-    #   debug_trajectory_details: true
-    #   min_vel_x: 0.0
-    #   min_vel_y: 0.0
-    #   max_vel_x: 0.4
-    #   max_vel_y: 0.0
-    #   max_vel_theta: 0.75
-    #   min_speed_xy: 0.0
-    #   max_speed_xy: 0.4
-    #   min_speed_theta: 0.0
-    #   # Add high threshold velocity for turtlebot 3 issue.
-    #   # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
-    #   acc_lim_x: 2.5
-    #   acc_lim_y: 0.0
-    #   acc_lim_theta: 3.2
-    #   decel_lim_x: -2.5
-    #   decel_lim_y: 0.0
-    #   decel_lim_theta: -3.2
-    #   vx_samples: 20
-    #   vy_samples: 5
-    #   vtheta_samples: 20
-    #   sim_time: 1.7
-    #   linear_granularity: 0.05
-    #   angular_granularity: 0.025
-    #   transform_tolerance: 0.2
-    #   xy_goal_tolerance: 0.25
-    #   trans_stopped_velocity: 0.25
-    #   short_circuit_trajectory_evaluation: true
-    #   stateful: true
-    #   critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-    #   BaseObstacle.scale: 0.02
-    #   PathAlign.scale: 32.0
-    #   PathAlign.forward_point_distance: 0.1
-    #   GoalAlign.scale: 24.0
-    #   GoalAlign.forward_point_distance: 0.1
-    #   PathDist.scale: 32.0
-    #   GoalDist.scale: 24.0
-    #   RotateToGoal.scale: 32.0
-    #   RotateToGoal.slowing_factor: 5.0
-    #   RotateToGoal.lookahead_time: -1.0
       
 controller_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 global_costmap:
   global_costmap:
     ros__parameters:
-      use_sim_time: false
+      use_sim_time: true
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
@@ -309,6 +217,7 @@ global_costmap:
         subscribe_to_updates: true
         transform_tolerance: 0.1
         footprint_clearing_enabled: true
+        map_topic: <robot_namespace>/map
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: true
@@ -321,7 +230,7 @@ global_costmap:
 local_costmap:
   local_costmap:
     ros__parameters:
-      use_sim_time: false
+      use_sim_time: true
       update_frequency: 10.0
       publish_frequency: 5.0
       global_frame: odom
@@ -399,12 +308,12 @@ local_costmap:
 
 map_server:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
     yaml_filename: "turtlebot3_world.yaml"
 
 map_saver:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
     save_map_timeout: 5.0
     free_thresh_default: 0.25
     occupied_thresh_default: 0.65
@@ -413,7 +322,7 @@ map_saver:
 planner_server:
   ros__parameters:
     expected_planner_frequency: 20.0
-    use_sim_time: false
+    use_sim_time: true
     planner_plugins: ["GridBased"]
     
     # GridBased:
@@ -423,7 +332,7 @@ planner_server:
     #   allow_unknown: true
 
     GridBased:
-      plugin: "nav2_smac_planner/SmacPlanner2D" # In Iron and older versions, "/" was used instead of "::"
+      plugin: "nav2_smac_planner::SmacPlanner2D" # In Iron and older versions, "/" was used instead of "::"
       tolerance: 0.5                      # tolerance for planning if unable to reach exact pose, in meters
       downsample_costmap: false             # whether or not to downsample the map
       downsampling_factor: 1                # multiplier for the resolution of the costmap layer (e.g. 2 on a 5cm costmap would be 10cm)
@@ -441,7 +350,7 @@ planner_server:
 
 planner_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 recoveries_server:
   ros__parameters:
@@ -458,7 +367,7 @@ recoveries_server:
     global_frame: odom
     robot_base_frame: base_link
     transform_timeout: 0.1
-    use_sim_time: false
+    use_sim_time: true
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0
     min_rotational_vel: 0.4
@@ -466,7 +375,7 @@ recoveries_server:
 
 robot_state_publisher:
   ros__parameters:
-    use_sim_time: false
+    use_sim_time: true
 
 waypoint_follower:
   ros__parameters:
@@ -478,54 +387,55 @@ waypoint_follower:
       enabled: true
       waypoint_pause_duration: 200
 
-collision_monitor:
-  ros__parameters:
-    use_sim_time: false
-    base_frame_id: "center_footprint"
-    odom_frame_id: "odom"
-    cmd_vel_in_topic: "<robot_namespace>/cmd_vel_nav" 
-    cmd_vel_out_topic: "<robot_namespace>/cmd_vel"
-    transform_tolerance: 1.0
-    source_timeout: 5.0
-    base_shift_correction: True
-    stop_pub_timeout: 2.0
-    # Polygons represent zone around the robot for "stop" and "slowdown" action types,
-    # and robot footprint for "approach" action type.
-    # Footprint could be "polygon" type with dynamically set footprint from footprint_topic
-    # or "circle" type with static footprint set by radius. "footprint_topic" parameter
-    # to be ignored in circular case.
-    polygons: ["PolygonStop", "PolygonSlow"]
-    PolygonStop:
-      type: "polygon"
-      points: [0.25, 0.15, 0.25, -0.15, 0.0, -0.15, 0.0, 0.15]
-      action_type: "stop"
-      max_points: 3
-      visualize: True
-      polygon_pub_topic: "<robot_namespace>/polygon_stop"
-    PolygonSlow:
-      type: "polygon"
-      points: [0.35, 0.2, 0.35, -0.2, 0.0, -0.2, 0.0, 0.2]
-      action_type: "slowdown"
-      max_points: 3
-      slowdown_ratio: 0.5
-      visualize: True
-      polygon_pub_topic: "<robot_namespace>/polygon_slowdown"
-    observation_sources: ["range_center", "range_left", "range_right", "scan"]
-    scan:
-      type: "scan"
-      topic: "<robot_namespace>/scan"
-    pointcloud:
-      type: "pointcloud"
-      topic: "<robot_namespace>/intel_realsense_r200_depth/points"
-      min_height: 0.1
-      max_height: 0.5
-    range_left:
-      type: "range"
-      topic: "<robot_namespace>/range/left"
-    range_center:
-      type: "range"
-      topic: "<robot_namespace>/range/center"
-    range_right:
-      type: "range"
-      topic: "<robot_namespace>/range/right"
+# collision_monitor:
+#   ros__parameters:
+#     use_sim_time: true
+#     base_frame_id: "center_footprint"
+#     odom_frame_id: "odom"
+#     cmd_vel_in_topic: "<robot_namespace>/cmd_vel_nav" 
+#     cmd_vel_out_topic: "<robot_namespace>/cmd_vel"
+#     transform_tolerance: 1.0
+#     source_timeout: 5.0
+#     base_shift_correction: True
+#     stop_pub_timeout: 2.0
+#     # Polygons represent zone around the robot for "stop" and "slowdown" action types,
+#     # and robot footprint for "approach" action type.
+#     # Footprint could be "polygon" type with dynamically set footprint from footprint_topic
+#     # or "circle" type with static footprint set by radius. "footprint_topic" parameter
+#     # to be ignored in circular case.
+#     polygons: ["PolygonStop", "PolygonSlow"]
+#     PolygonStop:
+#       type: "polygon"
+#       points: [0.25, 0.15, 0.25, -0.15, 0.0, -0.15, 0.0, 0.15]
+#       action_type: "stop"
+#       max_points: 3
+#       visualize: True
+#       polygon_pub_topic: "<robot_namespace>/polygon_stop"
+#     PolygonSlow:
+#       type: "polygon"
+#       points: [0.35, 0.2, 0.35, -0.2, 0.0, -0.2, 0.0, 0.2]
+#       action_type: "slowdown"
+#       max_points: 3
+#       slowdown_ratio: 0.5
+#       visualize: True
+#       polygon_pub_topic: "<robot_namespace>/polygon_slowdown"
+#     # observation_sources: ["range_center", "range_left", "range_right", "scan"]
+#     observation_sources: ["scan"]
+#     scan:
+#       type: "scan"
+#       topic: "<robot_namespace>/scan"
+#     pointcloud:
+#       type: "pointcloud"
+#       topic: "<robot_namespace>/intel_realsense_r200_depth/points"
+#       min_height: 0.1
+#       max_height: 0.5
+#     range_left:
+#       type: "range"
+#       topic: "<robot_namespace>/range/left"
+#     range_center:
+#       type: "range"
+#       topic: "<robot_namespace>/range/center"
+#     range_right:
+#       type: "range"
+#       topic: "<robot_namespace>/range/right"
 

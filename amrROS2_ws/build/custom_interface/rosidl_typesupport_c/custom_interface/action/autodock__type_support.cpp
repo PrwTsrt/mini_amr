@@ -6,6 +6,7 @@
 #include "rosidl_runtime_c/message_type_support_struct.h"
 #include "custom_interface/action/detail/autodock__struct.h"
 #include "custom_interface/action/detail/autodock__type_support.h"
+#include "custom_interface/action/detail/autodock__functions.h"
 #include "rosidl_typesupport_c/identifier.h"
 #include "rosidl_typesupport_c/message_type_support_dispatch.h"
 #include "rosidl_typesupport_c/type_support_map.h"
@@ -72,6 +73,9 @@ static const rosidl_message_type_support_t Autodock_Goal_message_type_support_ha
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_Goal_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Goal__get_type_hash,
+  &custom_interface__action__Autodock_Goal__get_type_description,
+  &custom_interface__action__Autodock_Goal__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -102,6 +106,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -173,6 +179,9 @@ static const rosidl_message_type_support_t Autodock_Result_message_type_support_
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_Result_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Result__get_type_hash,
+  &custom_interface__action__Autodock_Result__get_type_description,
+  &custom_interface__action__Autodock_Result__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -203,6 +212,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -274,6 +285,9 @@ static const rosidl_message_type_support_t Autodock_Feedback_message_type_suppor
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_Feedback_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Feedback__get_type_hash,
+  &custom_interface__action__Autodock_Feedback__get_type_description,
+  &custom_interface__action__Autodock_Feedback__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -304,6 +318,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -375,6 +391,9 @@ static const rosidl_message_type_support_t Autodock_SendGoal_Request_message_typ
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_SendGoal_Request_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -405,6 +424,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -476,6 +497,9 @@ static const rosidl_message_type_support_t Autodock_SendGoal_Response_message_ty
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_SendGoal_Response_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -500,14 +524,22 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 
 // already included above
 // #include "cstddef"
-#include "rosidl_runtime_c/service_type_support_struct.h"
+// already included above
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
 // already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
+// already included above
 // #include "rosidl_typesupport_c/identifier.h"
-#include "rosidl_typesupport_c/service_type_support_dispatch.h"
+// already included above
+// #include "rosidl_typesupport_c/message_type_support_dispatch.h"
 // already included above
 // #include "rosidl_typesupport_c/type_support_map.h"
+// already included above
+// #include "rosidl_typesupport_c/visibility_control.h"
 // already included above
 // #include "rosidl_typesupport_interface/macros.h"
 
@@ -520,6 +552,105 @@ namespace action
 namespace rosidl_typesupport_c
 {
 
+typedef struct _Autodock_SendGoal_Event_type_support_ids_t
+{
+  const char * typesupport_identifier[2];
+} _Autodock_SendGoal_Event_type_support_ids_t;
+
+static const _Autodock_SendGoal_Event_type_support_ids_t _Autodock_SendGoal_Event_message_typesupport_ids = {
+  {
+    "rosidl_typesupport_fastrtps_c",  // ::rosidl_typesupport_fastrtps_c::typesupport_identifier,
+    "rosidl_typesupport_introspection_c",  // ::rosidl_typesupport_introspection_c::typesupport_identifier,
+  }
+};
+
+typedef struct _Autodock_SendGoal_Event_type_support_symbol_names_t
+{
+  const char * symbol_name[2];
+} _Autodock_SendGoal_Event_type_support_symbol_names_t;
+
+#define STRINGIFY_(s) #s
+#define STRINGIFY(s) STRINGIFY_(s)
+
+static const _Autodock_SendGoal_Event_type_support_symbol_names_t _Autodock_SendGoal_Event_message_typesupport_symbol_names = {
+  {
+    STRINGIFY(ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, custom_interface, action, Autodock_SendGoal_Event)),
+    STRINGIFY(ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Event)),
+  }
+};
+
+typedef struct _Autodock_SendGoal_Event_type_support_data_t
+{
+  void * data[2];
+} _Autodock_SendGoal_Event_type_support_data_t;
+
+static _Autodock_SendGoal_Event_type_support_data_t _Autodock_SendGoal_Event_message_typesupport_data = {
+  {
+    0,  // will store the shared library later
+    0,  // will store the shared library later
+  }
+};
+
+static const type_support_map_t _Autodock_SendGoal_Event_message_typesupport_map = {
+  2,
+  "custom_interface",
+  &_Autodock_SendGoal_Event_message_typesupport_ids.typesupport_identifier[0],
+  &_Autodock_SendGoal_Event_message_typesupport_symbol_names.symbol_name[0],
+  &_Autodock_SendGoal_Event_message_typesupport_data.data[0],
+};
+
+static const rosidl_message_type_support_t Autodock_SendGoal_Event_message_type_support_handle = {
+  rosidl_typesupport_c__typesupport_identifier,
+  reinterpret_cast<const type_support_map_t *>(&_Autodock_SendGoal_Event_message_typesupport_map),
+  rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_description_sources,
+};
+
+}  // namespace rosidl_typesupport_c
+
+}  // namespace action
+
+}  // namespace custom_interface
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_interface, action, Autodock_SendGoal_Event)() {
+  return &::custom_interface::action::rosidl_typesupport_c::Autodock_SendGoal_Event_message_type_support_handle;
+}
+
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include "cstddef"
+#include "rosidl_runtime_c/service_type_support_struct.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "rosidl_typesupport_c/identifier.h"
+#include "rosidl_typesupport_c/service_type_support_dispatch.h"
+// already included above
+// #include "rosidl_typesupport_c/type_support_map.h"
+// already included above
+// #include "rosidl_typesupport_interface/macros.h"
+#include "service_msgs/msg/service_event_info.h"
+#include "builtin_interfaces/msg/time.h"
+
+namespace custom_interface
+{
+
+namespace action
+{
+
+namespace rosidl_typesupport_c
+{
 typedef struct _Autodock_SendGoal_type_support_ids_t
 {
   const char * typesupport_identifier[2];
@@ -571,6 +702,24 @@ static const rosidl_service_type_support_t Autodock_SendGoal_service_type_suppor
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_SendGoal_service_typesupport_map),
   rosidl_typesupport_c__get_service_typesupport_handle_function,
+  &Autodock_SendGoal_Request_message_type_support_handle,
+  &Autodock_SendGoal_Response_message_type_support_handle,
+  &Autodock_SendGoal_Event_message_type_support_handle,
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_CREATE_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_SendGoal
+  ),
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_DESTROY_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_SendGoal
+  ),
+  &custom_interface__action__Autodock_SendGoal__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal__get_type_description,
+  &custom_interface__action__Autodock_SendGoal__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -601,6 +750,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -672,6 +823,9 @@ static const rosidl_message_type_support_t Autodock_GetResult_Request_message_ty
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_GetResult_Request_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -702,6 +856,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -773,6 +929,9 @@ static const rosidl_message_type_support_t Autodock_GetResult_Response_message_t
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_GetResult_Response_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -798,15 +957,21 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // already included above
 // #include "cstddef"
 // already included above
-// #include "rosidl_runtime_c/service_type_support_struct.h"
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
 // already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
+// already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
-// #include "rosidl_typesupport_c/service_type_support_dispatch.h"
+// #include "rosidl_typesupport_c/message_type_support_dispatch.h"
 // already included above
 // #include "rosidl_typesupport_c/type_support_map.h"
+// already included above
+// #include "rosidl_typesupport_c/visibility_control.h"
 // already included above
 // #include "rosidl_typesupport_interface/macros.h"
 
@@ -819,6 +984,109 @@ namespace action
 namespace rosidl_typesupport_c
 {
 
+typedef struct _Autodock_GetResult_Event_type_support_ids_t
+{
+  const char * typesupport_identifier[2];
+} _Autodock_GetResult_Event_type_support_ids_t;
+
+static const _Autodock_GetResult_Event_type_support_ids_t _Autodock_GetResult_Event_message_typesupport_ids = {
+  {
+    "rosidl_typesupport_fastrtps_c",  // ::rosidl_typesupport_fastrtps_c::typesupport_identifier,
+    "rosidl_typesupport_introspection_c",  // ::rosidl_typesupport_introspection_c::typesupport_identifier,
+  }
+};
+
+typedef struct _Autodock_GetResult_Event_type_support_symbol_names_t
+{
+  const char * symbol_name[2];
+} _Autodock_GetResult_Event_type_support_symbol_names_t;
+
+#define STRINGIFY_(s) #s
+#define STRINGIFY(s) STRINGIFY_(s)
+
+static const _Autodock_GetResult_Event_type_support_symbol_names_t _Autodock_GetResult_Event_message_typesupport_symbol_names = {
+  {
+    STRINGIFY(ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, custom_interface, action, Autodock_GetResult_Event)),
+    STRINGIFY(ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Event)),
+  }
+};
+
+typedef struct _Autodock_GetResult_Event_type_support_data_t
+{
+  void * data[2];
+} _Autodock_GetResult_Event_type_support_data_t;
+
+static _Autodock_GetResult_Event_type_support_data_t _Autodock_GetResult_Event_message_typesupport_data = {
+  {
+    0,  // will store the shared library later
+    0,  // will store the shared library later
+  }
+};
+
+static const type_support_map_t _Autodock_GetResult_Event_message_typesupport_map = {
+  2,
+  "custom_interface",
+  &_Autodock_GetResult_Event_message_typesupport_ids.typesupport_identifier[0],
+  &_Autodock_GetResult_Event_message_typesupport_symbol_names.symbol_name[0],
+  &_Autodock_GetResult_Event_message_typesupport_data.data[0],
+};
+
+static const rosidl_message_type_support_t Autodock_GetResult_Event_message_type_support_handle = {
+  rosidl_typesupport_c__typesupport_identifier,
+  reinterpret_cast<const type_support_map_t *>(&_Autodock_GetResult_Event_message_typesupport_map),
+  rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_description_sources,
+};
+
+}  // namespace rosidl_typesupport_c
+
+}  // namespace action
+
+}  // namespace custom_interface
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_interface, action, Autodock_GetResult_Event)() {
+  return &::custom_interface::action::rosidl_typesupport_c::Autodock_GetResult_Event_message_type_support_handle;
+}
+
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include "cstddef"
+// already included above
+// #include "rosidl_runtime_c/service_type_support_struct.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "rosidl_typesupport_c/identifier.h"
+// already included above
+// #include "rosidl_typesupport_c/service_type_support_dispatch.h"
+// already included above
+// #include "rosidl_typesupport_c/type_support_map.h"
+// already included above
+// #include "rosidl_typesupport_interface/macros.h"
+// already included above
+// #include "service_msgs/msg/service_event_info.h"
+// already included above
+// #include "builtin_interfaces/msg/time.h"
+
+namespace custom_interface
+{
+
+namespace action
+{
+
+namespace rosidl_typesupport_c
+{
 typedef struct _Autodock_GetResult_type_support_ids_t
 {
   const char * typesupport_identifier[2];
@@ -870,6 +1138,24 @@ static const rosidl_service_type_support_t Autodock_GetResult_service_type_suppo
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_GetResult_service_typesupport_map),
   rosidl_typesupport_c__get_service_typesupport_handle_function,
+  &Autodock_GetResult_Request_message_type_support_handle,
+  &Autodock_GetResult_Response_message_type_support_handle,
+  &Autodock_GetResult_Event_message_type_support_handle,
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_CREATE_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_GetResult
+  ),
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_DESTROY_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_GetResult
+  ),
+  &custom_interface__action__Autodock_GetResult__get_type_hash,
+  &custom_interface__action__Autodock_GetResult__get_type_description,
+  &custom_interface__action__Autodock_GetResult__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -900,6 +1186,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // #include "custom_interface/action/detail/autodock__struct.h"
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
 // already included above
 // #include "rosidl_typesupport_c/identifier.h"
 // already included above
@@ -971,6 +1259,9 @@ static const rosidl_message_type_support_t Autodock_FeedbackMessage_message_type
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_Autodock_FeedbackMessage_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_hash,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_description,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_c
@@ -999,7 +1290,12 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, custom_i
 // already included above
 // #include "custom_interface/action/detail/autodock__type_support.h"
 
-static rosidl_action_type_support_t _custom_interface__action__Autodock__typesupport_c;
+static rosidl_action_type_support_t _custom_interface__action__Autodock__typesupport_c = {
+  NULL, NULL, NULL, NULL, NULL,
+  &custom_interface__action__Autodock__get_type_hash,
+  &custom_interface__action__Autodock__get_type_description,
+  &custom_interface__action__Autodock__get_type_description_sources,
+};
 
 #ifdef __cplusplus
 extern "C"

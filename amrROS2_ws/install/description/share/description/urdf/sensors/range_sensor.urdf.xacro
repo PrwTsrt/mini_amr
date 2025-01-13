@@ -58,14 +58,14 @@
               </noise>
             </ray>
 
-            <plugin name="ultrasonic_sensor_1" filename="libgazebo_ros_ray_sensor.so">
+            <!-- <plugin name="ultrasonic_sensor_1" filename="libgazebo_ros_ray_sensor.so">
               <ros>
                 <remapping>~/out:=${pos}_range</remapping>
               </ros>
               <output_type>sensor_msgs/Range</output_type>
               <radiation_type>ultrasound</radiation_type>
-              <!-- <frame_name>${pos}_ranger_link</frame_name> -->
-            </plugin>
+              <frame_name>${pos}_ranger_link</frame_name>
+            </plugin> -->
                      
           </sensor>
       </gazebo>

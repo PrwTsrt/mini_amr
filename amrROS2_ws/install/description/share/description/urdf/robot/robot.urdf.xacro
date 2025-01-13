@@ -11,7 +11,7 @@
   <xacro:include filename="$(find description)/urdf/sensors/camera.urdf.xacro" />
   <xacro:include filename="$(find description)/urdf/sensors/range_sensor.urdf.xacro" />
 
-  <!-- <xacro:diff_drive_controller/> -->
+  <xacro:diff_drive_controller/>
 
   <xacro:base 
     length="${base_length}" 

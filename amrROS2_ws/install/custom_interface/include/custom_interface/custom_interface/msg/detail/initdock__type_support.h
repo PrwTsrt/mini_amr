@@ -2,6 +2,9 @@
 // with input from custom_interface:msg/Initdock.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "custom_interface/msg/initdock.h"
+
+
 #ifndef CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__TYPE_SUPPORT_H_
 #define CUSTOM_INTERFACE__MSG__DETAIL__INITDOCK__TYPE_SUPPORT_H_
 
@@ -24,7 +27,7 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
   custom_interface,
   msg,
   Initdock
-)();
+)(void);
 
 #ifdef __cplusplus
 }

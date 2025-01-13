@@ -4,10 +4,13 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/custom_interface/action/detail/autodock__builder.hpp"
   "rosidl_generator_cpp/custom_interface/action/detail/autodock__struct.hpp"
   "rosidl_generator_cpp/custom_interface/action/detail/autodock__traits.hpp"
+  "rosidl_generator_cpp/custom_interface/action/detail/autodock__type_support.hpp"
   "rosidl_generator_cpp/custom_interface/msg/detail/initdock__builder.hpp"
   "rosidl_generator_cpp/custom_interface/msg/detail/initdock__struct.hpp"
   "rosidl_generator_cpp/custom_interface/msg/detail/initdock__traits.hpp"
+  "rosidl_generator_cpp/custom_interface/msg/detail/initdock__type_support.hpp"
   "rosidl_generator_cpp/custom_interface/msg/initdock.hpp"
+  "rosidl_generator_cpp/custom_interface/msg/rosidl_generator_cpp__visibility_control.hpp"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -37,6 +37,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -56,6 +57,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_Goal",  // message name
   1,  // number of fields
   sizeof(custom_interface__action__Autodock_Goal),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_Goal__rosidl_typesupport_introspection_c__Autodock_Goal_message_member_array,  // message members
   custom_interface__action__Autodock_Goal__rosidl_typesupport_introspection_c__Autodock_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_Goal__rosidl_typesupport_introspection_c__Autodock_Goal_fini_function  // function to terminate message instance (will not free memory)
@@ -67,6 +69,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_Goal__ro
   0,
   &custom_interface__action__Autodock_Goal__rosidl_typesupport_introspection_c__Autodock_Goal_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Goal__get_type_hash,
+  &custom_interface__action__Autodock_Goal__get_type_description,
+  &custom_interface__action__Autodock_Goal__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -125,6 +130,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -144,6 +150,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_Result",  // message name
   1,  // number of fields
   sizeof(custom_interface__action__Autodock_Result),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_Result__rosidl_typesupport_introspection_c__Autodock_Result_message_member_array,  // message members
   custom_interface__action__Autodock_Result__rosidl_typesupport_introspection_c__Autodock_Result_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_Result__rosidl_typesupport_introspection_c__Autodock_Result_fini_function  // function to terminate message instance (will not free memory)
@@ -155,6 +162,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_Result__
   0,
   &custom_interface__action__Autodock_Result__rosidl_typesupport_introspection_c__Autodock_Result_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Result__get_type_hash,
+  &custom_interface__action__Autodock_Result__get_type_description,
+  &custom_interface__action__Autodock_Result__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -219,6 +229,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -236,6 +247,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -255,6 +267,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_Feedback",  // message name
   2,  // number of fields
   sizeof(custom_interface__action__Autodock_Feedback),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_Feedback__rosidl_typesupport_introspection_c__Autodock_Feedback_message_member_array,  // message members
   custom_interface__action__Autodock_Feedback__rosidl_typesupport_introspection_c__Autodock_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_Feedback__rosidl_typesupport_introspection_c__Autodock_Feedback_fini_function  // function to terminate message instance (will not free memory)
@@ -266,6 +279,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_Feedback
   0,
   &custom_interface__action__Autodock_Feedback__rosidl_typesupport_introspection_c__Autodock_Feedback_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_Feedback__get_type_hash,
+  &custom_interface__action__Autodock_Feedback__get_type_description,
+  &custom_interface__action__Autodock_Feedback__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -337,6 +353,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -354,6 +371,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -373,6 +391,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_SendGoal_Request",  // message name
   2,  // number of fields
   sizeof(custom_interface__action__Autodock_SendGoal_Request),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_SendGoal_Request__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_message_member_array,  // message members
   custom_interface__action__Autodock_SendGoal_Request__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_SendGoal_Request__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_fini_function  // function to terminate message instance (will not free memory)
@@ -384,6 +403,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_SendGoal
   0,
   &custom_interface__action__Autodock_SendGoal_Request__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Request__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -452,6 +474,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -469,6 +492,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -488,6 +512,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_SendGoal_Response",  // message name
   2,  // number of fields
   sizeof(custom_interface__action__Autodock_SendGoal_Response),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_member_array,  // message members
   custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_fini_function  // function to terminate message instance (will not free memory)
@@ -499,6 +524,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_SendGoal
   0,
   &custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Response__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -511,6 +539,265 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
       rosidl_typesupport_introspection_c__identifier;
   }
   return &custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_type_support_handle;
+}
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include <stddef.h>
+// already included above
+// #include "custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h"
+// already included above
+// #include "custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/field_types.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/identifier.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/message_introspection.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__struct.h"
+
+
+// Include directives for member types
+// Member `info`
+#include "service_msgs/msg/service_event_info.h"
+// Member `info`
+#include "service_msgs/msg/detail/service_event_info__rosidl_typesupport_introspection_c.h"
+// Member `request`
+// Member `response`
+// already included above
+// #include "custom_interface/action/autodock.h"
+// Member `request`
+// Member `response`
+// already included above
+// #include "custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_init_function(
+  void * message_memory, enum rosidl_runtime_c__message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  custom_interface__action__Autodock_SendGoal_Event__init(message_memory);
+}
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_fini_function(void * message_memory)
+{
+  custom_interface__action__Autodock_SendGoal_Event__fini(message_memory);
+}
+
+size_t custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__size_function__Autodock_SendGoal_Event__request(
+  const void * untyped_member)
+{
+  const custom_interface__action__Autodock_SendGoal_Request__Sequence * member =
+    (const custom_interface__action__Autodock_SendGoal_Request__Sequence *)(untyped_member);
+  return member->size;
+}
+
+const void * custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__request(
+  const void * untyped_member, size_t index)
+{
+  const custom_interface__action__Autodock_SendGoal_Request__Sequence * member =
+    (const custom_interface__action__Autodock_SendGoal_Request__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void * custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__request(
+  void * untyped_member, size_t index)
+{
+  custom_interface__action__Autodock_SendGoal_Request__Sequence * member =
+    (custom_interface__action__Autodock_SendGoal_Request__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_SendGoal_Event__request(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const custom_interface__action__Autodock_SendGoal_Request * item =
+    ((const custom_interface__action__Autodock_SendGoal_Request *)
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__request(untyped_member, index));
+  custom_interface__action__Autodock_SendGoal_Request * value =
+    (custom_interface__action__Autodock_SendGoal_Request *)(untyped_value);
+  *value = *item;
+}
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_SendGoal_Event__request(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  custom_interface__action__Autodock_SendGoal_Request * item =
+    ((custom_interface__action__Autodock_SendGoal_Request *)
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__request(untyped_member, index));
+  const custom_interface__action__Autodock_SendGoal_Request * value =
+    (const custom_interface__action__Autodock_SendGoal_Request *)(untyped_value);
+  *item = *value;
+}
+
+bool custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_SendGoal_Event__request(
+  void * untyped_member, size_t size)
+{
+  custom_interface__action__Autodock_SendGoal_Request__Sequence * member =
+    (custom_interface__action__Autodock_SendGoal_Request__Sequence *)(untyped_member);
+  custom_interface__action__Autodock_SendGoal_Request__Sequence__fini(member);
+  return custom_interface__action__Autodock_SendGoal_Request__Sequence__init(member, size);
+}
+
+size_t custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__size_function__Autodock_SendGoal_Event__response(
+  const void * untyped_member)
+{
+  const custom_interface__action__Autodock_SendGoal_Response__Sequence * member =
+    (const custom_interface__action__Autodock_SendGoal_Response__Sequence *)(untyped_member);
+  return member->size;
+}
+
+const void * custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__response(
+  const void * untyped_member, size_t index)
+{
+  const custom_interface__action__Autodock_SendGoal_Response__Sequence * member =
+    (const custom_interface__action__Autodock_SendGoal_Response__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void * custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__response(
+  void * untyped_member, size_t index)
+{
+  custom_interface__action__Autodock_SendGoal_Response__Sequence * member =
+    (custom_interface__action__Autodock_SendGoal_Response__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_SendGoal_Event__response(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const custom_interface__action__Autodock_SendGoal_Response * item =
+    ((const custom_interface__action__Autodock_SendGoal_Response *)
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__response(untyped_member, index));
+  custom_interface__action__Autodock_SendGoal_Response * value =
+    (custom_interface__action__Autodock_SendGoal_Response *)(untyped_value);
+  *value = *item;
+}
+
+void custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_SendGoal_Event__response(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  custom_interface__action__Autodock_SendGoal_Response * item =
+    ((custom_interface__action__Autodock_SendGoal_Response *)
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__response(untyped_member, index));
+  const custom_interface__action__Autodock_SendGoal_Response * value =
+    (const custom_interface__action__Autodock_SendGoal_Response *)(untyped_value);
+  *item = *value;
+}
+
+bool custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_SendGoal_Event__response(
+  void * untyped_member, size_t size)
+{
+  custom_interface__action__Autodock_SendGoal_Response__Sequence * member =
+    (custom_interface__action__Autodock_SendGoal_Response__Sequence *)(untyped_member);
+  custom_interface__action__Autodock_SendGoal_Response__Sequence__fini(member);
+  return custom_interface__action__Autodock_SendGoal_Response__Sequence__init(member, size);
+}
+
+static rosidl_typesupport_introspection_c__MessageMember custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_member_array[3] = {
+  {
+    "info",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(custom_interface__action__Autodock_SendGoal_Event, info),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "request",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    true,  // is array
+    1,  // array size
+    true,  // is upper bound
+    offsetof(custom_interface__action__Autodock_SendGoal_Event, request),  // bytes offset in struct
+    NULL,  // default value
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__size_function__Autodock_SendGoal_Event__request,  // size() function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__request,  // get_const(index) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__request,  // get(index) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_SendGoal_Event__request,  // fetch(index, &value) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_SendGoal_Event__request,  // assign(index, value) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_SendGoal_Event__request  // resize(index) function pointer
+  },
+  {
+    "response",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    true,  // is array
+    1,  // array size
+    true,  // is upper bound
+    offsetof(custom_interface__action__Autodock_SendGoal_Event, response),  // bytes offset in struct
+    NULL,  // default value
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__size_function__Autodock_SendGoal_Event__response,  // size() function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_SendGoal_Event__response,  // get_const(index) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__get_function__Autodock_SendGoal_Event__response,  // get(index) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_SendGoal_Event__response,  // fetch(index, &value) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_SendGoal_Event__response,  // assign(index, value) function pointer
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_SendGoal_Event__response  // resize(index) function pointer
+  }
+};
+
+static const rosidl_typesupport_introspection_c__MessageMembers custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_members = {
+  "custom_interface__action",  // message namespace
+  "Autodock_SendGoal_Event",  // message name
+  3,  // number of fields
+  sizeof(custom_interface__action__Autodock_SendGoal_Event),
+  false,  // has_any_key_member_
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_member_array,  // message members
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_init_function,  // function to initialize message memory (memory has to be allocated)
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_fini_function  // function to terminate message instance (will not free memory)
+};
+
+// this is not const since it must be initialized on first access
+// since C does not allow non-integral compile-time constants
+static rosidl_message_type_support_t custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_type_support_handle = {
+  0,
+  &custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_members,
+  get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_description,
+  &custom_interface__action__Autodock_SendGoal_Event__get_type_description_sources,
+};
+
+ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Event)() {
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_member_array[0].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, service_msgs, msg, ServiceEventInfo)();
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_member_array[1].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Request)();
+  custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_member_array[2].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Response)();
+  if (!custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_type_support_handle.typesupport_identifier) {
+    custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_type_support_handle.typesupport_identifier =
+      rosidl_typesupport_introspection_c__identifier;
+  }
+  return &custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_type_support_handle;
 }
 #ifdef __cplusplus
 }
@@ -529,29 +816,53 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 static rosidl_typesupport_introspection_c__ServiceMembers custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_members = {
   "custom_interface__action",  // service namespace
   "Autodock_SendGoal",  // service name
-  // these two fields are initialized below on the first access
+  // the following fields are initialized below on first access
   NULL,  // request message
   // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_message_type_support_handle,
-  NULL  // response message
+  NULL,  // response message
+  // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_type_support_handle
+  NULL  // event_message
   // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_type_support_handle
 };
+
 
 static rosidl_service_type_support_t custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_type_support_handle = {
   0,
   &custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_members,
   get_service_typesupport_handle_function,
+  &custom_interface__action__Autodock_SendGoal_Request__rosidl_typesupport_introspection_c__Autodock_SendGoal_Request_message_type_support_handle,
+  &custom_interface__action__Autodock_SendGoal_Response__rosidl_typesupport_introspection_c__Autodock_SendGoal_Response_message_type_support_handle,
+  &custom_interface__action__Autodock_SendGoal_Event__rosidl_typesupport_introspection_c__Autodock_SendGoal_Event_message_type_support_handle,
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_CREATE_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_SendGoal
+  ),
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_DESTROY_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_SendGoal
+  ),
+  &custom_interface__action__Autodock_SendGoal__get_type_hash,
+  &custom_interface__action__Autodock_SendGoal__get_type_description,
+  &custom_interface__action__Autodock_SendGoal__get_type_description_sources,
 };
 
-// Forward declaration of request/response type support functions
+// Forward declaration of message type support functions for service members
 const rosidl_message_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Request)();
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Request)(void);
 
 const rosidl_message_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Response)();
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Response)(void);
+
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Event)(void);
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
 const rosidl_service_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal)() {
+ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal)(void) {
   if (!custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_type_support_handle.typesupport_identifier) {
     custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_type_support_handle.typesupport_identifier =
       rosidl_typesupport_introspection_c__identifier;
@@ -568,6 +879,11 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
     service_members->response_members_ =
       (const rosidl_typesupport_introspection_c__MessageMembers *)
       ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Response)()->data;
+  }
+  if (!service_members->event_members_) {
+    service_members->event_members_ =
+      (const rosidl_typesupport_introspection_c__MessageMembers *)
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_SendGoal_Event)()->data;
   }
 
   return &custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_SendGoal_service_type_support_handle;
@@ -624,6 +940,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -643,6 +960,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_GetResult_Request",  // message name
   1,  // number of fields
   sizeof(custom_interface__action__Autodock_GetResult_Request),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_GetResult_Request__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_message_member_array,  // message members
   custom_interface__action__Autodock_GetResult_Request__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_GetResult_Request__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_fini_function  // function to terminate message instance (will not free memory)
@@ -654,6 +972,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_GetResul
   0,
   &custom_interface__action__Autodock_GetResult_Request__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Request__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -722,6 +1043,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_INT8,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -739,6 +1061,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -758,6 +1081,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_GetResult_Response",  // message name
   2,  // number of fields
   sizeof(custom_interface__action__Autodock_GetResult_Response),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_member_array,  // message members
   custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_fini_function  // function to terminate message instance (will not free memory)
@@ -769,6 +1093,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_GetResul
   0,
   &custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Response__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
@@ -781,6 +1108,267 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
       rosidl_typesupport_introspection_c__identifier;
   }
   return &custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_type_support_handle;
+}
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include <stddef.h>
+// already included above
+// #include "custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h"
+// already included above
+// #include "custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/field_types.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/identifier.h"
+// already included above
+// #include "rosidl_typesupport_introspection_c/message_introspection.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__functions.h"
+// already included above
+// #include "custom_interface/action/detail/autodock__struct.h"
+
+
+// Include directives for member types
+// Member `info`
+// already included above
+// #include "service_msgs/msg/service_event_info.h"
+// Member `info`
+// already included above
+// #include "service_msgs/msg/detail/service_event_info__rosidl_typesupport_introspection_c.h"
+// Member `request`
+// Member `response`
+// already included above
+// #include "custom_interface/action/autodock.h"
+// Member `request`
+// Member `response`
+// already included above
+// #include "custom_interface/action/detail/autodock__rosidl_typesupport_introspection_c.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_init_function(
+  void * message_memory, enum rosidl_runtime_c__message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  custom_interface__action__Autodock_GetResult_Event__init(message_memory);
+}
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_fini_function(void * message_memory)
+{
+  custom_interface__action__Autodock_GetResult_Event__fini(message_memory);
+}
+
+size_t custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__size_function__Autodock_GetResult_Event__request(
+  const void * untyped_member)
+{
+  const custom_interface__action__Autodock_GetResult_Request__Sequence * member =
+    (const custom_interface__action__Autodock_GetResult_Request__Sequence *)(untyped_member);
+  return member->size;
+}
+
+const void * custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__request(
+  const void * untyped_member, size_t index)
+{
+  const custom_interface__action__Autodock_GetResult_Request__Sequence * member =
+    (const custom_interface__action__Autodock_GetResult_Request__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void * custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__request(
+  void * untyped_member, size_t index)
+{
+  custom_interface__action__Autodock_GetResult_Request__Sequence * member =
+    (custom_interface__action__Autodock_GetResult_Request__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_GetResult_Event__request(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const custom_interface__action__Autodock_GetResult_Request * item =
+    ((const custom_interface__action__Autodock_GetResult_Request *)
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__request(untyped_member, index));
+  custom_interface__action__Autodock_GetResult_Request * value =
+    (custom_interface__action__Autodock_GetResult_Request *)(untyped_value);
+  *value = *item;
+}
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_GetResult_Event__request(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  custom_interface__action__Autodock_GetResult_Request * item =
+    ((custom_interface__action__Autodock_GetResult_Request *)
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__request(untyped_member, index));
+  const custom_interface__action__Autodock_GetResult_Request * value =
+    (const custom_interface__action__Autodock_GetResult_Request *)(untyped_value);
+  *item = *value;
+}
+
+bool custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_GetResult_Event__request(
+  void * untyped_member, size_t size)
+{
+  custom_interface__action__Autodock_GetResult_Request__Sequence * member =
+    (custom_interface__action__Autodock_GetResult_Request__Sequence *)(untyped_member);
+  custom_interface__action__Autodock_GetResult_Request__Sequence__fini(member);
+  return custom_interface__action__Autodock_GetResult_Request__Sequence__init(member, size);
+}
+
+size_t custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__size_function__Autodock_GetResult_Event__response(
+  const void * untyped_member)
+{
+  const custom_interface__action__Autodock_GetResult_Response__Sequence * member =
+    (const custom_interface__action__Autodock_GetResult_Response__Sequence *)(untyped_member);
+  return member->size;
+}
+
+const void * custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__response(
+  const void * untyped_member, size_t index)
+{
+  const custom_interface__action__Autodock_GetResult_Response__Sequence * member =
+    (const custom_interface__action__Autodock_GetResult_Response__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void * custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__response(
+  void * untyped_member, size_t index)
+{
+  custom_interface__action__Autodock_GetResult_Response__Sequence * member =
+    (custom_interface__action__Autodock_GetResult_Response__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_GetResult_Event__response(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const custom_interface__action__Autodock_GetResult_Response * item =
+    ((const custom_interface__action__Autodock_GetResult_Response *)
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__response(untyped_member, index));
+  custom_interface__action__Autodock_GetResult_Response * value =
+    (custom_interface__action__Autodock_GetResult_Response *)(untyped_value);
+  *value = *item;
+}
+
+void custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_GetResult_Event__response(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  custom_interface__action__Autodock_GetResult_Response * item =
+    ((custom_interface__action__Autodock_GetResult_Response *)
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__response(untyped_member, index));
+  const custom_interface__action__Autodock_GetResult_Response * value =
+    (const custom_interface__action__Autodock_GetResult_Response *)(untyped_value);
+  *item = *value;
+}
+
+bool custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_GetResult_Event__response(
+  void * untyped_member, size_t size)
+{
+  custom_interface__action__Autodock_GetResult_Response__Sequence * member =
+    (custom_interface__action__Autodock_GetResult_Response__Sequence *)(untyped_member);
+  custom_interface__action__Autodock_GetResult_Response__Sequence__fini(member);
+  return custom_interface__action__Autodock_GetResult_Response__Sequence__init(member, size);
+}
+
+static rosidl_typesupport_introspection_c__MessageMember custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_member_array[3] = {
+  {
+    "info",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(custom_interface__action__Autodock_GetResult_Event, info),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "request",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    true,  // is array
+    1,  // array size
+    true,  // is upper bound
+    offsetof(custom_interface__action__Autodock_GetResult_Event, request),  // bytes offset in struct
+    NULL,  // default value
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__size_function__Autodock_GetResult_Event__request,  // size() function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__request,  // get_const(index) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__request,  // get(index) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_GetResult_Event__request,  // fetch(index, &value) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_GetResult_Event__request,  // assign(index, value) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_GetResult_Event__request  // resize(index) function pointer
+  },
+  {
+    "response",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    true,  // is array
+    1,  // array size
+    true,  // is upper bound
+    offsetof(custom_interface__action__Autodock_GetResult_Event, response),  // bytes offset in struct
+    NULL,  // default value
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__size_function__Autodock_GetResult_Event__response,  // size() function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_const_function__Autodock_GetResult_Event__response,  // get_const(index) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__get_function__Autodock_GetResult_Event__response,  // get(index) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__fetch_function__Autodock_GetResult_Event__response,  // fetch(index, &value) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__assign_function__Autodock_GetResult_Event__response,  // assign(index, value) function pointer
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__resize_function__Autodock_GetResult_Event__response  // resize(index) function pointer
+  }
+};
+
+static const rosidl_typesupport_introspection_c__MessageMembers custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_members = {
+  "custom_interface__action",  // message namespace
+  "Autodock_GetResult_Event",  // message name
+  3,  // number of fields
+  sizeof(custom_interface__action__Autodock_GetResult_Event),
+  false,  // has_any_key_member_
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_member_array,  // message members
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_init_function,  // function to initialize message memory (memory has to be allocated)
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_fini_function  // function to terminate message instance (will not free memory)
+};
+
+// this is not const since it must be initialized on first access
+// since C does not allow non-integral compile-time constants
+static rosidl_message_type_support_t custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_type_support_handle = {
+  0,
+  &custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_members,
+  get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_hash,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_description,
+  &custom_interface__action__Autodock_GetResult_Event__get_type_description_sources,
+};
+
+ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Event)() {
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_member_array[0].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, service_msgs, msg, ServiceEventInfo)();
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_member_array[1].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Request)();
+  custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_member_array[2].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Response)();
+  if (!custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_type_support_handle.typesupport_identifier) {
+    custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_type_support_handle.typesupport_identifier =
+      rosidl_typesupport_introspection_c__identifier;
+  }
+  return &custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_type_support_handle;
 }
 #ifdef __cplusplus
 }
@@ -801,29 +1389,53 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 static rosidl_typesupport_introspection_c__ServiceMembers custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_members = {
   "custom_interface__action",  // service namespace
   "Autodock_GetResult",  // service name
-  // these two fields are initialized below on the first access
+  // the following fields are initialized below on first access
   NULL,  // request message
   // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_message_type_support_handle,
-  NULL  // response message
+  NULL,  // response message
+  // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_type_support_handle
+  NULL  // event_message
   // custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_type_support_handle
 };
+
 
 static rosidl_service_type_support_t custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_type_support_handle = {
   0,
   &custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_members,
   get_service_typesupport_handle_function,
+  &custom_interface__action__Autodock_GetResult_Request__rosidl_typesupport_introspection_c__Autodock_GetResult_Request_message_type_support_handle,
+  &custom_interface__action__Autodock_GetResult_Response__rosidl_typesupport_introspection_c__Autodock_GetResult_Response_message_type_support_handle,
+  &custom_interface__action__Autodock_GetResult_Event__rosidl_typesupport_introspection_c__Autodock_GetResult_Event_message_type_support_handle,
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_CREATE_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_GetResult
+  ),
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_DESTROY_EVENT_MESSAGE_SYMBOL_NAME(
+    rosidl_typesupport_c,
+    custom_interface,
+    action,
+    Autodock_GetResult
+  ),
+  &custom_interface__action__Autodock_GetResult__get_type_hash,
+  &custom_interface__action__Autodock_GetResult__get_type_description,
+  &custom_interface__action__Autodock_GetResult__get_type_description_sources,
 };
 
-// Forward declaration of request/response type support functions
+// Forward declaration of message type support functions for service members
 const rosidl_message_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Request)();
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Request)(void);
 
 const rosidl_message_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Response)();
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Response)(void);
+
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Event)(void);
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
 const rosidl_service_type_support_t *
-ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult)() {
+ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult)(void) {
   if (!custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_type_support_handle.typesupport_identifier) {
     custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_type_support_handle.typesupport_identifier =
       rosidl_typesupport_introspection_c__identifier;
@@ -840,6 +1452,11 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
     service_members->response_members_ =
       (const rosidl_typesupport_introspection_c__MessageMembers *)
       ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Response)()->data;
+  }
+  if (!service_members->event_members_) {
+    service_members->event_members_ =
+      (const rosidl_typesupport_introspection_c__MessageMembers *)
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, custom_interface, action, Autodock_GetResult_Event)()->data;
   }
 
   return &custom_interface__action__detail__autodock__rosidl_typesupport_introspection_c__Autodock_GetResult_service_type_support_handle;
@@ -902,6 +1519,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -919,6 +1537,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__actio
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message (initialized later)
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -938,6 +1557,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Autodock_FeedbackMessage",  // message name
   2,  // number of fields
   sizeof(custom_interface__action__Autodock_FeedbackMessage),
+  false,  // has_any_key_member_
   custom_interface__action__Autodock_FeedbackMessage__rosidl_typesupport_introspection_c__Autodock_FeedbackMessage_message_member_array,  // message members
   custom_interface__action__Autodock_FeedbackMessage__rosidl_typesupport_introspection_c__Autodock_FeedbackMessage_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__action__Autodock_FeedbackMessage__rosidl_typesupport_introspection_c__Autodock_FeedbackMessage_fini_function  // function to terminate message instance (will not free memory)
@@ -949,6 +1569,9 @@ static rosidl_message_type_support_t custom_interface__action__Autodock_Feedback
   0,
   &custom_interface__action__Autodock_FeedbackMessage__rosidl_typesupport_introspection_c__Autodock_FeedbackMessage_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_hash,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_description,
+  &custom_interface__action__Autodock_FeedbackMessage__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface

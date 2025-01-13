@@ -6,13 +6,20 @@
       <joint name="imu_to_base_link" type="fixed">
         <parent link="base_link"/>
         <child link="imu_frame"/>
-        <origin xyz="0.0245 -0.057 0.022" rpy="0 0 1.57"/>
+        <origin xyz="0.0245 -0.057 0.022" rpy="0 0 0"/>
       </joint>
   
-      <gazebo reference="imu_link">
+      <gazebo reference="imu_frame">
         <sensor name="imu_sensor" type="imu">
-          <ignition_frame_id>imu_link</ignition_frame_id>
+          <!-- <ignition_frame_id>imu_frame</ignition_frame_id>
           <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu">
+          </plugin> -->
+
+          <pose relative_to='imu_frame'>0 0 0 0 0 0</pose>
+          <gz_frame_id>imu_frame</gz_frame_id>        
+     
+          <plugin filename="gz-sim-imu-system"
+                  name="gz::sim::systems::Imu">
           </plugin>
     
           <topic>imu</topic>

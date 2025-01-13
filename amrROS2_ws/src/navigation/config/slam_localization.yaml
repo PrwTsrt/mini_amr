@@ -13,11 +13,11 @@ slam_toolbox:
     odom_frame: odom
     map_frame: map
     base_frame: base_footprint
-    scan_topic: <robot_namespace>/scan
+    scan_topic: scan
     mode: localization #mapping
 
     # if you'd like to start localizing on bringup in a map and pose
-    map_file_name: /home/smr/maps/test03
+    map_file_name: /path/to/your/map
     map_start_pose: [0.0, 0.0, 0.0] 
 
     debug_logging: false

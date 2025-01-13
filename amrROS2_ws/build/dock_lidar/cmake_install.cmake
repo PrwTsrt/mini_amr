@@ -1,8 +1,8 @@
-# Install script for directory: /home/smr/workspaces/amrROS2_ws/src/dock_lidar
+# Install script for directory: /home/prawicht/workspaces/mini_amr/amrROS2_ws/src/dock_lidar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/smr/workspaces/amrROS2_ws/install/dock_lidar")
+  set(CMAKE_INSTALL_PREFIX "/home/prawicht/workspaces/mini_amr/amrROS2_ws/install/dock_lidar")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -42,27 +42,27 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/smr/workspaces/amrROS2_ws/src/dock_lidar/include/")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/src/dock_lidar/include/")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE DIRECTORY FILES "/home/smr/workspaces/amrROS2_ws/src/dock_lidar/config")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE DIRECTORY FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/src/dock_lidar/config")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dock_lidar" TYPE EXECUTABLE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/dock_coordinates")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dock_lidar" TYPE EXECUTABLE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/dock_coordinates")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates"
-         OLD_RPATH "/opt/ros/humble/lib:/home/smr/workspaces/amrROS2_ws/install/custom_interface/lib:"
+         OLD_RPATH "/opt/ros/jazzy/lib:/home/prawicht/workspaces/mini_amr/amrROS2_ws/install/custom_interface/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dock_lidar/dock_coordinates")
@@ -70,63 +70,67 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/dock_lidar")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  include("/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/CMakeFiles/dock_coordinates.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/dock_lidar")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/dock_lidar")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/dock_lidar")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/path.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.bash")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/environment" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/path.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.sh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.zsh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/package.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/packages/dock_lidar")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_environment_hooks/package.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_index/share/ament_index/resource_index/packages/dock_lidar")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar/cmake" TYPE FILE FILES
-    "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_core/dock_lidarConfig.cmake"
-    "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/ament_cmake_core/dock_lidarConfig-version.cmake"
+    "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_core/dock_lidarConfig.cmake"
+    "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/ament_cmake_core/dock_lidarConfig-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/smr/workspaces/amrROS2_ws/src/dock_lidar/package.xml")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dock_lidar" TYPE FILE FILES "/home/prawicht/workspaces/mini_amr/amrROS2_ws/src/dock_lidar/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -137,5 +141,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/smr/workspaces/amrROS2_ws/build/dock_lidar/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/prawicht/workspaces/mini_amr/amrROS2_ws/build/dock_lidar/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

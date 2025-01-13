@@ -12,8 +12,8 @@ set_target_properties(custom_interface::custom_interface__rosidl_generator_c PRO
   IMPORTED_SONAME_NOCONFIG "libcustom_interface__rosidl_generator_c.so"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS custom_interface::custom_interface__rosidl_generator_c )
-list(APPEND _IMPORT_CHECK_FILES_FOR_custom_interface::custom_interface__rosidl_generator_c "${_IMPORT_PREFIX}/lib/libcustom_interface__rosidl_generator_c.so" )
+list(APPEND _cmake_import_check_targets custom_interface::custom_interface__rosidl_generator_c )
+list(APPEND _cmake_import_check_files_for_custom_interface::custom_interface__rosidl_generator_c "${_IMPORT_PREFIX}/lib/libcustom_interface__rosidl_generator_c.so" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

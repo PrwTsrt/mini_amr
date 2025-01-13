@@ -9,11 +9,23 @@
 #include "rosidl_runtime_c/message_type_support_struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h"
+#include "custom_interface/msg/detail/initdock__struct.h"
+#include "fastcdr/Cdr.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
+bool cdr_serialize_custom_interface__msg__Initdock(
+  const custom_interface__msg__Initdock * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
+bool cdr_deserialize_custom_interface__msg__Initdock(
+  eprosima::fastcdr::Cdr &,
+  custom_interface__msg__Initdock * ros_message);
 
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
 size_t get_serialized_size_custom_interface__msg__Initdock(
@@ -22,6 +34,22 @@ size_t get_serialized_size_custom_interface__msg__Initdock(
 
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
 size_t max_serialized_size_custom_interface__msg__Initdock(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
+bool cdr_serialize_key_custom_interface__msg__Initdock(
+  const custom_interface__msg__Initdock * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
+size_t get_serialized_size_key_custom_interface__msg__Initdock(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_custom_interface
+size_t max_serialized_size_key_custom_interface__msg__Initdock(
   bool & full_bounded,
   bool & is_plain,
   size_t current_alignment);

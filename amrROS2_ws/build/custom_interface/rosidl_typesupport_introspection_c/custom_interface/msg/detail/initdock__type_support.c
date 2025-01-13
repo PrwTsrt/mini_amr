@@ -37,6 +37,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__msg__
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,6 +55,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__msg__
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -71,6 +73,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__msg__
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -88,6 +91,7 @@ static rosidl_typesupport_introspection_c__MessageMember custom_interface__msg__
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
+    false,  // is key
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -107,6 +111,7 @@ static const rosidl_typesupport_introspection_c__MessageMembers custom_interface
   "Initdock",  // message name
   4,  // number of fields
   sizeof(custom_interface__msg__Initdock),
+  false,  // has_any_key_member_
   custom_interface__msg__Initdock__rosidl_typesupport_introspection_c__Initdock_message_member_array,  // message members
   custom_interface__msg__Initdock__rosidl_typesupport_introspection_c__Initdock_init_function,  // function to initialize message memory (memory has to be allocated)
   custom_interface__msg__Initdock__rosidl_typesupport_introspection_c__Initdock_fini_function  // function to terminate message instance (will not free memory)
@@ -118,6 +123,9 @@ static rosidl_message_type_support_t custom_interface__msg__Initdock__rosidl_typ
   0,
   &custom_interface__msg__Initdock__rosidl_typesupport_introspection_c__Initdock_message_members,
   get_message_typesupport_handle_function,
+  &custom_interface__msg__Initdock__get_type_hash,
+  &custom_interface__msg__Initdock__get_type_description,
+  &custom_interface__msg__Initdock__get_type_description_sources,
 };
 
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_custom_interface
