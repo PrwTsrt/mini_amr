@@ -24,7 +24,8 @@ def generate_launch_description():
 
     declare_namespace_cmd = DeclareLaunchArgument(
         'namespace',
-        default_value= [EnvironmentVariable('NAMESPACE')],
+        # default_value= [EnvironmentVariable('NAMESPACE')],
+        default_value= '',
         description='prefix for node name')
     
     
@@ -36,19 +37,15 @@ def generate_launch_description():
     declare_use_rviz_cmd = DeclareLaunchArgument(
             name='rviz', 
             default_value='false',
-            description='Run rviz'
-        )
-    
+            description='Run rviz') 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
             name='sim', 
             default_value='z',
-            description='Enable use_sime_time to true'
-        )
+            description='Enable use_sime_time to true')
     declare_use_namespace_cmd = DeclareLaunchArgument(
             name='use_namespace', 
             default_value='true',
-            description='Enable use_sime_time to true'
-        )
+            description='Enable use_sime_time to true')
     declare_params_file_cmd = DeclareLaunchArgument(
         'params_file',
         default_value=os.path.join(robot_bringup_dir, "config", "bringup.yaml"),
@@ -69,13 +66,11 @@ def generate_launch_description():
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        parameters=[{"robot_description": robot_description}]
-    )
+        parameters=[{"robot_description": robot_description}])
 
     joint_state_publisher_node = Node(
         package="joint_state_publisher",
-        executable="joint_state_publisher",
-    )
+        executable="joint_state_publisher",)
 
     rviz_node = Node(
         package="rviz2",
@@ -84,31 +79,27 @@ def generate_launch_description():
         output="screen",
         arguments=["-d", os.path.join(robot_description_dir, "rviz", "bringup.rviz")],
         condition=IfCondition(use_rviz),
-        parameters=[{'use_sim_time': use_sim_time}]
-    )
+        parameters=[{'use_sim_time': use_sim_time}])
     
     scan = IncludeLaunchDescription(os.path.join(
         get_package_share_directory("sllidar_ros2"),"launch","sllidar_c1_launch.py"),
         launch_arguments={
                 'serial_port': '/dev/ttyUSB1',
-        }.items()
-    ) 
+        }.items()) 
 
     camera = Node(
             package='usb_cam', 
             executable='usb_cam_node_exe',
             output='screen',
             name="usb_camera",
-            parameters=[configured_params]
-        )
+            parameters=[configured_params])
 
     imu_filter = Node(
             package='imu_filter_madgwick',
             executable='imu_filter_madgwick_node',
             name='imu_filter',
             output='screen',
-            parameters=[configured_params],
-        )
+            parameters=[configured_params],)
 
     robot_localization = Node(
             package='robot_localization',
@@ -116,47 +107,20 @@ def generate_launch_description():
             name='ekf_filter_node',
             output='screen',
             parameters=[configured_params],
-            remappings=[("odometry/filtered", "odom")]
-        ) 
-    
-    micro_ros_esp32 = Node(
-            package='micro_ros_agent',
-            executable='micro_ros_agent',
-            name='micro_ros_esp32',
-            output='screen',
-            arguments=['serial', '--dev', '/dev/ttyUSB1', '-b', '921600', '-v4']
-    )
-
-    micro_ros_raspico = Node(
-            package='micro_ros_agent',
-            executable='micro_ros_agent',
-            name='micro_ros_raspico',
-            output='screen',
-            arguments=['serial', '--dev', '/dev/ttyACM0', '-b', '921600', '-v4']
-    )
-
-    ip_pub_node = Node(
-        package="python_pkg",
-        executable="ip_publisher",
-        name="ip_publisher",
-        output="screen",
-    )
+            remappings=[("odometry/filtered", "odom")]) 
 
     hardware_node = Node(
         package="robot_hardware_interface",
         executable="robot_hardware",
         name="robot_hardware",
         output="screen",
-        parameters=[{'serial_port': "/dev/ttyUSB0"}],
-    )
+        parameters=[{'serial_port': "/dev/ttyUSB0"}],)
 
     launch_elements = GroupAction(
      actions=[
         PushRosNamespace(namespace),
         SetRemap('/tf','tf'),
-        SetRemap('/tf_static','tf_static'),
-        # micro_ros_esp32,
-        # micro_ros_raspico,  
+        SetRemap('/tf_static','tf_static'), 
         camera, 
         robot_state_publisher_node,
         joint_state_publisher_node,   
@@ -164,7 +128,6 @@ def generate_launch_description():
         rviz_node, 
         robot_localization,
         imu_filter,
-        # ip_pub_node,
         hardware_node
       ]
    )

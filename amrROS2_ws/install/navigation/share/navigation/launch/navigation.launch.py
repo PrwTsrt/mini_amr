@@ -44,6 +44,10 @@ def generate_launch_description():
         use_mapping,
         if_value = mapping_params_file,
         else_value = localize_params_file)
+    map2use = IfElseSubstitution(
+        use_mapping,
+        if_value = '',
+        else_value = map)
 
     localize_params_file = ReplaceString(
         source_file=localize_params_file,
@@ -161,7 +165,7 @@ def generate_launch_description():
                 'use_lifecycle_manager': 'false',
                 'namespace': namespace,
                 'use_namespace': use_namespace,
-                'map_file_name': map,
+                'map_file_name': map2use,
             }.items()
         )
 
