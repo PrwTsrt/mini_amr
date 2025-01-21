@@ -13,6 +13,9 @@
 #include "pid.h"
 #include "IcMdEncoder.h" 
 
+#include "bms.h"
+#include <ModbusMaster.h>
+
 #define DEBUG           false
 #define DEBUG_IMU       false
 #define DEBUG_MOTOR     false
@@ -37,6 +40,14 @@
 #define FUNC_IP     0x05
 #define FUNC_STATUS 0x06
 #define FUNC_BATT   0x07
+
+/////////////////////////////////////////////////////////////////////////////////////
+#define SModbus     Serial5
+
+volatile unsigned long msStart;
+volatile unsigned int state_prev=0, state_batt=0;
+
+/////////////////////////////////////////////////////////////////////////////////////
 
 DriverIcMd counter_left( ENCODER_CS_LEFT );
 DriverIcMd counter_right( ENCODER_CS_RIGHT );
@@ -233,7 +244,7 @@ void setup()
     setup_encoders(counter_left, counter_right);
 
     Serial.begin(115200);
-    Serial5.begin(115200);
+    Serial5.begin(9600);
 
     if(DEBUG){
         Serial.println("Hello from Serial");
@@ -334,4 +345,47 @@ void flashLED(int n_times)
         delay(150);
     }
     delay(1000);
+}
+
+void battUpdate(){
+    switch(state_batt)
+    {
+      case 0:
+      {
+        if(RequestDataFromBMD(VOLT_AMP_CMD)==1)
+        {
+          batt_msg.voltage = fBattVolt;
+          batt_msg.current = fBattCurrent;
+          batt_msg.percentage = fBattSOC;
+          state_batt = 2;
+          state_prev = 0;
+        }
+      }break;
+
+      case 1:
+      {
+        if(RequestDataFromBMD(CHG_DISCHG_STATUS) == 1)
+        {
+          batt_msg.charge = float(BattCap)/1000;
+          state_batt = 2;
+          state_prev = 1;
+        }
+      }break;
+
+      case 2:
+      {
+        if (millis() - msStart > 1000)
+        {
+          if(state_prev == 0)
+          {
+            state_batt = 1;
+          } 
+          else if(state_prev == 1)
+          {
+            state_batt = 0;
+          } 
+          msStart = millis();
+        }
+      }break;
+    }
 }

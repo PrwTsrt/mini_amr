@@ -76,7 +76,7 @@ def generate_launch_description():
         )
     declare_use_sim_time_cmd = DeclareLaunchArgument(
             name='sim', 
-            default_value='true',
+            default_value='false',
             description='Enable use_sime_time to true'
         )
     declare_use_rviz_cmd = DeclareLaunchArgument(

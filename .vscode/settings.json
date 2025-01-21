@@ -17,6 +17,7 @@
         "*.ipp": "cpp",
         "*.cpp_main": "cpp",
         "*.tcc": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "cstddef": "cpp"
     }
 }

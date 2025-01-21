@@ -64,7 +64,6 @@
               </ros>
               <output_type>sensor_msgs/Range</output_type>
               <radiation_type>ultrasound</radiation_type>
-              <!-- <frame_name>${pos}_ranger_link</frame_name> -->
             </plugin>
                      
           </sensor>

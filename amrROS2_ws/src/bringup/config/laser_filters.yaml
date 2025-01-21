@@ -1,0 +1,38 @@
+scan_to_scan_filter_chain:
+  ros__parameters:
+    filter1:
+      name: front_right_angle 
+      type: laser_filters/LaserScanAngularBoundsFilterInPlace
+      params:
+        lower_angle: 2.30
+        upper_angle: 2.46
+    
+    filter2:
+      name: front_left_angle 
+      type: laser_filters/LaserScanAngularBoundsFilterInPlace
+      params:
+        lower_angle: -2.41
+        upper_angle: -2.25
+    
+    filter3:
+      name: back_right_angle 
+      type: laser_filters/LaserScanAngularBoundsFilterInPlace
+      params:
+        lower_angle: 0.59
+        upper_angle: 0.84   
+    
+    filter4:
+      name: back_left_angle 
+      type: laser_filters/LaserScanAngularBoundsFilterInPlace
+      params:
+        lower_angle: -0.80
+        upper_angle: -0.56   
+
+    filter5:
+      name: speckle_filter
+      type: laser_filters/LaserScanSpeckleFilter
+      params:
+        filter_type: 0
+        max_range: 2.0
+        max_range_difference: 0.1
+        filter_window: 7

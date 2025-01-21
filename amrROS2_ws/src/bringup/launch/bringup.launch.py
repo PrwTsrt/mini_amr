@@ -30,7 +30,7 @@ def generate_launch_description():
         )
     declare_use_sim_time_cmd = DeclareLaunchArgument(
             name='sim', 
-            default_value='true',
+            default_value='false',
             description='Enable use_sime_time to true'
         )
     declare_params_file_cmd = DeclareLaunchArgument(
@@ -65,16 +65,33 @@ def generate_launch_description():
     scan = IncludeLaunchDescription(os.path.join(
         get_package_share_directory("sllidar_ros2"),
         "launch",
-        "sllidar_c1_launch.py")
+        "sllidar_s3_launch.py"),
+        launch_arguments={
+                'serial_port': '/dev/lidar_s3',
+        }.items()
     ) 
 
-    camera = Node(
-            package='usb_cam', 
-            executable='usb_cam_node_exe',
-            output='screen',
-            name="usb_camera",
-            parameters=[params_file]
+    laser_filter = Node(
+            package='laser_filters',
+            executable='scan_to_scan_filter_chain',
+            remappings=[('scan', 'raw_scan'),
+                ('scan_filtered','scan')],
+            parameters=[params_file],
         )
+
+    imu = IncludeLaunchDescription(os.path.join(
+        get_package_share_directory("witmotion_ros"),
+        "launch",
+        "witmotion.launch.py"),
+    ) 
+
+    # camera = Node(
+    #         package='usb_cam', 
+    #         executable='usb_cam_node_exe',
+    #         output='screen',
+    #         name="usb_camera",
+    #         parameters=[params_file]
+    #     )
 
     robot_localization = Node(
             package='robot_localization',
@@ -90,17 +107,19 @@ def generate_launch_description():
         executable="robot_hardware",
         name="robot_hardware",
         output="screen",
-        parameters=[{'serial_port': "/dev/ttyUSB1"}],
+        parameters=[{'serial_port': "/dev/teensy"}],
     )
 
     launch_elements = GroupAction(
      actions=[
         SetRemap('/tf','tf'),
         SetRemap('/tf_static','tf_static'),
-        camera, 
+        # camera, 
         robot_state_publisher_node,
         joint_state_publisher_node,   
         scan,
+        laser_filter,
+        imu,
         rviz_node, 
         robot_localization,
         hardware_node
