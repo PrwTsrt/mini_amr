@@ -11,7 +11,7 @@
   <xacro:include filename="$(find description)/urdf/sensors/camera.urdf.xacro" />
   <xacro:include filename="$(find description)/urdf/sensors/range_sensor.urdf.xacro" />
 
-  <!-- <xacro:diff_drive_controller/> -->
+  <xacro:diff_drive_controller/>
 
   <xacro:base 
     length="${base_length}" 
@@ -44,7 +44,7 @@
   />
 
   <xacro:caster_wheel 
-      side="right"
+      side="front"
       mass="0.01"
       base_length="${base_length}" 
       base_width="${base_width}"
@@ -54,7 +54,7 @@
     />
 
     <xacro:caster_wheel 
-      side="left"
+      side="rear"
       mass="0.01"
       base_length="${base_length}" 
       base_width="${base_width}"
@@ -67,7 +67,7 @@
   <xacro:imu/>
   <xacro:laser/>
 
-  <xacro:range_sensor 
+  <!-- <xacro:range_sensor 
     pos="center"
     pos_x="0.1725" 
     pos_y=" 0"
@@ -90,7 +90,7 @@
     pos_z="0.01" 
     pitch="0"
     yaw="-0.6106"
-  />
+  /> -->
   
 
   <!-- <xacro:depth_sensor>

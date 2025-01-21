@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:macro name="diff_drive_controller">
-        <ros2_control name="IgnitionSystem" type="system">
+
+        <!-- <ros2_control name="IgnitionSystem" type="system">
             <hardware>
             <plugin>ign_ros2_control/IgnitionSystem</plugin>
             </hardware>
@@ -26,6 +27,40 @@
         <gazebo>
             <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
             <parameters>$(find gazebo)/config/controller.yaml</parameters>
+            </plugin>
+        </gazebo> -->
+
+        <gazebo>
+            <plugin
+                filename="gz-sim-diff-drive-system"
+                name="gz::sim::systems::DiffDrive">
+                <left_joint>left_wheel_joint</left_joint>
+                <right_joint>right_wheel_joint</right_joint>
+                <wheel_separation>0.376</wheel_separation>
+                <wheel_radius>0.075</wheel_radius>
+                <max_linear_acceleration>1</max_linear_acceleration>
+                <min_linear_acceleration>-1</min_linear_acceleration>
+                <max_angular_acceleration>2</max_angular_acceleration>
+                <min_angular_acceleration>-2</min_angular_acceleration>
+                <max_linear_velocity>0.46</max_linear_velocity>
+                <min_linear_velocity>-0.46</min_linear_velocity>
+                <max_angular_velocity>1.9</max_angular_velocity>
+                <min_angular_velocity>-1.9</min_angular_velocity>
+                <topic>/cmd_vel</topic>
+                <odom_topic>/odom_raw</odom_topic>
+                <tf_topic>/tf</tf_topic>
+                <frame_id>odom</frame_id>
+                <child_frame_id>base_footprint</child_frame_id>
+                <odom_publish_frequency>40</odom_publish_frequency>
+            </plugin>
+
+            <plugin
+                filename="gz-sim-joint-state-publisher-system"
+                name="gz::sim::systems::JointStatePublisher">
+                <joint_name>left_wheel_joint</joint_name>
+                <joint_name>right_wheel_joint</joint_name>
+                <topic>/joint_states</topic>
+                <update_rate>40</update_rate>
             </plugin>
         </gazebo>
 

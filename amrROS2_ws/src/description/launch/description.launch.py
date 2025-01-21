@@ -8,33 +8,26 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
-#---------------- Paths ----------------
     urdf_path = PathJoinSubstitution(
-        [FindPackageShare("description"), "urdf/robot", "robot.urdf.xacro"]
-    )
-
+        [FindPackageShare("description"), "urdf/robot", "robot.urdf.xacro"])
     rviz_config_path = PathJoinSubstitution(
-        [FindPackageShare('description'), 'rviz', 'description.rviz']
-    )
+        [FindPackageShare('description'), 'rviz', 'description.rviz'])
 
-#---------------- Arguments ----------------
+
     model_arg = DeclareLaunchArgument(
             name="model",
             default_value=urdf_path,                                      
-            description="Absolute path to robot urdf file"
-            )
+            description="Absolute path to robot urdf file")
     rviz_arg = DeclareLaunchArgument(
             name='rviz', 
             default_value='true',
-            description='Run rviz'
-        )
+            description='Run rviz')
     sim_arg = DeclareLaunchArgument(
             name='use_sim_time', 
             default_value='false',
-            description='Use simulation time'
-        )
+            description='Use simulation time')
     
-#---------------- Node ----------------
+
     joint_state_publisher = Node(
             package='joint_state_publisher',
             executable='joint_state_publisher',

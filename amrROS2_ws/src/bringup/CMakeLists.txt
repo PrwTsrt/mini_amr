@@ -12,7 +12,7 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 install(
-  DIRECTORY launch config
+  DIRECTORY launch config world models
   DESTINATION share/${PROJECT_NAME}
 )
 
