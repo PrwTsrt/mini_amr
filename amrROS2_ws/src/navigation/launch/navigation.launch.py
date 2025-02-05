@@ -31,7 +31,7 @@ def generate_launch_description():
     rviz_config_file = LaunchConfiguration('rviz_config_file')
     map = LaunchConfiguration("map")
 
-    default_map_path = os.environ.get('ROS_WS')+"/maps"+"/test_1"
+    default_map_path = os.environ.get('ROS_WS')+"/maps"+"/test99"
     # default_map_path = os.path.join(robot_navigation_dir, "maps/Turtlebot_Arena_map.yaml")
 
     namespace_replacement = IfElseSubstitution(
@@ -42,6 +42,10 @@ def generate_launch_description():
         use_mapping,
         if_value = mapping_params_file,
         else_value = localize_params_file)
+    map2run = IfElseSubstitution(
+        use_mapping,
+        if_value = '',
+        else_value = map)
 
     localize_params_file = ReplaceString(
         source_file=localize_params_file,
@@ -159,7 +163,7 @@ def generate_launch_description():
                 'use_lifecycle_manager': 'false',
                 'namespace': namespace,
                 'use_namespace': use_namespace,
-                'map_file_name': map,
+                'map_file_name': map2run,
             }.items()
         )
 

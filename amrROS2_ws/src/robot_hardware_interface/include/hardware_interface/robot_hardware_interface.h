@@ -7,6 +7,7 @@
 #include <vector>
 #include <thread>
 #include <iomanip>
+#include <unistd.h>
 
 class HardwareInterface 
 {

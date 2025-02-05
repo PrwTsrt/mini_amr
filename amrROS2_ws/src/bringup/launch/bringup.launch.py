@@ -65,7 +65,7 @@ def generate_launch_description():
     scan = IncludeLaunchDescription(os.path.join(
         get_package_share_directory("sllidar_ros2"),
         "launch",
-        "sllidar_s3_launch.py"),
+        "sllidar_s2e_launch.py"),
         launch_arguments={
                 'serial_port': '/dev/lidar_s3',
         }.items()
@@ -79,11 +79,6 @@ def generate_launch_description():
             parameters=[params_file],
         )
 
-    imu = IncludeLaunchDescription(os.path.join(
-        get_package_share_directory("witmotion_ros"),
-        "launch",
-        "witmotion.launch.py"),
-    ) 
 
     # camera = Node(
     #         package='usb_cam', 
@@ -119,7 +114,6 @@ def generate_launch_description():
         joint_state_publisher_node,   
         scan,
         laser_filter,
-        imu,
         rviz_node, 
         robot_localization,
         hardware_node

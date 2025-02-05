@@ -1,0 +1,391 @@
+#include <ModbusMaster.h>
+#include <Arduino.h>
+#include <stdio.h>
+
+#define motor_axis0  0 
+#define motor_axis1  1 
+#define MAX485_DE    4
+#define MAX485_RE    5
+
+#define TEENSY_RS485_DIR_PIN 22
+#define MODBUS_SERIAL Serial1
+//#define MODBUS_SERIAL Serial5
+
+#define REG_DUALAXIS_CMD_SPEED    0x0B1A
+#define REG_AXIS1_COMMAND_SPEED   0x0A02
+#define REG_AXIS1_FEEDBACK_SPEED  0x0A03
+#define REG_AXIS2_COMMAND_SPEED   0x0C02
+#define REG_AXIS2_FEEDBACK_SPEED  0x0C03
+
+ModbusMaster Motor_dualdrive;
+
+int LED = 13;                 // LED status TeensyMicromod
+int LED_RUN = 32;             // G9 - Teensy pin 32, MicroMod pad 65
+int LED_STATUS = 26;          // G8 - Teensy pin 26, MicroMod pad 67
+int RS485_DE = 4;
+int RS485_RE = 5;
+
+String rev_data;
+uint8_t j, result;
+uint16_t data[6];
+
+
+
+
+/*
+The pin connection diagram for TeensyMicromod eMR Platform.
+JY61P IMU ----> TeensyMicromod
+SDA <---> SDA0
+SCL <---> SCL0
+*/
+
+  int16_t axis1_command_speed;
+  int16_t axis2_command_speed;
+  int16_t axis1_feedback_speed;
+  int16_t axis2_feedback_speed;
+
+void preTransmission()
+{
+  delay(10);
+  digitalWrite(MAX485_RE, 1);
+  digitalWrite(MAX485_DE, 1);
+  delay(10);
+}
+
+void postTransmission()
+{
+  delay(10);
+  digitalWrite(MAX485_DE, 0);
+  digitalWrite(MAX485_RE, 0);
+  delay(10);
+}
+/*
+void Get_IMU_JY61P()
+{
+  delay(10);
+  // To print debug info from JY61P Witmotion IMU (ACC,Gyro,Orientation) to console
+ 
+    Serial.print("Acc:");
+    Serial.print(JY61P.getAccX());      // Acceleration X_Axis 
+    Serial.print(" ");
+    Serial.print(JY61P.getAccY());   		// Acceleration Y_Axis 
+    Serial.print(" ");
+    Serial.print(JY61P.getAccZ());			// Acceleration Z_Axis 
+    Serial.print("\n");
+
+	  
+    Serial.print("Gyro:");
+    Serial.print(JY61P.getGyroX());			// Gyroscope X_Axis 
+    Serial.print(" ");
+    Serial.print(JY61P.getGyroY());			// Gyroscope Y_Axis 
+    Serial.print(" ");
+    Serial.print(JY61P.getGyroZ());			// Gyroscope Z_Axis 
+    Serial.print("\n");
+	
+    Serial.print("Angle:");
+    Serial.print(JY61P.getRoll());			// Orientation of Y_Axis (Roll rotation) 
+    Serial.print(" ");
+    Serial.print(JY61P.getPitch());			// Orientation of X_Axis (Pitch rotation)
+    Serial.print(" ");
+    Serial.print(JY61P.getYaw());				// Orientation of Z_Axis (Yaw rotation) 
+    Serial.print("\n");
+  delay(10);
+}
+*/
+
+void setup() {
+
+
+
+  // Used for debug printing
+
+  Serial.begin(9600);    // Serial interface for the Arduino Serial Monitor
+  Serial2.begin(115200);
+  MODBUS_SERIAL.begin(115200);
+  //Serial3.begin(9600);
+
+  //bms.Init();            // This call sets up the driver for DalyBMS communication
+  //JY61P.startIIC();
+  pinMode(LED, OUTPUT);  
+  pinMode(LED_STATUS, OUTPUT);
+  pinMode(LED_RUN, OUTPUT);
+  pinMode(MAX485_RE, OUTPUT);
+  pinMode(MAX485_DE, OUTPUT);
+
+
+  
+  
+
+  Serial.println("RS485_Testing..");
+
+  Motor_dualdrive.begin(1, MODBUS_SERIAL );
+
+  delay(10);
+
+  axis1_command_speed = 100;
+  axis2_command_speed = 100;
+
+  Serial.println(" Stop motor. ");
+  Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+  Motor_dualdrive.setTransmitBuffer(1, 0);
+  Motor_dualdrive.setTransmitBuffer(2, 0);
+  result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);
+  delay(100);
+
+}
+
+uint16_t count = 0;
+
+void loop() {
+
+  char incomingChar = 0;  // for incoming serial data
+
+
+  static uint32_t LedActivity = millis();
+
+
+  if ( millis() - LedActivity > 1000 ) {
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));   
+    digitalWrite(LED_RUN, !digitalRead(LED_RUN));   
+    digitalWrite(LED_STATUS, !digitalRead(LED_STATUS));   
+    LedActivity = millis();
+    count++;
+    //Get_IMU_JY61P();
+
+        Serial.print(" Read motor speed:   ");
+        result = Motor_dualdrive.readHoldingRegisters(REG_AXIS1_FEEDBACK_SPEED,1);   // 0x03
+
+        if( result == Motor_dualdrive.ku8MBSuccess ){
+
+          axis1_feedback_speed = Motor_dualdrive.getResponseBuffer(0);
+
+        }
+        else
+        {
+          Serial.println("RS485 dual driver communication error!");  
+          delay(1000);
+          return;
+        }
+      
+        delay(1);    // delay for modbus response
+
+        result = Motor_dualdrive.readHoldingRegisters(REG_AXIS2_FEEDBACK_SPEED,1);   // 0x03
+
+        if( result == Motor_dualdrive.ku8MBSuccess ){
+
+          axis2_feedback_speed = Motor_dualdrive.getResponseBuffer(0);
+
+        }
+        else
+        {
+          Serial.println("RS485 dual driver communication error!");  
+          delay(1000);
+          return;
+        }
+
+        Serial.print("Speed axis1:  "); 
+        Serial.print(axis1_feedback_speed);
+        Serial.print("    Speed axis2:  "); 
+        Serial.println(axis2_feedback_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+
+   }
+ 
+  if(Serial.available() > 0){
+
+      incomingChar = Serial.read();
+      //Serial.println(incomingChar);
+      
+      if(incomingChar == 'w'){                          
+
+        Serial.println(" Start motor forward. ");
+        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+        Motor_dualdrive.setTransmitBuffer(1, axis1_command_speed);
+        Motor_dualdrive.setTransmitBuffer(2, axis2_command_speed);
+        result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);  //01 10 0B 1A 00 03 06 00 03 F8 30 07 D0 94 D2
+        delay(100); 
+
+      }
+
+      else if(incomingChar == 'x'){                          
+
+        Serial.println(" Start motor backward. ");
+        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+        Motor_dualdrive.setTransmitBuffer(1, -axis1_command_speed);
+        Motor_dualdrive.setTransmitBuffer(2, -axis2_command_speed);
+        result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);  //01 10 0B 1A 00 03 06 00 03 F8 30 07 D0 94 D2
+        delay(100); 
+
+      }
+
+      else if(incomingChar == 'd'){                          
+
+
+        Serial.println(" Start motor rotate right. ");
+        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+        Motor_dualdrive.setTransmitBuffer(1, -axis1_command_speed);
+        Motor_dualdrive.setTransmitBuffer(2, axis2_command_speed);
+        result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);  //01 10 0B 1A 00 03 06 00 03 F8 30 07 D0 94 D2
+        delay(100); 
+
+      }
+
+      else if(incomingChar == 'a'){                          
+
+
+        Serial.println(" Start motor rotate left. ");
+        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+        Motor_dualdrive.setTransmitBuffer(1, axis1_command_speed);
+        Motor_dualdrive.setTransmitBuffer(2, -axis2_command_speed);
+        result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);  //01 10 0B 1A 00 03 06 00 03 F8 30 07 D0 94 D2
+        delay(100); 
+
+      }
+
+
+      else if(incomingChar == 's'){                          
+
+
+        Serial.println(" Stop motor. ");
+        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+        Motor_dualdrive.setTransmitBuffer(1, 0);
+        Motor_dualdrive.setTransmitBuffer(2, 0);
+        result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);
+        delay(100);
+
+      }
+      else if(incomingChar == 'q'){                          
+
+        if (axis1_command_speed<=3000) axis1_command_speed += 10;   
+        if (axis2_command_speed<=3000) axis2_command_speed += 10;
+        Serial.println(" Inc. motor speed");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == 'z'){                          
+
+        if (axis1_command_speed>=0) axis1_command_speed -= 10;
+        if (axis2_command_speed>=0) axis2_command_speed -= 10;
+        Serial.println(" Dec motor speed. ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == 'e'){                          
+
+        if (axis1_command_speed<=3000) axis1_command_speed += 100;   
+        if (axis2_command_speed<=3000) axis2_command_speed += 100;
+
+        Serial.println(" Inc. motor speed");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == 'c'){                          
+
+        if (axis1_command_speed>=0) axis1_command_speed -= 100;
+        if (axis2_command_speed>=0) axis2_command_speed -= 100;
+        Serial.println(" Dec motor speed. ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == '0'){                          
+
+        axis1_command_speed = 10;
+        axis2_command_speed = 10;
+        Serial.println(" Set motor speed: 10 ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+      else if(incomingChar == '1'){                          
+
+        axis1_command_speed = 100;
+        axis2_command_speed = 100;
+        Serial.println(" Set motor speed: 100 ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == '2'){                          
+
+        axis1_command_speed = 300;
+        axis2_command_speed = 300;
+        Serial.println(" Set motor speed: 500 ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+      else if(incomingChar == '3'){                          
+
+        axis1_command_speed = 1000;
+        axis2_command_speed = 1000;
+        Serial.println(" Set motor speed: 1000 ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+      else if(incomingChar == '4'){                          
+
+        axis1_command_speed = 3000;
+        axis2_command_speed = 3000;
+        Serial.println(" Set motor speed: 3000 ");
+        Serial.print("Speed command axis1:  "); 
+        Serial.print(axis1_command_speed);
+        Serial.print("    Speed command axis2:  "); 
+        Serial.println(axis2_command_speed);
+        Serial.println("   ");
+        Serial.println("(w):move forward (a):rotate left (d):rotate right (x):backward (q):+10 (e):+100 (z):-10 (c):-100 ");
+        Serial.println("   ");
+      }
+
+
+      delay(100); 
+  }
+
+  
+
+
+}

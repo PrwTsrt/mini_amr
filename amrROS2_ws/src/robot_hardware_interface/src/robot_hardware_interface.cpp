@@ -263,6 +263,9 @@ void HardwareInterface::ReceiveData() {
                     }
                 }
             }
+            else{
+                usleep(10000);
+            }
         }
     } catch (const std::exception& e) {
         std::cerr << "Received Data Error: " << e.what() << std::endl;
