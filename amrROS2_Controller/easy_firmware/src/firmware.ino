@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <TeensyThreads.h>
 #include <ModbusMaster.h>
+#include <jbdbms.h>
 
 #include <stdio.h>
 #include <vector>
@@ -45,6 +46,7 @@
 
 #define TEENSY_RS485_DIR_PIN 22
 #define MODBUS_SERIAL Serial1
+#define BMS_SERIAL Serial2
 
 #define REG_DUALAXIS_CMD_SPEED    0x0B1A
 #define REG_AXIS1_COMMAND_SPEED   0x0A02
@@ -53,6 +55,7 @@
 #define REG_AXIS2_FEEDBACK_SPEED  0x0C03
 
 ModbusMaster Motor_dualdrive;
+JbdBms jbdbms(BMS_SERIAL); 
 
 int LED = 13;                 // LED status TeensyMicromod
 int LED_RUN = 32;             // G9 - Teensy pin 32, MicroMod pad 65
@@ -61,6 +64,13 @@ int RS485_DE = 4;
 int RS485_RE = 5;
 String data;
 /////////////////////////////////////////////////////////////////////////////////////
+
+uint8_t imu2send[12];
+uint8_t odom2send[6];
+uint8_t batt2send[4];
+bool imu_ready;
+bool odom_ready;
+bool batt_ready;
 
 Kinematics kinematics(
     Kinematics::SMR_BASE, 
@@ -83,9 +93,6 @@ unsigned long prev_cmd_time = 0;
 void parse_data(uint8_t func, uint8_t *data, uint8_t data_len){
 
     if (func == FUNC_MOTION){
-
-        Serial.println("In Motion function");
-
         int16_t packed_v_x = (data[1] << 8) | data[0];
         int16_t packed_v_y = (data[3] << 8) | data[2];
         int16_t packed_w_z = (data[5] << 8) | data[4];
@@ -126,7 +133,7 @@ void recive_data_task(void * parameter){
 
     while(true){
 
-        if (Serial.available() > 0) {
+        while (Serial.available() > 0) {
             header = Serial.read();
 
             if (header == HEAD) {
@@ -189,10 +196,27 @@ void recive_data_task(void * parameter){
                 }
             }
         }     
-        threads.delay(10);
+        threads.delay(25);
     }
     free(data);
     free(buffer);
+}
+
+void send_data_task(void * parameter){
+
+    while(true){
+        if (odom_ready && imu_ready){
+            send_data(FUNC_IMU, imu2send, sizeof(imu2send));
+            send_data(FUNC_ODOM, odom2send, sizeof(odom2send));
+            if(batt_ready){
+                send_data(FUNC_BATT, batt2send, sizeof(batt2send));
+                batt_ready = false;
+            }
+            odom_ready = false;
+            imu_ready = false;
+        }
+        threads.delay(10);
+    }
 }
 
 void send_data(uint8_t FUNC_TYPE, uint8_t *param, size_t param_len) {
@@ -258,14 +282,18 @@ void setup()
 
     Serial.begin(115200);    
     MODBUS_SERIAL.begin(115200);
-    
-    Motor_dualdrive.begin(1, MODBUS_SERIAL );
+    BMS_SERIAL.begin(9600, SERIAL_8N1);
+
+    Motor_dualdrive.begin(1, MODBUS_SERIAL);
+    jbdbms.begin(-1);
     JY61P.startIIC();
     JY61P.caliIMU();
 
     threads.addThread(control_task);
     threads.addThread(recive_data_task);
     threads.addThread(imu_update_task);
+    threads.addThread(send_data_task);
+     threads.addThread(bms_task);
     delay(10);
 }
 
@@ -313,9 +341,43 @@ void imu_update_task(void *arg)
             static_cast<uint8_t>(acc_z & 0xFF), static_cast<uint8_t>((acc_z >> 8) & 0xFF)
         };
 
-        send_data(FUNC_IMU, cmd, sizeof(cmd));
-        threads.delay(10);
+        memcpy(imu2send, cmd, sizeof(cmd));
+        imu_ready = true;
+
+        // send_data(FUNC_IMU, cmd, sizeof(cmd));
+        threads.delay(30);
     }
+}
+
+void bms_task() {
+   JbdBms::Status_t status;
+
+   while(true){
+
+        if (jbdbms.getStatus(status)) {   // Get current global status
+            uint16_t voltage = status.voltage; // mv
+            int16_t current = status.current;
+            uint16_t capacity = status.remainingCapacity;
+            uint16_t design_capacity = status.nominalCapacity;
+
+            Serial.print(voltage);
+            Serial.print("    ");
+            Serial.println(current);
+
+            uint8_t cmd[4] = {
+                static_cast<uint8_t>(voltage & 0xFF), static_cast<uint8_t>((voltage >> 8) & 0xFF),
+                static_cast<uint8_t>(current & 0xFF), static_cast<uint8_t>((current >> 8) & 0xFF)
+                // static_cast<uint8_t>(capacity & 0xFF), static_cast<uint8_t>((capacity >> 8) & 0xFF),
+                // static_cast<uint8_t>(design_capacity & 0xFF), static_cast<uint8_t>((design_capacity >> 8) & 0xFF)                
+            };
+
+            memcpy(batt2send, cmd, sizeof(cmd));
+            batt_ready = true;
+        } else{Serial.println("Get bms status error");}
+
+   delay(10000);
+   }
+   
 }
 
 void control_task(void *arg)
@@ -331,7 +393,7 @@ void control_task(void *arg)
         if (millis() - prev_cmd_time > 100){
             cmd_vel.linear_x  = 0.0;
             cmd_vel.linear_y  = 0.0;
-            cmd_vel.angular_z = 0.0;
+            cmd_vel.angular_z = 0.0;            
         }
         
         Kinematics::rpm req_rpm = kinematics.getRPM(
@@ -351,7 +413,6 @@ void control_task(void *arg)
           delay(1);
         }
 
-        
         if( Motor_dualdrive.readHoldingRegisters(REG_AXIS1_FEEDBACK_SPEED,1) == Motor_dualdrive.ku8MBSuccess ){
           buff = Motor_dualdrive.getResponseBuffer(0);
           current_rpm_right = (buff / 30.0) ;
@@ -375,7 +436,10 @@ void control_task(void *arg)
             static_cast<uint8_t>(Wz & 0xFF), static_cast<uint8_t>((Wz >> 8) & 0xFF)
         };
 
-        send_data(FUNC_ODOM, cmd, sizeof(cmd));
+        // send_data(FUNC_ODOM, cmd, sizeof(cmd));
+        
+        memcpy(odom2send, cmd, sizeof(cmd));
+        odom_ready = true;
 
         uint64_t end_time = millis();
         uint32_t dt = end_time - start_time;
@@ -396,8 +460,8 @@ void control_task(void *arg)
         }
         
         // Serial.println(dt);
-        if (dt >= 35){dt = 0;}
-        threads.delay(35-dt);
+        if (dt >= 40){dt = 0;}
+        threads.delay(40-dt);
     }    
 }
 

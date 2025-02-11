@@ -28,10 +28,7 @@ public:
     hardware_interface = std::make_shared<HardwareInterface>(serial_port_);
 
     cmd_vel_sub_ = create_subscription<geometry_msgs::msg::Twist>(
-        "cmd_vel", 10, std::bind(&HardwareInterfaceNode::twistCallback, this, _1));
-
-    nav_status_sub_ = create_subscription<action_msgs::msg::GoalStatusArray>(
-        "navigate_to_pose/_action/status", 10, std::bind(&HardwareInterfaceNode::statusCallback, this, _1));
+        "cmd_vel", 1, std::bind(&HardwareInterfaceNode::twistCallback, this, _1));
 
     imu_pub_    = create_publisher<sensor_msgs::msg::Imu>("imu/data_raw", 10);
     odom_pub_   = create_publisher<nav_msgs::msg::Odometry>("odom_raw", 10);
@@ -61,7 +58,6 @@ private:
   std::shared_ptr<HardwareInterface> hardware_interface;
   
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_sub_;
-  rclcpp::Subscription<action_msgs::msg::GoalStatusArray>::SharedPtr nav_status_sub_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_pub_;
   rclcpp::Publisher<sensor_msgs::msg::BatteryState>::SharedPtr batt_pub_;
@@ -101,18 +97,8 @@ private:
 
   void twistCallback(const geometry_msgs::msg::Twist & msg)
   {
+    // std::cout << "Received linear.x:"<< msg.linear.x << std::endl;
     hardware_interface->SetMotion(msg.linear.x, 0.0, msg.angular.z);
-  }
-
-  void statusCallback(const action_msgs::msg::GoalStatusArray & msg)
-  {
-    if (!msg.status_list.empty()) {
-      auto latest_status = msg.status_list.back();
-      int status = latest_status.status;
-      RCLCPP_INFO(this->get_logger(), "Updated status: %d", status);
-      
-      hardware_interface->UpdateStatus(status);
-    }
   }
 
   void timerUpdateCallback()
