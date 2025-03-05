@@ -12,12 +12,18 @@ PACKAGES:
 Converting firmware.ino
 LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
 LDF Modes: Finder ~ chain, Compatibility ~ soft
-Found 94 compatible libraries
+Found 98 compatible libraries
 Scanning dependencies...
 Dependency Graph
 |-- ModbusMaster @ 2.0.1
+|-- Joba_JbdBms @ 2.1.0
+|-- Adafruit MCP23017 Arduino Library @ 2.3.2
+|-- JY61P
 |-- kinematics
 |-- TeensyThreads @ 1.0.2
 Building in release mode
 Compiling .pio/build/teensymm/src/firmware.ino.cpp.o
-Linking .pio/build/teensymm/firmware.elf
+Compiling .pio/build/teensymm/libd9e/Adafruit MCP23017 Arduino Library/Adafruit_MCP23X08.cpp.o
+Compiling .pio/build/teensymm/libd9e/Adafruit MCP23017 Arduino Library/Adafruit_MCP23X17.cpp.o
+Compiling .pio/build/teensymm/libd9e/Adafruit MCP23017 Arduino Library/Adafruit_MCP23XXX.cpp.o
+Compiling .pio/build/teensymm/lib518/kinematics/kinematics.cpp.o

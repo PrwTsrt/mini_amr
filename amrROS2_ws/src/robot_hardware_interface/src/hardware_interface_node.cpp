@@ -33,7 +33,12 @@ public:
     imu_pub_    = create_publisher<sensor_msgs::msg::Imu>("imu/data_raw", 10);
     odom_pub_   = create_publisher<nav_msgs::msg::Odometry>("odom_raw", 10);
     batt_pub_   = create_publisher<sensor_msgs::msg::BatteryState>("battery", 10);
-    timer_update_data_ = create_wall_timer(20ms , std::bind(&HardwareInterfaceNode::timerUpdateCallback, this));
+
+    range_left_pub_   = create_publisher<sensor_msgs::msg::Range>("range/left", 10);
+    range_center_pub_ = create_publisher<sensor_msgs::msg::Range>("range/center", 10);
+    range_right_pub_  = create_publisher<sensor_msgs::msg::Range>("range/right", 10);
+
+    timer_update_data_ = create_wall_timer(10ms , std::bind(&HardwareInterfaceNode::timerUpdateCallback, this));
 
     msg_odom_.header.frame_id = "odom_frame";
     msg_odom_.child_frame_id  = "base_footprint";
@@ -50,6 +55,30 @@ public:
     msg_imu_.linear_acceleration_covariance[4] = 0.0550;
     msg_imu_.linear_acceleration_covariance[8] = 0.0267;
 
+    ut_fov_       = 20.0;
+    ut_min_range_ = 0.03;
+    ut_max_range_ = 0.50;
+
+    msg_range_left_.header.frame_id   = "left_ranger_link";
+    msg_range_center_.header.frame_id = "center_ranger_link";
+    msg_range_right_.header.frame_id  = "right_ranger_link";
+
+    msg_range_left_.radiation_type   = 0;
+    msg_range_center_.radiation_type = 0;
+    msg_range_right_.radiation_type  = 0;
+
+    msg_range_left_.field_of_view   = ut_fov_ * (3.14/180);
+    msg_range_center_.field_of_view = ut_fov_ * (3.14/180);
+    msg_range_right_.field_of_view  = ut_fov_ * (3.14/180);
+
+    msg_range_left_.min_range   = ut_min_range_;
+    msg_range_center_.min_range = ut_min_range_;
+    msg_range_right_.min_range  = ut_min_range_;
+
+    msg_range_left_.max_range   = ut_max_range_;
+    msg_range_center_.max_range = ut_max_range_;
+    msg_range_right_.max_range  = ut_max_range_;
+
   }
 
 private:
@@ -61,11 +90,15 @@ private:
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_pub_;
   rclcpp::Publisher<sensor_msgs::msg::BatteryState>::SharedPtr batt_pub_;
+  rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_left_pub_;
+  rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_center_pub_;
+  rclcpp::Publisher<sensor_msgs::msg::Range>::SharedPtr range_right_pub_;
 
   rclcpp::TimerBase::SharedPtr timer_update_data_;
   nav_msgs::msg::Odometry msg_odom_;
   sensor_msgs::msg::Imu msg_imu_;
   sensor_msgs::msg::BatteryState msg_batt_;
+  sensor_msgs::msg::Range msg_range_left_, msg_range_center_, msg_range_right_;
 
   float ut_fov_;
   float ut_min_range_;
@@ -172,6 +205,22 @@ private:
       imu_pub_->publish(msg_imu_);
 
       imu_prev_update_ = current_time.nanoseconds();
+    }
+    else if (hardware_interface->update_range_)
+    {
+      msg_range_left_.header.stamp   = current_time;
+      msg_range_center_.header.stamp = current_time;
+      msg_range_right_.header.stamp  = current_time;
+
+      msg_range_left_.range = hardware_interface->range_left;
+      msg_range_center_.range = hardware_interface->range_center;
+      msg_range_right_.range = hardware_interface->range_right;
+
+      hardware_interface->update_range_ = false;
+
+      range_left_pub_  ->publish(msg_range_left_);
+      range_center_pub_->publish(msg_range_center_);
+      range_right_pub_ ->publish(msg_range_right_);
     }
     else if (hardware_interface->update_batt_)
     {

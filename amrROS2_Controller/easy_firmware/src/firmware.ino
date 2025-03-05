@@ -4,6 +4,7 @@
 #include <TeensyThreads.h>
 #include <ModbusMaster.h>
 #include <jbdbms.h>
+#include <Adafruit_MCP23X17.h>
 
 #include <stdio.h>
 #include <vector>
@@ -45,8 +46,10 @@
 #define MAX485_RE    5
 
 #define TEENSY_RS485_DIR_PIN 22
-#define MODBUS_SERIAL Serial1
-#define BMS_SERIAL Serial2
+#define MOTOR_DRIVER_SERIAL Serial1
+#define SENSORS_SERIAL      Serial2
+#define BMS_SERIAL          Serial2
+#define ULTARSONICS_SERIAL  Serial2
 
 #define REG_DUALAXIS_CMD_SPEED    0x0B1A
 #define REG_AXIS1_COMMAND_SPEED   0x0A02
@@ -55,6 +58,10 @@
 #define REG_AXIS2_FEEDBACK_SPEED  0x0C03
 
 ModbusMaster Motor_dualdrive;
+ModbusMaster Sensor_module;
+ModbusMaster Ultrasonics_1; //Left
+ModbusMaster Ultrasonics_2; //Center
+ModbusMaster Ultrasonics_3; //Right
 JbdBms jbdbms(BMS_SERIAL); 
 
 int LED = 13;                 // LED status TeensyMicromod
@@ -65,12 +72,23 @@ int RS485_RE = 5;
 String data;
 /////////////////////////////////////////////////////////////////////////////////////
 
+int16_t range_left;
+int16_t range_center;
+int16_t range_right;
+uint16_t cliff;
+
+uint8_t range_limit = 200;
+uint8_t led_mode_prev;
+uint8_t alarm_mode_prev;
+
 uint8_t imu2send[12];
 uint8_t odom2send[6];
 uint8_t batt2send[4];
+uint8_t range2send[6];
 bool imu_ready;
 bool odom_ready;
 bool batt_ready;
+bool range_ready;
 
 Kinematics kinematics(
     Kinematics::SMR_BASE, 
@@ -89,6 +107,13 @@ Threads::Mutex xSendDataMutex;
 static const int RX_BUF_SIZE = 1024;
 
 unsigned long prev_cmd_time = 0;
+
+Adafruit_MCP23X17 mcp;
+bool mcp_input[8];
+bool mcp_out_put[8];
+
+bool cliff_state, bumper_state, emer_state, stop, ack;
+bool connection_failed;
 
 void parse_data(uint8_t func, uint8_t *data, uint8_t data_len){
 
@@ -208,6 +233,7 @@ void send_data_task(void * parameter){
         if (odom_ready && imu_ready){
             send_data(FUNC_IMU, imu2send, sizeof(imu2send));
             send_data(FUNC_ODOM, odom2send, sizeof(odom2send));
+            send_data(FUNC_RANGE, range2send, sizeof(range2send));
             if(batt_ready){
                 send_data(FUNC_BATT, batt2send, sizeof(batt2send));
                 batt_ready = false;
@@ -280,12 +306,28 @@ void setup()
     pinMode(MAX485_RE, OUTPUT);
     pinMode(MAX485_DE, OUTPUT);
 
-    Serial.begin(115200);    
-    MODBUS_SERIAL.begin(115200);
-    BMS_SERIAL.begin(9600, SERIAL_8N1);
+    mcp.begin_I2C(0x21);
 
-    Motor_dualdrive.begin(1, MODBUS_SERIAL);
-    jbdbms.begin(-1);
+    for(uint8_t i=0; i<16; i++)
+    {
+        if(i>7)
+            mcp.pinMode(i, INPUT_PULLUP);
+        else{
+            mcp.pinMode(i, OUTPUT);
+        }
+    }
+
+    mcp.digitalWrite(7, HIGH);
+    delay(5000);
+
+    Serial.begin(115200);    
+    MOTOR_DRIVER_SERIAL.begin(115200);
+    SENSORS_SERIAL.begin(9600, SERIAL_8N1);
+    init_ultrasonics();
+
+    Motor_dualdrive.begin(1, MOTOR_DRIVER_SERIAL);
+    Sensor_module.begin(5, SENSORS_SERIAL);
+    // jbdbms.begin(-1);
     JY61P.startIIC();
     JY61P.caliIMU();
 
@@ -293,8 +335,9 @@ void setup()
     threads.addThread(recive_data_task);
     threads.addThread(imu_update_task);
     threads.addThread(send_data_task);
-     threads.addThread(bms_task);
-    delay(10);
+    threads.addThread(safty_task);
+    // threads.addThread(bms_task);
+    threads.addThread(sensor_module_task);
 }
 
 void loop() {}
@@ -306,6 +349,8 @@ void imu_update_task(void *arg)
 
     while (1)
     {   
+        uint64_t start_time = millis(); 
+
         imu_gyro_dps[0] = (JY61P.getGyroX() / 180) * 3.14;
         imu_gyro_dps[1] = (JY61P.getGyroY() / 180) * 3.14;
         imu_gyro_dps[2] = (JY61P.getGyroZ() / 180) * 3.14;
@@ -344,8 +389,12 @@ void imu_update_task(void *arg)
         memcpy(imu2send, cmd, sizeof(cmd));
         imu_ready = true;
 
+        uint64_t end_time = millis();
+        uint32_t dt = end_time - start_time;
+        // Serial.println(dt);
+
         // send_data(FUNC_IMU, cmd, sizeof(cmd));
-        threads.delay(30);
+        threads.delay(45 - dt);
     }
 }
 
@@ -375,13 +424,15 @@ void bms_task() {
             batt_ready = true;
         } else{Serial.println("Get bms status error");}
 
-   delay(10000);
+   threads.delay(10000);
    }
    
 }
 
 void control_task(void *arg)
 {
+    bool emer_flag;
+
     while (1)
     {
         uint64_t start_time = millis();  
@@ -390,7 +441,7 @@ void control_task(void *arg)
         float current_rpm_left;
         float current_rpm_right;
          
-        if (millis() - prev_cmd_time > 100){
+        if ((millis() - prev_cmd_time > 100) || stop || emer_state){
             cmd_vel.linear_x  = 0.0;
             cmd_vel.linear_y  = 0.0;
             cmd_vel.angular_z = 0.0;            
@@ -401,24 +452,44 @@ void control_task(void *arg)
         cmd_vel.linear_y, 
         cmd_vel.angular_z);  
 
-        Motor_dualdrive.setTransmitBuffer(0, 0x0003);
-        Motor_dualdrive.setTransmitBuffer(1, int16_t(req_rpm.motor2 * 30));
-        Motor_dualdrive.setTransmitBuffer(2, int16_t(req_rpm.motor1 * 30));
-        Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);
-        delay(1);
+        if(!emer_state){
+            if (emer_flag) {
+                if (connection_failed) {
+                    connection_failed = false;
+                    mcp.digitalWrite(7, HIGH); // Enable motor driver after reset with emer switch
+                }
+                delay(8000); 
+                emer_flag = false;
+            }
+            if (!connection_failed) {
+                if( Motor_dualdrive.readHoldingRegisters(REG_AXIS2_FEEDBACK_SPEED,1) == Motor_dualdrive.ku8MBSuccess ){
+                    buff = Motor_dualdrive.getResponseBuffer(0);
+                    current_rpm_left = (buff / 30.0) * (-1);
+                    delay(1);
+                } else {
+                    mcp.digitalWrite(7, LOW); // Disable motor driver when connection is failed.
+                    connection_failed = true;
+                    Serial.println("Connection is failed");
+                    break;
+                }
+                if( Motor_dualdrive.readHoldingRegisters(REG_AXIS1_FEEDBACK_SPEED,1) == Motor_dualdrive.ku8MBSuccess ){
+                    buff = Motor_dualdrive.getResponseBuffer(0);
+                    current_rpm_right = (buff / 30.0) ;
+                    delay(1);
+                } else {
+                    mcp.digitalWrite(7, LOW); // Disable motor driver when connection is failed.
+                    connection_failed = true;
+                    Serial.println("Connection is failed");
+                    break;
+                }
+                Motor_dualdrive.setTransmitBuffer(0, 0x0003);
+                Motor_dualdrive.setTransmitBuffer(1, int16_t(req_rpm.motor2 * 30));
+                Motor_dualdrive.setTransmitBuffer(2, int16_t(req_rpm.motor1 * 30));
+                Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);
+                delay(1);
+            }
+        } else emer_flag = true;
 
-        if( Motor_dualdrive.readHoldingRegisters(REG_AXIS2_FEEDBACK_SPEED,1) == Motor_dualdrive.ku8MBSuccess ){
-          buff = Motor_dualdrive.getResponseBuffer(0);
-          current_rpm_left = (buff / 30.0) * (-1);
-          delay(1);
-        }
-
-        if( Motor_dualdrive.readHoldingRegisters(REG_AXIS1_FEEDBACK_SPEED,1) == Motor_dualdrive.ku8MBSuccess ){
-          buff = Motor_dualdrive.getResponseBuffer(0);
-          current_rpm_right = (buff / 30.0) ;
-          delay(1);
-        }
-        
         Kinematics::velocities current_vel = kinematics.getVelocities(
             current_rpm_left, 
             current_rpm_right, 
@@ -460,10 +531,152 @@ void control_task(void *arg)
         }
         
         // Serial.println(dt);
-        if (dt >= 40){dt = 0;}
-        threads.delay(40-dt);
+        if (dt >= 45){dt = 0;}
+        threads.delay(45-dt);
     }    
 }
 
+void init_ultrasonics(){
+    // ULTARSONICS_SERIAL.begin(9600, SERIAL_8N1, U0_RXD, U0_TXD);
+
+    Ultrasonics_1.begin(1, ULTARSONICS_SERIAL);
+    Ultrasonics_2.begin(2, ULTARSONICS_SERIAL);
+    Ultrasonics_3.begin(3, ULTARSONICS_SERIAL);
+
+    // Ultrasonics_1.writeSingleRegister(0x0201,3);
+    // delay(10);
+    // Ultrasonics_2.writeSingleRegister(0x0201,3);
+    // delay(10);
+    // Ultrasonics_3.writeSingleRegister(0x0201,3);
+}
+
+void sensor_module_task()
+{
+    int16_t buff;
+    uint8_t alarm_mode;
+    uint8_t led_mode;
+
+    while(true){
+
+        uint64_t start_time = millis();
+
+        if( Ultrasonics_1.readHoldingRegisters(0x0101,1) == Ultrasonics_1.ku8MBSuccess ){
+            buff = Ultrasonics_1.getResponseBuffer(0);
+            range_left = buff;
+            if(DEBUG){
+                Serial.print(buff);
+                Serial.print("  ");
+            }
+        }
+        else{ if(DEBUG) Serial.println("Read range_1 error"); }
+        delay(10);
+
+        if( Ultrasonics_2.readHoldingRegisters(0x0101,1) == Ultrasonics_2.ku8MBSuccess ){
+            buff = Ultrasonics_2.getResponseBuffer(0);
+            range_center = buff;
+            if(DEBUG){
+                Serial.print(buff);
+                Serial.print("  ");
+            }
+        }
+        else{ if(DEBUG) Serial.println("Read range_2 error"); }
+        delay(10);
+
+        if( Ultrasonics_3.readHoldingRegisters(0x0101,1) == Ultrasonics_3.ku8MBSuccess ){
+            buff = Ultrasonics_3.getResponseBuffer(0);
+            range_right = buff;
+            if(DEBUG){
+                Serial.print(buff);
+                Serial.print("  ");
+            }
+        }
+        else{ if(DEBUG) Serial.println("Read range_3 error"); }
+        delay(50);
+
+        if( Sensor_module.readHoldingRegisters(0x00,1) == Sensor_module.ku8MBSuccess ){
+            buff = Sensor_module.getResponseBuffer(0);
+            cliff = buff;
+            if(DEBUG){
+                Serial.print(buff);
+                Serial.println("  ");
+            }
+        }
+        else{ if(DEBUG) Serial.println("Read cliff error"); }
+        delay(10); 
+
+        bool A = (range_left   < range_limit);
+        bool B = (range_center < range_limit);
+        bool C = (range_right  < range_limit);
+
+        if (stop || emer_state || connection_failed) A = B = C = true;
+
+        uint8_t alarm_mode = (static_cast<uint8_t>(A) << 2 ) | 
+                             (static_cast<uint8_t>(B) << 1 ) |
+                             (static_cast<uint8_t>(C));
+
+        if (cmd_vel.linear_x == 0 && cmd_vel.angular_z == 0){
+            led_mode = 0;
+        }else if (cmd_vel.linear_x != 0 && cmd_vel.angular_z == 0){
+            led_mode = 1;
+        }else if (((cmd_vel.angular_z < -0.2) && (cmd_vel.linear_x >= 0)) || ((cmd_vel.angular_z > 0.2) && (cmd_vel.linear_x < 0))){
+            led_mode = 2;
+        }else if (((cmd_vel.angular_z > 0.2) && (cmd_vel.linear_x >= 0)) || ((cmd_vel.angular_z < -0.2) && (cmd_vel.linear_x < 0))){
+            led_mode = 3;
+        }
+
+        if (led_mode != led_mode_prev){
+            if(DEBUG) Serial.println(led_mode);
+            Sensor_module.writeSingleRegister(2, led_mode);
+            delay(10);
+        }        
+        Sensor_module.writeSingleRegister(1, alarm_mode);
+        delay(10);
+
+        led_mode_prev = led_mode;
+        alarm_mode_prev = alarm_mode;
+        A = B = C = false;
+
+        uint8_t cmd[6] = {
+                static_cast<uint8_t>(range_left   & 0xFF), static_cast<uint8_t>((range_left   >> 8) & 0xFF),
+                static_cast<uint8_t>(range_center & 0xFF), static_cast<uint8_t>((range_center >> 8) & 0xFF),
+                static_cast<uint8_t>(range_right  & 0xFF), static_cast<uint8_t>((range_right  >> 8) & 0xFF)
+            }; 
+
+        uint64_t dt = millis() - start_time;
+
+        if(DEBUG){
+            Serial.print("dt : ");
+            Serial.println(dt);
+        }        
+        memcpy(range2send, cmd, sizeof(cmd));
+        range_ready = true;
+
+        threads.delay(50);
+    }
+}
+
+void safty_task()
+{
+    while(1)
+    {   
+        emer_state   = !mcp.digitalRead(8);
+        bumper_state = !mcp.digitalRead(9) || !mcp.digitalRead(10);
+    
+        if (cliff > 70.0){cliff_state = true;} // 50 mm. for flat surface
+        else {cliff_state = false;}
+
+        if(bumper_state || cliff_state){stop = true;}
+        else stop = false;
+
+        if (DEBUG_SAFTY){
+            Serial.print(bumper_state);
+            Serial.print(" ");
+            Serial.print(cliff);
+            Serial.print(" ");
+            Serial.println(emer_state);
+        }
+        threads.delay(50);
+    }
+}
 
 

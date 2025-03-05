@@ -1,0 +1,40 @@
+#include <Adafruit_MCP23X17.h>
+
+Adafruit_MCP23X17 mcp;
+
+bool mcp_input[8];
+bool mcp_out_put[8];
+
+void setup(){
+    Serial.begin(115200); 
+    mcp.begin_I2C(0x21);
+
+    for(uint8_t i=0; i<16; i++)
+    {
+        if(i>7)
+        mcp.pinMode(i, INPUT_PULLUP);
+        else{
+        mcp.pinMode(i, OUTPUT);
+        mcp.digitalWrite(i, HIGH);
+        }
+    }
+
+} 
+
+void loop(){
+
+    for(uint8_t i=0; i<16; i++)
+    {
+        if(i>7){
+            Serial.print(mcp.digitalRead(i));
+            Serial.print(" ");
+        }else{
+            mcp.digitalWrite(i, !mcp.digitalRead(i));
+        }
+    }
+
+    // mcp.digitalWrite(6, !mcp.digitalRead(6));
+
+    Serial.println("");
+    delay(1000);
+}
