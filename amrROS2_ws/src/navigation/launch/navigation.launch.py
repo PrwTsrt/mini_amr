@@ -38,10 +38,12 @@ def generate_launch_description():
         use_namespace,
         if_value = ('/', namespace),
         else_value = '')
+    
     slam_toolbox_params_file = IfElseSubstitution(
         use_mapping,
         if_value = mapping_params_file,
         else_value = localize_params_file)
+    
     map2run = IfElseSubstitution(
         use_mapping,
         if_value = '',
@@ -144,8 +146,7 @@ def generate_launch_description():
     amcl = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution(
                 [nav2_bringup_dir, 'launch', 'localization_launch.py'])),
-            condition=IfCondition(
-                PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'false'" ])),
+            condition=IfCondition(use_mapping),
             launch_arguments={
                 'map' : map,
                 'use_sim_time': use_sim_time,
@@ -156,6 +157,24 @@ def generate_launch_description():
     slam_toolbox = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution(
                 [robot_navigation_dir, 'launch', 'slam_toolbox_launch.py'])),
+            condition=IfCondition(
+                PythonExpression(["'", use_mapping, "' == 'true' and'", use_slam_tb, "' == 'true'" ])),
+            launch_arguments={                
+                'autostart':  'true',
+                'use_sim_time': use_sim_time,
+                'slam_params_file' : slam_toolbox_params_file,
+                'use_lifecycle_manager': 'false',
+                'namespace': namespace,
+                'use_namespace': use_namespace,
+                'map_file_name': map2run,
+            }.items()
+        )
+    
+    slam_toolbox_localization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution(
+                [robot_navigation_dir, 'launch', 'localization_launch.py'])),
+            condition=IfCondition(
+                PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'true'" ])),
             launch_arguments={                
                 'autostart':  'true',
                 'use_sim_time': use_sim_time,
@@ -174,6 +193,7 @@ def generate_launch_description():
         SetRemap('/tf_static','tf_static'),
         amcl,
         slam_toolbox,
+        slam_toolbox_localization,
         navigation,
         rviz_cmd,
       ]

@@ -1,0 +1,8 @@
+---
+dock_coordinates:
+  ros__parameters:
+    point_cloud_split_dist: 0.1
+    minimum_point_cloud: 5
+    max_alignment_error: 0.005
+    max_dock_width: 0.38
+    min_dock_width: 0.31
