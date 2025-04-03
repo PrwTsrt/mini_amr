@@ -15,7 +15,7 @@ def generate_launch_description():
     robot_bringup_dir = get_package_share_directory("bringup")
 
     params_file = LaunchConfiguration("params_file")
-    use_rviz = LaunchConfiguration("rviz")
+    use_rviz = LaunchConfiguration("bringup_rviz")
     use_sim_time = LaunchConfiguration("sim")
     
     declare_model_cmd = DeclareLaunchArgument(
@@ -24,7 +24,7 @@ def generate_launch_description():
             description="Absolute path to robot urdf file")
     
     declare_use_rviz_cmd = DeclareLaunchArgument(
-            name='rviz', 
+            name='bringup_rviz', 
             default_value='false',
             description='Run rviz'
         )
@@ -71,6 +71,22 @@ def generate_launch_description():
         }.items()
     ) 
 
+    oak_d = IncludeLaunchDescription(os.path.join(
+        get_package_share_directory("depthai_ros_driver"),
+        "launch",
+        "camera.launch.py"),
+        launch_arguments={
+                'cam_pos_x': '0.24',
+                'cam_pos_y': '0.0',
+                'cam_pos_z': '0.12',
+                'cam_roll' : '0.0',
+                'cam_pitch': '0.0',
+                'cam_yaw'  : '0.0',
+                'imu_from_descr': 'false',
+                'parent_frame': 'base_link',                
+        }.items()
+    ) 
+
     laser_filter = Node(
             package='laser_filters',
             executable='scan_to_scan_filter_chain',
@@ -113,6 +129,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         joint_state_publisher_node,   
         scan,
+        oak_d,
         laser_filter,
         rviz_node, 
         robot_localization,

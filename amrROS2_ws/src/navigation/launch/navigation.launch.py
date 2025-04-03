@@ -1,4 +1,5 @@
 import os
+import json
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
@@ -13,7 +14,7 @@ from nav2_common.launch import RewrittenYaml, ReplaceString
 from launch_ros.descriptions import ParameterFile
 
 def generate_launch_description():
-
+ 
     robot_navigation_dir = get_package_share_directory("navigation")
     robot_bringup_dir = get_package_share_directory("bringup")
     nav2_bringup_dir = get_package_share_directory("nav2_bringup")
@@ -30,9 +31,15 @@ def generate_launch_description():
     mapping_params_file = LaunchConfiguration('mapping_params_file')
     rviz_config_file = LaunchConfiguration('rviz_config_file')
     map = LaunchConfiguration("map")
+    bringup = LaunchConfiguration("bringup")
 
-    default_map_path = os.environ.get('ROS_WS')+"/maps"+"/test99"
-    # default_map_path = os.path.join(robot_navigation_dir, "maps/Turtlebot_Arena_map.yaml")
+    workspace_path = os.environ.get('ROS_WS')
+    config_path = os.path.join(workspace_path, "maps", "config.json")
+
+    with open(config_path, "r") as f:
+        config = json.load(f)
+
+    default_map_path = os.path.join(workspace_path, "maps", config['map']['name'])
 
     namespace_replacement = IfElseSubstitution(
         use_namespace,
@@ -100,6 +107,11 @@ def generate_launch_description():
             default_value='false',
             description='Using slam toolbox mapping'
         )
+    declare_bringup_cmd = DeclareLaunchArgument(
+            name='bringup', 
+            default_value='false',
+            description='Bringup robot with this command'
+        )
     
     declare_nav_params_file_cmd = DeclareLaunchArgument(
         'nav_params_file',
@@ -145,8 +157,10 @@ def generate_launch_description():
     
     amcl = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution(
-                [nav2_bringup_dir, 'launch', 'localization_launch.py'])),
-            condition=IfCondition(use_mapping),
+                [robot_navigation_dir, 'launch', 'amcl_localization_launch.py'])),
+            # condition=UnlessCondition(use_mapping),
+            condition=IfCondition(
+                PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'false'" ])),
             launch_arguments={
                 'map' : map,
                 'use_sim_time': use_sim_time,
@@ -172,7 +186,7 @@ def generate_launch_description():
     
     slam_toolbox_localization = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution(
-                [robot_navigation_dir, 'launch', 'localization_launch.py'])),
+                [robot_navigation_dir, 'launch', 'slam_localization_launch.py'])),
             condition=IfCondition(
                 PythonExpression(["'", use_mapping, "' == 'false' and'", use_slam_tb, "' == 'true'" ])),
             launch_arguments={                
@@ -185,6 +199,12 @@ def generate_launch_description():
                 'map_file_name': map2run,
             }.items()
         )
+    
+    bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(PathJoinSubstitution(
+                [robot_bringup_dir, 'launch', 'bringup.launch.py'])),
+            condition=IfCondition(bringup)
+        )
 
     launch_elements = GroupAction(
      actions=[
@@ -192,6 +212,7 @@ def generate_launch_description():
         SetRemap('/tf','tf'),
         SetRemap('/tf_static','tf_static'),
         amcl,
+        bringup,
         slam_toolbox,
         slam_toolbox_localization,
         navigation,
@@ -208,6 +229,7 @@ def generate_launch_description():
         declare_localize_params_file_cmd,
         declare_mapping_params_file_cmd,
         declare_map_cmd,
+        declare_bringup_cmd,
         declare_use_sim_time_cmd,
         declare_use_rviz_cmd,
         declare_use_slam_tb_cmd,

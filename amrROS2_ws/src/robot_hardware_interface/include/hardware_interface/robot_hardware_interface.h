@@ -39,6 +39,8 @@ public:
 
     float voltage_;
     float current_;
+    float percentage_;
+    uint8_t status_;
 
     bool update_imu_;
     bool update_odom_;

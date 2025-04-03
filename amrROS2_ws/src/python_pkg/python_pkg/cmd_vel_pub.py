@@ -10,17 +10,26 @@ def main():
     node = rclpy.create_node('cmd_vel_pub')
     publisher = node.create_publisher(Twist, "/cmd_vel", 1)
     msg = Twist()
-    for i in range(1):
-        # msg.linear.x = 0.2
-        msg.linear.x = -0.2
-        node.get_logger().info('Publishing: "%f"' % msg.linear.x)
-        publisher.publish(msg)
-        # sleep(0.05)  
+    # for i in range(1):      
 
-    node.get_logger().info('------------------------------------------')
+    try:
+        print("Running... Press Ctrl+C to stop.")
+        # msg.linear.x = 0.2
+        # msg.linear.x = -0.2
+        msg.angular.z = 0.3
+        node.get_logger().info('Publishing: "%f"' % msg.linear.x)
+        
+        while True:
+            publisher.publish(msg)
+            sleep(0.1)  
+            
+    except KeyboardInterrupt:
+        print("\nCtrl+C detected. Exiting loop...")
+
+    node.get_logger().info('Set cmd_vel to 0')
     msg.linear.x = 0.0
     publisher.publish(msg)
-    node.get_logger().info('000000000000000000000000000000000000000000')
+
     node.destroy_node()
     rclpy.shutdown()
 

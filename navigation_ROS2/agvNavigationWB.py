@@ -77,7 +77,6 @@ class MainWindow(QWidget, Ui_Navigation, Node):
        #self.sub_current_pose = self.create_subscription(PoseWithCovarianceStamped, "/current_pose", self.update_pose, 10) 
        #self.battery_timer_counter = 0
         self.cmd_pub = self.create_publisher(Twist,"cmd_vel", 10)
-        self.hook_pub = self.create_publisher(UInt16,"cmd_hook", 10)
         self.sub_input_pins = self.create_subscription(UInt16, "input_pins", self.input_pins_callback, 10)
        #Battery voltage subscriber
         self.sub_battery = self.create_subscription(BatteryState, "/battery", self.update_battery_voltage, 10)
@@ -95,6 +94,11 @@ class MainWindow(QWidget, Ui_Navigation, Node):
         self.row_togo = 0
         self.raw_pose = 0
         self.no_retry = 0
+
+        self.run_active = False
+        self.run_next_timer = QTimer(self)
+        self.run_next_timer.setSingleShot(True)
+        self.run_next_timer.timeout.connect(self.run_next_timeout)
 
         filename = 'target_poses.csv'
         if py_path.isfile(filename):
@@ -122,16 +126,34 @@ class MainWindow(QWidget, Ui_Navigation, Node):
             self.inputSignal.emit(self.input_pins)
 
     @pyqtSlot(bool)
-    def on_qt_hook_button_clicked(self, checked):
-        hook_msg = UInt16()
+    def on_qt_run_button_clicked(self, checked):
         if checked:
-           print("Hook Down")
-           hook_msg.data = 0
-           self.hook_pub.publish(hook_msg)
+            self.run_active = True
+            indices = self.qt_pose_table_view_selection_model.selectedRows()
+            if indices:
+                row_togo = indices[0].row() + 1
+                if row_togo >= len(self.pose_table_model.contents):
+                    row_togo = 0
+                one_loop = True
+                row_togo_list = []
+                while row_togo < len(self.pose_table_model.contents):
+                    row_togo_list.append(row_togo) 
+                    if self.pose_table_model.contents[row_togo][4]: # Active 
+                        self.qt_pose_table_view.selectRow(row_togo)
+                        break
+                    row_togo += 1
+                    if row_togo == len(self.pose_table_model.contents) and one_loop:
+                        row_togo = 0
+                        one_loop = False
+                        row_togo_list.append(row_togo)
+                        if self.pose_table_model.contents[row_togo][4]:
+                            self.qt_pose_table_view.selectRow(row_togo)
+                            break
+                        row_togo += 1
+                self.goto_poses(row_togo_list)
+                self.navigation_check_timer.start(10)
         else:
-           print("Hook Up")
-           hook_msg.data = 1
-           self.hook_pub.publish(hook_msg)
+            self.run_active = False 
 
     @pyqtSlot()
     def on_qt_clone_button_clicked(self):
@@ -592,8 +614,16 @@ class MainWindow(QWidget, Ui_Navigation, Node):
 
     def check_navigation_status_timeout(self):
         if self.basic_navigator.isTaskComplete():
-            self.qt_next_button.setEnabled(True)
+            if self.run_active:
+                # start(time), time is in millisecond unit.
+                self.run_next_timer.start(5000)
+            else:
+                self.qt_next_button.setEnabled(True)
             self.navigation_check_timer.stop()
+
+    def run_next_timeout(self):
+        if self.run_active:
+            self.on_qt_run_button_clicked(checked=True)
 
 def main():
     app = QApplication(sys.argv)

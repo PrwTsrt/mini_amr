@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/smr/workspaces/mini_amr/amrROS2_ws/install/dock_lidar/include/**",
+        "/home/smr/workspaces/mini_amr/amrROS2_ws/install/custom_interface/include/**",
+        "/opt/ros/jazzy/include/**",
+        "/home/smr/workspaces/mini_amr/amrROS2_ws/src/autodock/dock_lidar/include/**",
+        "/home/smr/workspaces/mini_amr/amrROS2_ws/src/robot_hardware_interface/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-arm64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

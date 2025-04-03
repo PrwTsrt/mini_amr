@@ -226,6 +226,8 @@ private:
     {
       msg_batt_.voltage = hardware_interface->voltage_;
       msg_batt_.current = hardware_interface->current_;
+      msg_batt_.percentage = hardware_interface->percentage_;
+      msg_batt_.power_supply_status = hardware_interface->status_;
 
       hardware_interface->update_batt_ = false;
 

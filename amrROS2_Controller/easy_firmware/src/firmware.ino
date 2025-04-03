@@ -3,7 +3,6 @@
 #include <Arduino.h>
 #include <TeensyThreads.h>
 #include <ModbusMaster.h>
-#include <jbdbms.h>
 #include <Adafruit_MCP23X17.h>
 
 #include <stdio.h>
@@ -13,6 +12,7 @@
 #include "config.h"
 #include "kinematics.h"
 #include "JY61P.h"
+#include "bms.h"
 
 #define DEBUG           false
 #define DEBUG_IMU       false
@@ -39,6 +39,9 @@
 #define FUNC_STATUS 0x06
 #define FUNC_BATT   0x07
 
+const int ledPins[4] = {40, 41, 44, 73};
+// const int ledPins[4] = {15, 25, 16, 32};
+
 /////////////////////////////////////////////////////////////////////////////////////
 #define motor_axis0  0 
 #define motor_axis1  1 
@@ -62,7 +65,6 @@ ModbusMaster Sensor_module;
 ModbusMaster Ultrasonics_1; //Left
 ModbusMaster Ultrasonics_2; //Center
 ModbusMaster Ultrasonics_3; //Right
-JbdBms jbdbms(BMS_SERIAL); 
 
 int LED = 13;                 // LED status TeensyMicromod
 int LED_RUN = 32;             // G9 - Teensy pin 32, MicroMod pad 65
@@ -83,7 +85,7 @@ uint8_t alarm_mode_prev;
 
 uint8_t imu2send[12];
 uint8_t odom2send[6];
-uint8_t batt2send[4];
+uint8_t batt2send[7];
 uint8_t range2send[6];
 bool imu_ready;
 bool odom_ready;
@@ -114,6 +116,9 @@ bool mcp_out_put[8];
 
 bool cliff_state, bumper_state, emer_state, stop, ack;
 bool connection_failed;
+
+volatile unsigned long msStart;
+volatile unsigned int state_prev=0, state_batt=0;
 
 void parse_data(uint8_t func, uint8_t *data, uint8_t data_len){
 
@@ -231,15 +236,17 @@ void send_data_task(void * parameter){
 
     while(true){
         if (odom_ready && imu_ready){
-            send_data(FUNC_IMU, imu2send, sizeof(imu2send));
-            send_data(FUNC_ODOM, odom2send, sizeof(odom2send));
-            send_data(FUNC_RANGE, range2send, sizeof(range2send));
-            if(batt_ready){
-                send_data(FUNC_BATT, batt2send, sizeof(batt2send));
-                batt_ready = false;
+            if(!DEBUG){
+                send_data(FUNC_IMU, imu2send, sizeof(imu2send));
+                send_data(FUNC_ODOM, odom2send, sizeof(odom2send));
+                send_data(FUNC_RANGE, range2send, sizeof(range2send));
+                if(batt_ready){
+                    send_data(FUNC_BATT, batt2send, sizeof(batt2send));
+                    batt_ready = false;
+                }
+                odom_ready = false;
+                imu_ready = false;
             }
-            odom_ready = false;
-            imu_ready = false;
         }
         threads.delay(10);
     }
@@ -308,14 +315,14 @@ void setup()
 
     mcp.begin_I2C(0x21);
 
-    for(uint8_t i=0; i<16; i++)
-    {
-        if(i>7)
-            mcp.pinMode(i, INPUT_PULLUP);
-        else{
-            mcp.pinMode(i, OUTPUT);
-        }
+    for(uint8_t i=0; i<16; i++){
+        if (i>7) mcp.pinMode(i, INPUT_PULLUP);
+        else     mcp.pinMode(i, OUTPUT);
     }
+
+    // for (uint8_t i = 0; i < sizeof(ledPins); i++) {
+    //     pinMode(ledPins[i], OUTPUT);
+    // }
 
     mcp.digitalWrite(7, HIGH);
     delay(5000);
@@ -327,7 +334,6 @@ void setup()
 
     Motor_dualdrive.begin(1, MOTOR_DRIVER_SERIAL);
     Sensor_module.begin(5, SENSORS_SERIAL);
-    // jbdbms.begin(-1);
     JY61P.startIIC();
     JY61P.caliIMU();
 
@@ -336,7 +342,7 @@ void setup()
     threads.addThread(imu_update_task);
     threads.addThread(send_data_task);
     threads.addThread(safty_task);
-    // threads.addThread(bms_task);
+    // threads.addThread(LED_task);
     threads.addThread(sensor_module_task);
 }
 
@@ -396,37 +402,6 @@ void imu_update_task(void *arg)
         // send_data(FUNC_IMU, cmd, sizeof(cmd));
         threads.delay(45 - dt);
     }
-}
-
-void bms_task() {
-   JbdBms::Status_t status;
-
-   while(true){
-
-        if (jbdbms.getStatus(status)) {   // Get current global status
-            uint16_t voltage = status.voltage; // mv
-            int16_t current = status.current;
-            uint16_t capacity = status.remainingCapacity;
-            uint16_t design_capacity = status.nominalCapacity;
-
-            Serial.print(voltage);
-            Serial.print("    ");
-            Serial.println(current);
-
-            uint8_t cmd[4] = {
-                static_cast<uint8_t>(voltage & 0xFF), static_cast<uint8_t>((voltage >> 8) & 0xFF),
-                static_cast<uint8_t>(current & 0xFF), static_cast<uint8_t>((current >> 8) & 0xFF)
-                // static_cast<uint8_t>(capacity & 0xFF), static_cast<uint8_t>((capacity >> 8) & 0xFF),
-                // static_cast<uint8_t>(design_capacity & 0xFF), static_cast<uint8_t>((design_capacity >> 8) & 0xFF)                
-            };
-
-            memcpy(batt2send, cmd, sizeof(cmd));
-            batt_ready = true;
-        } else{Serial.println("Get bms status error");}
-
-   threads.delay(10000);
-   }
-   
 }
 
 void control_task(void *arg)
@@ -553,8 +528,11 @@ void init_ultrasonics(){
 void sensor_module_task()
 {
     int16_t buff;
-    uint8_t alarm_mode;
-    uint8_t led_mode;
+    uint8_t alarm_mode, led_mode;
+    uint64_t prev_batt;
+    int16_t voltage, current;
+    int16_t percentage;
+    uint8_t batt_status;
 
     while(true){
 
@@ -563,50 +541,50 @@ void sensor_module_task()
         if( Ultrasonics_1.readHoldingRegisters(0x0101,1) == Ultrasonics_1.ku8MBSuccess ){
             buff = Ultrasonics_1.getResponseBuffer(0);
             range_left = buff;
-            if(DEBUG){
+            if(DEBUG_RANGE){
                 Serial.print(buff);
                 Serial.print("  ");
             }
         }
-        else{ if(DEBUG) Serial.println("Read range_1 error"); }
+        else{ if(DEBUG_RANGE) Serial.println("Read range_1 error"); }
         delay(10);
 
         if( Ultrasonics_2.readHoldingRegisters(0x0101,1) == Ultrasonics_2.ku8MBSuccess ){
             buff = Ultrasonics_2.getResponseBuffer(0);
             range_center = buff;
-            if(DEBUG){
+            if(DEBUG_RANGE){
                 Serial.print(buff);
                 Serial.print("  ");
             }
         }
-        else{ if(DEBUG) Serial.println("Read range_2 error"); }
+        else{ if(DEBUG_RANGE) Serial.println("Read range_2 error"); }
         delay(10);
 
         if( Ultrasonics_3.readHoldingRegisters(0x0101,1) == Ultrasonics_3.ku8MBSuccess ){
             buff = Ultrasonics_3.getResponseBuffer(0);
             range_right = buff;
-            if(DEBUG){
+            if(DEBUG_RANGE){
                 Serial.print(buff);
                 Serial.print("  ");
             }
         }
-        else{ if(DEBUG) Serial.println("Read range_3 error"); }
+        else{ if(DEBUG_RANGE) Serial.println("Read range_3 error"); }
         delay(50);
 
         if( Sensor_module.readHoldingRegisters(0x00,1) == Sensor_module.ku8MBSuccess ){
             buff = Sensor_module.getResponseBuffer(0);
             cliff = buff;
-            if(DEBUG){
+            if(DEBUG_RANGE){
                 Serial.print(buff);
                 Serial.println("  ");
             }
         }
-        else{ if(DEBUG) Serial.println("Read cliff error"); }
+        else{ if(DEBUG_RANGE) Serial.println("Read cliff error"); }
         delay(10); 
 
-        bool A = (range_left   < range_limit);
-        bool B = (range_center < range_limit);
-        bool C = (range_right  < range_limit);
+        bool A = (range_left   < range_limit) && (range_left   > 0);
+        bool B = (range_center < range_limit) && (range_center > 0);
+        bool C = (range_right  < range_limit) && (range_right  > 0);
 
         if (stop || emer_state || connection_failed) A = B = C = true;
 
@@ -625,7 +603,7 @@ void sensor_module_task()
         }
 
         if (led_mode != led_mode_prev){
-            if(DEBUG) Serial.println(led_mode);
+            if(DEBUG_OLED) Serial.println(led_mode);
             Sensor_module.writeSingleRegister(2, led_mode);
             delay(10);
         }        
@@ -636,7 +614,33 @@ void sensor_module_task()
         alarm_mode_prev = alarm_mode;
         A = B = C = false;
 
-        uint8_t cmd[6] = {
+        if (start_time - prev_batt > 1000){
+            if(RequestDataFromBMD(VOLT_AMP_CMD)==1)
+            {
+                voltage = static_cast<int16_t>(fBattVolt * 100);
+                current = static_cast<int16_t>(fBattCurrent * 100);
+                percentage = static_cast<int16_t>(fBattSOC * 100);
+
+                if (fBattSOC >= 100)        batt_status = 4; // FULL
+                else if (fBattCurrent > 0)  batt_status = 1; // CHARGIGN
+                else if (fBattCurrent < 0)  batt_status = 2; // DISCHARGIGN  
+                else batt_status = 0;                        // UNKNOWN
+
+            }
+            uint8_t cmd_batt[7] = {
+                static_cast<uint8_t>(voltage & 0xFF), static_cast<uint8_t>((voltage >> 8) & 0xFF),
+                static_cast<uint8_t>(current & 0xFF), static_cast<uint8_t>((current >> 8) & 0xFF),
+                static_cast<uint8_t>(percentage & 0xFF), static_cast<uint8_t>((percentage >> 8) & 0xFF),
+                static_cast<uint8_t>(batt_status & 0xFF)             
+            };
+
+            memcpy(batt2send, cmd_batt, sizeof(cmd_batt));
+            batt_ready = true;
+
+            prev_batt = start_time;
+        }
+
+        uint8_t cmd_range[6] = {
                 static_cast<uint8_t>(range_left   & 0xFF), static_cast<uint8_t>((range_left   >> 8) & 0xFF),
                 static_cast<uint8_t>(range_center & 0xFF), static_cast<uint8_t>((range_center >> 8) & 0xFF),
                 static_cast<uint8_t>(range_right  & 0xFF), static_cast<uint8_t>((range_right  >> 8) & 0xFF)
@@ -644,14 +648,26 @@ void sensor_module_task()
 
         uint64_t dt = millis() - start_time;
 
-        if(DEBUG){
+        if(DEBUG_RANGE){
             Serial.print("dt : ");
             Serial.println(dt);
         }        
-        memcpy(range2send, cmd, sizeof(cmd));
+        memcpy(range2send, cmd_range, sizeof(cmd_range));
         range_ready = true;
 
         threads.delay(50);
+    }
+}
+
+void LED_task(){
+
+    while(1){
+        for (int i = 0; i < sizeof(ledPins); i++) {
+            digitalWrite(ledPins[i], HIGH);
+            delay(1000);
+            digitalWrite(ledPins[i], LOW);
+          }
+        threads.delay(1000);
     }
 }
 

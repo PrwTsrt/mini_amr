@@ -9,12 +9,13 @@ Panels:
         - /TF1/Tree1
         - /Controller1/Local Costmap1
       Splitter Ratio: 0.5833333134651184
-    Tree Height: 268
+    Tree Height: 140
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
     Expanded:
       - /Publish Point1
+      - /2D Goal Pose1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz_common/Views
@@ -28,6 +29,13 @@ Panels:
     Name: Selector
   - Class: nav2_rviz_plugins/Docking
     Name: Docking
+  - Class: rviz_common/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 70
 Visualization Manager:
   Class: ""
   Displays:
@@ -67,68 +75,47 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        center_footprint:
+        oak:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        center_ranger_link:
+        oak_imu_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        front_caster_wheel_link:
+        oak_left_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        imu_frame:
+        oak_left_camera_optical_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        laser:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_ranger_link:
+        oak_model_origin:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_wheel_link:
+        oak_rgb_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        rear_caster_wheel_link:
+        oak_rgb_camera_optical_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        rgbd_frame:
+        oak_right_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        right_ranger_link:
+        oak_right_camera_optical_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -164,6 +151,24 @@ Visualization Manager:
           Value: true
         map:
           Value: true
+        oak:
+          Value: true
+        oak_imu_frame:
+          Value: true
+        oak_left_camera_frame:
+          Value: true
+        oak_left_camera_optical_frame:
+          Value: true
+        oak_model_origin:
+          Value: true
+        oak_rgb_camera_frame:
+          Value: true
+        oak_rgb_camera_optical_frame:
+          Value: true
+        oak_right_camera_frame:
+          Value: true
+        oak_right_camera_optical_frame:
+          Value: true
         odom:
           Value: true
         rear_caster_wheel_link:
@@ -196,6 +201,20 @@ Visualization Manager:
                   {}
                 left_wheel_link:
                   {}
+                oak:
+                  oak_imu_frame:
+                    {}
+                  oak_left_camera_frame:
+                    oak_left_camera_optical_frame:
+                      {}
+                  oak_model_origin:
+                    {}
+                  oak_rgb_camera_frame:
+                    oak_rgb_camera_optical_frame:
+                      {}
+                  oak_right_camera_frame:
+                    oak_right_camera_optical_frame:
+                      {}
                 rear_caster_wheel_link:
                   {}
                 rgbd_frame:
@@ -669,6 +688,20 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /range/right
       Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /oak/rgb/image_rect
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -700,13 +733,20 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /clicked_point
     - Class: nav2_rviz_plugins/GoalTool
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: goal_pose
   Transformation:
     Current:
       Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
-      Angle: -0.0008007669821381569
+      Angle: -0.0008007623255252838
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -716,33 +756,35 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 80.49535369873047
+      Scale: 68.81053161621094
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 0.6689930558204651
-      Y: 0.20096299052238464
+      X: 0.704401433467865
+      Y: -1.1116087436676025
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
   Docking:
-    collapsed: false
-  Height: 1011
+    collapsed: true
+  Height: 1018
   Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Right Dock: true
+  Image:
+    collapsed: false
   Navigation 2:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000015600000395fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005d00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000100044006900730070006c006100790073010000003f0000014c000000cc00fffffffb00000018004e0061007600690067006100740069006f006e00200032010000019100000243000001f800fffffffb0000001e005200650061006c00730065006e0073006500430061006d00650072006100000002c6000000c10000001700ffffff000000010000014700000395fc0200000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003f000000ff000000a900fffffffb0000000e0044006f0063006b0069006e00670100000144000001970000016200fffffffb0000001000530065006c006500630074006f007201000002e1000000f3000000d300fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004950000039500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001560000039cfc020000000cfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005d00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000100044006900730070006c006100790073010000003f000000cc000000cc00fffffffb00000018004e0061007600690067006100740069006f006e002000320100000111000001f8000001f800fffffffb0000001e005200650061006c00730065006e0073006500430061006d00650072006100000002c6000000c10000001700fffffffb000000100044006900730070006c006100790073000000030f000000cc000000cc00fffffffb0000000a0049006d006100670065010000030f000000cc0000001700ffffff000000010000014700000395fc0200000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003f000000d0000000a900fffffffb0000000e0044006f0063006b0069006e00670000000115000001b50000016200fffffffb0000001000530065006c006500630074006f007200000002d000000104000000d300fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000002430000039c00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RealsenseCamera:
     collapsed: false
   Selection:
     collapsed: false
   Selector:
-    collapsed: false
+    collapsed: true
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: false
-  Width: 1854
-  X: 66
+    collapsed: true
+  Width: 927
+  X: 82
   Y: 32

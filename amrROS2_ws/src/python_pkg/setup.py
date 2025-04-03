@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'ip_publisher = python_pkg.ip_address_publisher:main',
+            'cmd_vel_pub = python_pkg.cmd_vel_pub:main',
         ],
     },
 )

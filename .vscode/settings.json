@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.sdf": "xml",
         "*.xacro": "xml",
         "array": "cpp",
         "string": "cpp",
@@ -71,6 +72,10 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "source_location": "cpp"
+        "source_location": "cpp",
+        "any": "cpp",
+        "set": "cpp",
+        "cfenv": "cpp",
+        "typeindex": "cpp"
     }
 }

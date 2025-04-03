@@ -153,6 +153,9 @@ void loop() {
     //Get_IMU_JY61P();
 
         Serial.print(" Read motor speed:   ");
+
+        uint64_t start_time = millis(); //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         result = Motor_dualdrive.readHoldingRegisters(REG_AXIS1_FEEDBACK_SPEED,1);   // 0x03
 
         if( result == Motor_dualdrive.ku8MBSuccess ){
@@ -183,6 +186,11 @@ void loop() {
           return;
         }
 
+        uint64_t end_time = millis();         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        uint32_t dt = end_time - start_time;
+        Serial.print("dt read : ");
+        Serial.println(dt);
+
         Serial.print("Speed axis1:  "); 
         Serial.print(axis1_feedback_speed);
         Serial.print("    Speed axis2:  "); 
@@ -197,14 +205,26 @@ void loop() {
 
       incomingChar = Serial.read();
       //Serial.println(incomingChar);
+
+      // uint64_t start_time = millis();
       
       if(incomingChar == 'w'){                          
 
         Serial.println(" Start motor forward. ");
+
+        uint64_t start_time = millis(); ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         Motor_dualdrive.setTransmitBuffer(0, 0x0003);
         Motor_dualdrive.setTransmitBuffer(1, axis1_command_speed);
         Motor_dualdrive.setTransmitBuffer(2, axis2_command_speed);
         result = Motor_dualdrive.writeMultipleRegisters(REG_DUALAXIS_CMD_SPEED, 3);  //01 10 0B 1A 00 03 06 00 03 F8 30 07 D0 94 D2
+
+
+        uint64_t end_time = millis();  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        uint32_t dt = end_time - start_time;
+        Serial.print("dt write : ");
+        Serial.println(dt);   
+
         delay(100); 
 
       }
@@ -381,11 +401,15 @@ void loop() {
         Serial.println("   ");
       }
 
-
       delay(100); 
+
+       
+  // uint64_t end_time = millis();
+  // uint32_t dt = end_time - start_time;
+  // Serial.print("dt : ");
+  // Serial.println(dt);
   }
 
-  
-
+ 
 
 }

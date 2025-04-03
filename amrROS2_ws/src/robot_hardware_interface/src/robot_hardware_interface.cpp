@@ -148,18 +148,24 @@ void HardwareInterface::ParseData(uint8_t FUNC_TYPE, const std::vector<uint8_t>&
         }
     }
     else if (FUNC_TYPE == FUNC_BATT) {
-        int16_t voltage = static_cast<int16_t>(data[0] | (data[1] << 8));
-        int16_t current = static_cast<int16_t>(data[2] | (data[3] << 8));
+        int16_t voltage     = static_cast<int16_t>(data[0] | (data[1] << 8));
+        int16_t current     = static_cast<int16_t>(data[2] | (data[3] << 8));
+        int16_t percentage  = static_cast<int16_t>(data[4] | (data[5] << 8));
+        uint8_t  status     = static_cast<uint8_t>(data[6]);
 
-        voltage_ = voltage / 1000.0;
-        current_ = current;
+        voltage_ = voltage / 100.0;
+        current_ = current / 100.0;
+        percentage_ = percentage / 100.0;
+        status_ = status;
 
         update_batt_ = true;
 
         if(DEBUG_BATT){
             std::cout << "Battery -";
             std::cout << " " << voltage;
-            std::cout << " " << current << std::endl;
+            std::cout << " " << current;
+            std::cout << " " << percentage;
+            std::cout << " " << static_cast<int>(status) << std::endl;   
         }
     }
 }
@@ -231,8 +237,8 @@ void HardwareInterface::ReceiveData() {
                             check_sum += value;
                         }
 
-                        serial_port.ReadByte(rx_check_num, SERIALPORT_TIMEOUT_MS);                        
-
+                        serial_port.ReadByte(rx_check_num, SERIALPORT_TIMEOUT_MS);  
+                        
                         if ((check_sum & 0xFF) == rx_check_num) {
                             if (DEBUG_RECEIVE) {
                                 std::cout << "Data received" << std::endl;
