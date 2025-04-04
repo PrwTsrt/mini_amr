@@ -6,19 +6,19 @@
     dock_smooth_profile: True # False = การเข้าจอดแบบง่าย, True = การเข้าจอดแบบหมุนพร้อมกับเคลื่อนที่(smooth)
     dock_angular_speed_search: 0.3 #ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะค้นหา dock
     dock_wait_after_search: 1.0 #ระยะหน่วงเวลาหลังจากเสร็จสิ้นการค้นหา dock
-    dock_angular_speed: 0.5 # ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะเคลื่อนที่เข้าหา pre dock
+    dock_angular_speed: 0.3 # ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะเคลื่อนที่เข้าหา pre dock
     dock_angular_speed_final: 0.1 # ความเร็วเชิงมุมในการหมุนของหุ่นยนต์ขณะเคลื่อนที่ใกล้ถึงเป้าหมาย pre dock
     dock_linear_speed: -0.3 #ความเร็วในการเคลื่อนที่เข้าหา pre dock
     dock_wait_at_pre_dock: 1.0 #ระยะหน่วงเวลาหลังจากถึง pre dock
     dock_linear_speed_final: -0.05 #ความเร็วในการเคลื่อนที่ใกล้ถึงจุดหมาย pre dock
     dock_time_final: 4.0 #ระยะเวลาในการวิ่งเข้าหา dock ซึ่งควบคุมแบบ open 
     dock_check_charge_status: False #ตรวจสอบสถานะของการชาร์จ เพื่อหยุดหุ่นยนต์หรือไม่
-    dock_smooth_K_rho: 0.3 # gain ที่ใช่้สำหรับการควบคุมการเคลื่อนที่เส้นตรง ในการเข้าจอดแบบ smooth
-    dock_smooth_K_alpha: 0.3 # gain ที่ใช่้สำหรับการควบคุมการหมุน ในการเข้าจอดแบบ smooth
+    dock_smooth_K_rho: 0.4 # gain ที่ใช่้สำหรับการควบคุมการเคลื่อนที่เส้นตรง ในการเข้าจอดแบบ smooth
+    dock_smooth_K_alpha: 1.0 # gain ที่ใช่้สำหรับการควบคุมการหมุน ในการเข้าจอดแบบ smooth
     dock_smooth_K_beta: 0.2 # gain ที่ใช่้สำหรับการควบคุมทิศทรงของหุ่นยนต์ที่เป้าหมาย ในการเข้าจอดแบบ smooth
-    dock_smooth_max_vel: -0.3 #ความเร็วสูงสุดในการเคลื่อนที่เส้นตรงในการเข้าจอดแบบ smooth
+    dock_smooth_max_vel: -0.2 #ความเร็วสูงสุดในการเคลื่อนที่เส้นตรงในการเข้าจอดแบบ smooth
     dock_smooth_max_omega: 0.3 #ความเร็วสูงสุดในการหมุนในการเข้าจอดแบบ smooth
-    dock_smooth_sampling_time: 0.1 #ความถี่ในการควบคุมแบบ smooth (วินาที)
+    dock_smooth_sampling_time: 0.05 #ความถี่ในการควบคุมแบบ smooth (วินาที)
     #---------------------------------------------------------------------------
     undock_time_step1: 6.0 # ระยะเวลาในการวิ่งออกจาก dock ซึ่งควบคุมแบบ open loop
     undock_speed_step1: 0.1 #ความเร็วในการเคลื่อนที่ออก

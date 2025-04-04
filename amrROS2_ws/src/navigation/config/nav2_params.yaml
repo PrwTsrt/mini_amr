@@ -356,36 +356,91 @@ velocity_smoother:
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
 
+# collision_monitor:
+#   ros__parameters:
+#     base_frame_id: "base_footprint"
+#     odom_frame_id: "odom"
+#     cmd_vel_in_topic: "cmd_vel_smoothed"
+#     cmd_vel_out_topic: "cmd_vel"
+#     state_topic: "collision_monitor_state"
+#     transform_tolerance: 1.0
+#     source_timeout: 1.0
+#     base_shift_correction: True
+#     stop_pub_timeout: 2.0
+#     # Polygons represent zone around the robot for "stop", "slowdown" and "limit" action types,
+#     # and robot footprint for "approach" action type.
+#     polygons: ["FootprintApproach"]
+#     FootprintApproach:
+#       type: "polygon"
+#       action_type: "approach"
+#       footprint_topic: "local_costmap/published_footprint"
+#       time_before_collision: 2.0
+#       simulation_time_step: 0.1
+#       min_points: 6
+#       visualize: True
+#       enabled: True
+#     observation_sources: ["scan"]
+#     scan:
+#       type: "scan"
+#       topic: "scan"
+#       min_height: 0.15
+#       max_height: 2.0
+#       enabled: True
+
 collision_monitor:
   ros__parameters:
-    base_frame_id: "base_footprint"
+    use_sim_time: false
+    base_frame_id: "center_footprint"
     odom_frame_id: "odom"
-    cmd_vel_in_topic: "cmd_vel_smoothed"
-    cmd_vel_out_topic: "cmd_vel"
+    cmd_vel_in_topic: "<robot_namespace>/cmd_vel_smoothed" 
+    cmd_vel_out_topic: "<robot_namespace>/cmd_vel"
     state_topic: "collision_monitor_state"
     transform_tolerance: 1.0
-    source_timeout: 1.0
+    source_timeout: 5.0
     base_shift_correction: True
     stop_pub_timeout: 2.0
-    # Polygons represent zone around the robot for "stop", "slowdown" and "limit" action types,
+    # Polygons represent zone around the robot for "stop" and "slowdown" action types,
     # and robot footprint for "approach" action type.
-    polygons: ["FootprintApproach"]
-    FootprintApproach:
+    # Footprint could be "polygon" type with dynamically set footprint from footprint_topic
+    # or "circle" type with static footprint set by radius. "footprint_topic" parameter
+    # to be ignored in circular case.
+    # polygons: ["PolygonStop", "PolygonSlow"]
+    polygons: ["PolygonStop"]
+    PolygonStop:
       type: "polygon"
-      action_type: "approach"
-      footprint_topic: "local_costmap/published_footprint"
-      time_before_collision: 2.0
-      simulation_time_step: 0.1
-      min_points: 6
+      points: "[[0.3, 0.25], [0.3, -0.25], [0.0, -0.25], [0.0, 0.25]]"
+      action_type: "stop"
+      max_points: 3
       visualize: True
+      polygon_pub_topic: "<robot_namespace>/polygon_stop"
       enabled: True
-    observation_sources: ["scan"]
+    PolygonSlow:
+      type: "polygon"
+      points: "[[0.35, 0.2], [0.35, -0.2], [0.0, -0.2], [0.0, 0.2]]"
+      action_type: "slowdown"
+      max_points: 3
+      slowdown_ratio: 0.5
+      visualize: True
+      polygon_pub_topic: "<robot_namespace>/polygon_slowdown"
+      enabled: True
+    observation_sources: ["range_center", "range_left", "range_right", "scan"]
     scan:
       type: "scan"
-      topic: "scan"
-      min_height: 0.15
-      max_height: 2.0
-      enabled: True
+      topic: "<robot_namespace>/scan"
+    pointcloud:
+      type: "pointcloud"
+      topic: "<robot_namespace>/intel_realsense_r200_depth/points"
+      min_height: 0.1
+      max_height: 0.5
+    range_left:
+      type: "range"
+      topic: "<robot_namespace>/range/left"
+    range_center:
+      type: "range"
+      topic: "<robot_namespace>/range/center"
+    range_right:
+      type: "range"
+      topic: "<robot_namespace>/range/right"
 
 docking_server:
   ros__parameters:

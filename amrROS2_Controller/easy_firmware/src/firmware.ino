@@ -342,7 +342,7 @@ void setup()
     threads.addThread(imu_update_task);
     threads.addThread(send_data_task);
     threads.addThread(safty_task);
-    // threads.addThread(LED_task);
+    threads.addThread(LED_task);
     threads.addThread(sensor_module_task);
 }
 
@@ -540,6 +540,7 @@ void sensor_module_task()
 
         if( Ultrasonics_1.readHoldingRegisters(0x0101,1) == Ultrasonics_1.ku8MBSuccess ){
             buff = Ultrasonics_1.getResponseBuffer(0);
+            if (buff > 500 || buff < 0)  buff = 495;
             range_left = buff;
             if(DEBUG_RANGE){
                 Serial.print(buff);
@@ -551,6 +552,7 @@ void sensor_module_task()
 
         if( Ultrasonics_2.readHoldingRegisters(0x0101,1) == Ultrasonics_2.ku8MBSuccess ){
             buff = Ultrasonics_2.getResponseBuffer(0);
+            if (buff > 500 || buff < 0)  buff = 495;
             range_center = buff;
             if(DEBUG_RANGE){
                 Serial.print(buff);
@@ -562,6 +564,7 @@ void sensor_module_task()
 
         if( Ultrasonics_3.readHoldingRegisters(0x0101,1) == Ultrasonics_3.ku8MBSuccess ){
             buff = Ultrasonics_3.getResponseBuffer(0);
+            if (buff > 500 || buff < 0)  buff = 495;
             range_right = buff;
             if(DEBUG_RANGE){
                 Serial.print(buff);
@@ -662,12 +665,17 @@ void sensor_module_task()
 void LED_task(){
 
     while(1){
-        for (int i = 0; i < sizeof(ledPins); i++) {
-            digitalWrite(ledPins[i], HIGH);
-            delay(1000);
-            digitalWrite(ledPins[i], LOW);
-          }
-        threads.delay(1000);
+        // for (int i = 0; i < sizeof(ledPins); i++) {
+        //     digitalWrite(ledPins[i], HIGH);
+        //     delay(1000);
+        //     digitalWrite(ledPins[i], LOW);
+        // }
+
+        digitalWrite(LED_PIN_STATUS, HIGH);
+        delay(1000);
+        digitalWrite(LED_PIN_STATUS, LOW);
+
+        threads.delay(500);
     }
 }
 

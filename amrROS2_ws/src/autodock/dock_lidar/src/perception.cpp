@@ -369,7 +369,7 @@ void DockPerception::callback(
            processor.getClusters().begin();
        i != processor.getClusters().end(); i++) {
     DockCandidatePtr c = extract(*i);
-    //if (c && c->valid(found_dock_)) 
+    if (c && c->valid(found_dock_)) 
     {
       candidates.push(c);
     }
