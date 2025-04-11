@@ -69,27 +69,27 @@
 
   <xacro:range_sensor 
     pos="center"
-    pos_x="${base_length / 2}" 
+    pos_x="0.221" 
     pos_y="0"
-    pos_z="-0.015" 
-    pitch="0"
+    pos_z="0.05" 
+    roll="0"
     yaw="0"
   />
   <xacro:range_sensor 
     pos="left"
-    pos_x="${(base_length / 2) - 0.05}" 
-    pos_y="0.16"
-    pos_z="-0.015" 
-    pitch="0"
-    yaw="0.46364761"
+    pos_x="0.22" 
+    pos_y="0.19"
+    pos_z="0.08" 
+    roll="1.57"
+    yaw="0.6747"
   />
   <xacro:range_sensor 
     pos="right"
-    pos_x="${(base_length / 2) - 0.05}" 
-    pos_y="-0.16"
-    pos_z="-0.015" 
-    pitch="0"
-    yaw="-0.46364761"
+    pos_x="0.22" 
+    pos_y="-0.19"
+    pos_z="0.08" 
+    roll="1.57"
+    yaw="-0.6747"
   />
   
 

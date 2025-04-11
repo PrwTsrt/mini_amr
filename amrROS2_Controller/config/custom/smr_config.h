@@ -45,12 +45,12 @@ echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrcROBOT ORIENTATION
 */
 
 //define your robot' specs here
-#define MOTOR_MAX_RPM 80                   // motor's max RPM          
-#define MAX_RPM_RATIO 0.85                  // max RPM allowed for each MAX_RPM_ALLOWED = MOTOR_MAX_RPM * MAX_RPM_RATIO          
+#define MOTOR_MAX_RPM 160                   // motor's max RPM          
+#define MAX_RPM_RATIO 0.7                  // max RPM allowed for each MAX_RPM_ALLOWED = MOTOR_MAX_RPM * MAX_RPM_RATIO          
 
 #define COUNTS_PER_REV_RIGHT 200000              // wheel1 encoder's no of ticks per rev
 #define COUNTS_PER_REV_LEFT 200000              // wheel2 encoder's no of ticks per rev
-#define WHEEL_DIAMETER 0.152                // wheel's diameter in meters
+#define WHEEL_DIAMETER 0.1651                // wheel's diameter in meters
 #define LR_WHEELS_DISTANCE 0.333            // distance between left and right wheels
 #define PWM_BITS 12                          // PWM Resolution of the microcontroller
 #define PWM_FREQUENCY 10000                 // PWM Frequency

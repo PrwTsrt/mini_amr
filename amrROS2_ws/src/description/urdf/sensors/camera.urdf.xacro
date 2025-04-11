@@ -32,7 +32,7 @@
       <joint name="camera_to_base_link" type="fixed">
         <parent link="base_link"/>
         <child link="rgbd_frame" />
-        <origin xyz="0.24 0.0 0.12" rpy="0 0 0"/>
+        <origin xyz="0.221 0.0 0.108" rpy="0 -0.6106 0"/>
       </joint>
 
       <!-- <gazebo reference="camera">

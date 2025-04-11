@@ -423,7 +423,8 @@ collision_monitor:
       visualize: True
       polygon_pub_topic: "<robot_namespace>/polygon_slowdown"
       enabled: True
-    observation_sources: ["range_center", "range_left", "range_right", "scan"]
+    # observation_sources: ["range_center", "range_left", "range_right", "scan"]
+    observation_sources: ["scan"]
     scan:
       type: "scan"
       topic: "<robot_namespace>/scan"

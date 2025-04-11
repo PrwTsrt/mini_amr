@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <xacro:macro name="range_sensor" params="pos pos_x pos_y pos_z pitch yaw">
+    <xacro:macro name="range_sensor" params="pos pos_x pos_y pos_z roll yaw">
       <link name="${pos}_ranger_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -23,7 +23,7 @@
       <joint name="${pos}_ranger_to_base_link" type="fixed">
         <parent link="base_link"/>
         <child link="${pos}_ranger_link"/>
-        <origin xyz="${pos_x} ${pos_y} ${pos_z}" rpy="0 ${pitch} ${yaw}"/>
+        <origin xyz="${pos_x} ${pos_y} ${pos_z}" rpy="${roll} 0 ${yaw}"/>
       </joint>
 
       <gazebo reference="${pos}_ranger_link">
